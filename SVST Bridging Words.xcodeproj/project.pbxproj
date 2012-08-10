@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		803D2C8315D4190B00F9A9CB /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 803D2C8215D4190B00F9A9CB /* Robot.m */; };
 		809EB70E15C99D0D00DF309E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70D15C99D0D00DF309E /* UIKit.framework */; };
 		809EB71015C99D0D00DF309E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70F15C99D0D00DF309E /* Foundation.framework */; };
 		809EB71215C99D0D00DF309E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB71115C99D0D00DF309E /* CoreGraphics.framework */; };
@@ -15,22 +16,95 @@
 		809EB71E15C99D0D00DF309E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB71D15C99D0D00DF309E /* AppDelegate.m */; };
 		809EB72115C99D0D00DF309E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809EB71F15C99D0D00DF309E /* MainStoryboard.storyboard */; };
 		809EB72415C99D0D00DF309E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB72315C99D0D00DF309E /* ViewController.m */; };
+		809EB72D15C99D5900DF309E /* bw_stories.db in Resources */ = {isa = PBXBuildFile; fileRef = 809EB72A15C99D5900DF309E /* bw_stories.db */; };
+		809EB72E15C99D5900DF309E /* Stories.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB72C15C99D5900DF309E /* Stories.m */; };
+		809EB73015C99DC000DF309E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB72F15C99DC000DF309E /* libsqlite3.0.dylib */; };
+		809EB73515C99EAC00DF309E /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB73215C99EAC00DF309E /* ResultViewController.m */; };
+		809EB73615C99EAC00DF309E /* SelfPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB73415C99EAC00DF309E /* SelfPlayViewController.m */; };
+		80AC220215CAD6D90070F986 /* large_brooklyn_bridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80AC220015CAD6D90070F986 /* large_brooklyn_bridge.jpg */; };
+		80AC220315CAD6D90070F986 /* start-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AC220115CAD6D90070F986 /* start-icon.png */; };
+		80AC5EDE15D4BD8C009621A4 /* robot.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AC5EDD15D4BD8C009621A4 /* robot.png */; };
+		80AC5EE015D4C2DB009621A4 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AC5EDF15D4C2DB009621A4 /* user.png */; };
+		80B4967C15D2BE100066FFD1 /* MDDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4967B15D2BE0F0066FFD1 /* MDDemoViewController.m */; };
+		80B4969A15D2BE4F0066FFD1 /* SSDrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4967F15D2BE4F0066FFD1 /* SSDrawingUtilities.m */; };
+		80B4969B15D2BE4F0066FFD1 /* SSMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4968115D2BE4F0066FFD1 /* SSMessagesViewController.m */; };
+		80B4969C15D2BE4F0066FFD1 /* SSMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4968315D2BE4F0066FFD1 /* SSMessageTableViewCell.m */; };
+		80B4969D15D2BE4F0066FFD1 /* SSMessageTableViewCellBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4968515D2BE4F0066FFD1 /* SSMessageTableViewCellBubbleView.m */; };
+		80B4969E15D2BE4F0066FFD1 /* SSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4968715D2BE4F0066FFD1 /* SSTextField.m */; };
+		80B4969F15D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4968915D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton.png */; };
+		80B496A015D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4968A15D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton@2x.png */; };
+		80B496A115D2BE4F0066FFD1 /* SSMessagesViewControllerInputBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4968B15D2BE4F0066FFD1 /* SSMessagesViewControllerInputBackground.png */; };
+		80B496A215D2BE4F0066FFD1 /* SSMessagesViewControllerInputBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4968C15D2BE4F0066FFD1 /* SSMessagesViewControllerInputBackground@2x.png */; };
+		80B496A315D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4968D15D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackground.png */; };
+		80B496A415D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4968E15D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackground@2x.png */; };
+		80B496A515D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4968F15D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen.png */; };
+		80B496A615D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969015D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen@2x.png */; };
+		80B496A715D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969115D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground.png */; };
+		80B496A815D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969215D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png */; };
+		80B496A915D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969315D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue.png */; };
+		80B496AA15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969415D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue@2x.png */; };
+		80B496AB15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969515D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear.png */; };
+		80B496AC15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969615D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear@2x.png */; };
+		80B496AD15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969715D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png */; };
+		80B496AE15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969815D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		803D2C8115D4190B00F9A9CB /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Robot.h; path = "../SVST Bridging Words/Robot.h"; sourceTree = "<group>"; };
+		803D2C8215D4190B00F9A9CB /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Robot.m; path = "../SVST Bridging Words/Robot.m"; sourceTree = "<group>"; };
 		809EB70915C99D0D00DF309E /* SVST Bridging Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SVST Bridging Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		809EB70D15C99D0D00DF309E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		809EB70F15C99D0D00DF309E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		809EB71115C99D0D00DF309E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		809EB71515C99D0D00DF309E /* SVST Bridging Words-Info.plist */ = {isa = PBXFileReference; path = "SVST Bridging Words-Info.plist"; sourceTree = "<group>"; };
+		809EB71515C99D0D00DF309E /* SVST Bridging Words-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SVST Bridging Words-Info.plist"; sourceTree = "<group>"; };
 		809EB71715C99D0D00DF309E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		809EB71915C99D0D00DF309E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		809EB71B15C99D0D00DF309E /* SVST Bridging Words-Prefix.pch */ = {isa = PBXFileReference; path = "SVST Bridging Words-Prefix.pch"; sourceTree = "<group>"; };
-		809EB71C15C99D0D00DF309E /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		809EB71B15C99D0D00DF309E /* SVST Bridging Words-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SVST Bridging Words-Prefix.pch"; sourceTree = "<group>"; };
+		809EB71C15C99D0D00DF309E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		809EB71D15C99D0D00DF309E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		809EB72015C99D0D00DF309E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		809EB72215C99D0D00DF309E /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		809EB72215C99D0D00DF309E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		809EB72315C99D0D00DF309E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		809EB72A15C99D5900DF309E /* bw_stories.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = bw_stories.db; path = ../bw_stories.db; sourceTree = "<group>"; };
+		809EB72B15C99D5900DF309E /* Stories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stories.h; path = ../Stories.h; sourceTree = "<group>"; };
+		809EB72C15C99D5900DF309E /* Stories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stories.m; path = ../Stories.m; sourceTree = "<group>"; };
+		809EB72F15C99DC000DF309E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		809EB73115C99EAC00DF309E /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		809EB73215C99EAC00DF309E /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		809EB73315C99EAC00DF309E /* SelfPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfPlayViewController.h; sourceTree = "<group>"; };
+		809EB73415C99EAC00DF309E /* SelfPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfPlayViewController.m; sourceTree = "<group>"; };
+		80AC220015CAD6D90070F986 /* large_brooklyn_bridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = large_brooklyn_bridge.jpg; path = ../large_brooklyn_bridge.jpg; sourceTree = "<group>"; };
+		80AC220115CAD6D90070F986 /* start-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "start-icon.png"; path = "../start-icon.png"; sourceTree = "<group>"; };
+		80AC5EDD15D4BD8C009621A4 /* robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot.png; sourceTree = "<group>"; };
+		80AC5EDF15D4C2DB009621A4 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		80B4967A15D2BE0F0066FFD1 /* MDDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDemoViewController.h; path = ../MDDemoViewController.h; sourceTree = "<group>"; };
+		80B4967B15D2BE0F0066FFD1 /* MDDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDemoViewController.m; path = ../MDDemoViewController.m; sourceTree = "<group>"; };
+		80B4967E15D2BE4F0066FFD1 /* SSDrawingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDrawingUtilities.h; sourceTree = "<group>"; };
+		80B4967F15D2BE4F0066FFD1 /* SSDrawingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDrawingUtilities.m; sourceTree = "<group>"; };
+		80B4968015D2BE4F0066FFD1 /* SSMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMessagesViewController.h; sourceTree = "<group>"; };
+		80B4968115D2BE4F0066FFD1 /* SSMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMessagesViewController.m; sourceTree = "<group>"; };
+		80B4968215D2BE4F0066FFD1 /* SSMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMessageTableViewCell.h; sourceTree = "<group>"; };
+		80B4968315D2BE4F0066FFD1 /* SSMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMessageTableViewCell.m; sourceTree = "<group>"; };
+		80B4968415D2BE4F0066FFD1 /* SSMessageTableViewCellBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMessageTableViewCellBubbleView.h; sourceTree = "<group>"; };
+		80B4968515D2BE4F0066FFD1 /* SSMessageTableViewCellBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMessageTableViewCellBubbleView.m; sourceTree = "<group>"; };
+		80B4968615D2BE4F0066FFD1 /* SSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextField.h; sourceTree = "<group>"; };
+		80B4968715D2BE4F0066FFD1 /* SSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextField.m; sourceTree = "<group>"; };
+		80B4968915D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessagesViewControllerCameraButton.png; sourceTree = "<group>"; };
+		80B4968A15D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessagesViewControllerCameraButton@2x.png"; sourceTree = "<group>"; };
+		80B4968B15D2BE4F0066FFD1 /* SSMessagesViewControllerInputBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessagesViewControllerInputBackground.png; sourceTree = "<group>"; };
+		80B4968C15D2BE4F0066FFD1 /* SSMessagesViewControllerInputBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessagesViewControllerInputBackground@2x.png"; sourceTree = "<group>"; };
+		80B4968D15D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessagesViewControllerSendButtonBackground.png; sourceTree = "<group>"; };
+		80B4968E15D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessagesViewControllerSendButtonBackground@2x.png"; sourceTree = "<group>"; };
+		80B4968F15D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessagesViewControllerSendButtonBackgroundGreen.png; sourceTree = "<group>"; };
+		80B4969015D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessagesViewControllerSendButtonBackgroundGreen@2x.png"; sourceTree = "<group>"; };
+		80B4969115D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessagesViewControllerTextFieldBackground.png; sourceTree = "<group>"; };
+		80B4969215D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessagesViewControllerTextFieldBackground@2x.png"; sourceTree = "<group>"; };
+		80B4969315D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessageTableViewCellBackgroundBlue.png; sourceTree = "<group>"; };
+		80B4969415D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessageTableViewCellBackgroundBlue@2x.png"; sourceTree = "<group>"; };
+		80B4969515D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessageTableViewCellBackgroundClear.png; sourceTree = "<group>"; };
+		80B4969615D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessageTableViewCellBackgroundClear@2x.png"; sourceTree = "<group>"; };
+		80B4969715D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessageTableViewCellBackgroundGreen.png; sourceTree = "<group>"; };
+		80B4969815D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessageTableViewCellBackgroundGreen@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				809EB73015C99DC000DF309E /* libsqlite3.0.dylib in Frameworks */,
 				809EB70E15C99D0D00DF309E /* UIKit.framework in Frameworks */,
 				809EB71015C99D0D00DF309E /* Foundation.framework in Frameworks */,
 				809EB71215C99D0D00DF309E /* CoreGraphics.framework in Frameworks */,
@@ -47,9 +122,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		809AB42C15D4DAD7006840C1 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
 		809EB6FE15C99D0D00DF309E = {
 			isa = PBXGroup;
 			children = (
+				809AB42C15D4DAD7006840C1 /* Sound */,
+				80B4967D15D2BE4F0066FFD1 /* Classes */,
+				80B4968815D2BE4F0066FFD1 /* Images */,
 				809EB71315C99D0D00DF309E /* SVST Bridging Words */,
 				809EB70C15C99D0D00DF309E /* Frameworks */,
 				809EB70A15C99D0D00DF309E /* Products */,
@@ -67,6 +152,7 @@
 		809EB70C15C99D0D00DF309E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				809EB72F15C99DC000DF309E /* libsqlite3.0.dylib */,
 				809EB70D15C99D0D00DF309E /* UIKit.framework */,
 				809EB70F15C99D0D00DF309E /* Foundation.framework */,
 				809EB71115C99D0D00DF309E /* CoreGraphics.framework */,
@@ -77,6 +163,12 @@
 		809EB71315C99D0D00DF309E /* SVST Bridging Words */ = {
 			isa = PBXGroup;
 			children = (
+				80B4967A15D2BE0F0066FFD1 /* MDDemoViewController.h */,
+				80B4967B15D2BE0F0066FFD1 /* MDDemoViewController.m */,
+				809EB73115C99EAC00DF309E /* ResultViewController.h */,
+				809EB73215C99EAC00DF309E /* ResultViewController.m */,
+				809EB73315C99EAC00DF309E /* SelfPlayViewController.h */,
+				809EB73415C99EAC00DF309E /* SelfPlayViewController.m */,
 				809EB71C15C99D0D00DF309E /* AppDelegate.h */,
 				809EB71D15C99D0D00DF309E /* AppDelegate.m */,
 				809EB71F15C99D0D00DF309E /* MainStoryboard.storyboard */,
@@ -90,12 +182,61 @@
 		809EB71415C99D0D00DF309E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				809EB72A15C99D5900DF309E /* bw_stories.db */,
 				809EB71515C99D0D00DF309E /* SVST Bridging Words-Info.plist */,
 				809EB71615C99D0D00DF309E /* InfoPlist.strings */,
 				809EB71915C99D0D00DF309E /* main.m */,
 				809EB71B15C99D0D00DF309E /* SVST Bridging Words-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		80B4967D15D2BE4F0066FFD1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				803D2C8115D4190B00F9A9CB /* Robot.h */,
+				803D2C8215D4190B00F9A9CB /* Robot.m */,
+				809EB72B15C99D5900DF309E /* Stories.h */,
+				809EB72C15C99D5900DF309E /* Stories.m */,
+				80B4967E15D2BE4F0066FFD1 /* SSDrawingUtilities.h */,
+				80B4967F15D2BE4F0066FFD1 /* SSDrawingUtilities.m */,
+				80B4968015D2BE4F0066FFD1 /* SSMessagesViewController.h */,
+				80B4968115D2BE4F0066FFD1 /* SSMessagesViewController.m */,
+				80B4968215D2BE4F0066FFD1 /* SSMessageTableViewCell.h */,
+				80B4968315D2BE4F0066FFD1 /* SSMessageTableViewCell.m */,
+				80B4968415D2BE4F0066FFD1 /* SSMessageTableViewCellBubbleView.h */,
+				80B4968515D2BE4F0066FFD1 /* SSMessageTableViewCellBubbleView.m */,
+				80B4968615D2BE4F0066FFD1 /* SSTextField.h */,
+				80B4968715D2BE4F0066FFD1 /* SSTextField.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		80B4968815D2BE4F0066FFD1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				80AC5EDF15D4C2DB009621A4 /* user.png */,
+				80AC5EDD15D4BD8C009621A4 /* robot.png */,
+				80AC220015CAD6D90070F986 /* large_brooklyn_bridge.jpg */,
+				80AC220115CAD6D90070F986 /* start-icon.png */,
+				80B4968915D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton.png */,
+				80B4968A15D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton@2x.png */,
+				80B4968B15D2BE4F0066FFD1 /* SSMessagesViewControllerInputBackground.png */,
+				80B4968C15D2BE4F0066FFD1 /* SSMessagesViewControllerInputBackground@2x.png */,
+				80B4968D15D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackground.png */,
+				80B4968E15D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackground@2x.png */,
+				80B4968F15D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen.png */,
+				80B4969015D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen@2x.png */,
+				80B4969115D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground.png */,
+				80B4969215D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png */,
+				80B4969315D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue.png */,
+				80B4969415D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue@2x.png */,
+				80B4969515D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear.png */,
+				80B4969615D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear@2x.png */,
+				80B4969715D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png */,
+				80B4969815D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +291,27 @@
 			files = (
 				809EB71815C99D0D00DF309E /* InfoPlist.strings in Resources */,
 				809EB72115C99D0D00DF309E /* MainStoryboard.storyboard in Resources */,
+				809EB72D15C99D5900DF309E /* bw_stories.db in Resources */,
+				80AC220215CAD6D90070F986 /* large_brooklyn_bridge.jpg in Resources */,
+				80AC220315CAD6D90070F986 /* start-icon.png in Resources */,
+				80B4969F15D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton.png in Resources */,
+				80B496A015D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton@2x.png in Resources */,
+				80B496A115D2BE4F0066FFD1 /* SSMessagesViewControllerInputBackground.png in Resources */,
+				80B496A215D2BE4F0066FFD1 /* SSMessagesViewControllerInputBackground@2x.png in Resources */,
+				80B496A315D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackground.png in Resources */,
+				80B496A415D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackground@2x.png in Resources */,
+				80B496A515D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen.png in Resources */,
+				80B496A615D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen@2x.png in Resources */,
+				80B496A715D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground.png in Resources */,
+				80B496A815D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png in Resources */,
+				80B496A915D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue.png in Resources */,
+				80B496AA15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue@2x.png in Resources */,
+				80B496AB15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear.png in Resources */,
+				80B496AC15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear@2x.png in Resources */,
+				80B496AD15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png in Resources */,
+				80B496AE15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png in Resources */,
+				80AC5EDE15D4BD8C009621A4 /* robot.png in Resources */,
+				80AC5EE015D4C2DB009621A4 /* user.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +325,16 @@
 				809EB71A15C99D0D00DF309E /* main.m in Sources */,
 				809EB71E15C99D0D00DF309E /* AppDelegate.m in Sources */,
 				809EB72415C99D0D00DF309E /* ViewController.m in Sources */,
+				809EB72E15C99D5900DF309E /* Stories.m in Sources */,
+				809EB73515C99EAC00DF309E /* ResultViewController.m in Sources */,
+				809EB73615C99EAC00DF309E /* SelfPlayViewController.m in Sources */,
+				80B4967C15D2BE100066FFD1 /* MDDemoViewController.m in Sources */,
+				80B4969A15D2BE4F0066FFD1 /* SSDrawingUtilities.m in Sources */,
+				80B4969B15D2BE4F0066FFD1 /* SSMessagesViewController.m in Sources */,
+				80B4969C15D2BE4F0066FFD1 /* SSMessageTableViewCell.m in Sources */,
+				80B4969D15D2BE4F0066FFD1 /* SSMessageTableViewCellBubbleView.m in Sources */,
+				80B4969E15D2BE4F0066FFD1 /* SSTextField.m in Sources */,
+				803D2C8315D4190B00F9A9CB /* Robot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +446,7 @@
 				809EB72915C99D0D00DF309E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
