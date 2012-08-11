@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Stories.h"
 #import "ViewController.h"
+#import "Robot.h"
 
 @implementation AppDelegate
 
@@ -34,7 +35,7 @@
 	[self checkAndCreateDatabase];
     
 	// Query the database for all animal records and construct the "animals" array
-	[self readAnimalsFromDatabase];
+	[self readStoriesFromDatabase];
     
 	// Configure and show the window
 	//[window addSubview:[navigationController view]];
@@ -45,6 +46,7 @@
 -(void) checkAndCreateDatabase{
 	// Check if the SQL database has already been saved to the users phone, if not then copy it over
 	BOOL success;
+    printf("Checking exist database ...\n");
     
 	// Create a FileManager object, we will use this to check the status
 	// of the database and to copy it over if required
@@ -54,7 +56,9 @@
 	success = [fileManager fileExistsAtPath:databasePath];
     
 	// If the database already exists then return without doing anything
-	if(success) return;
+	if(success) {
+        return;
+    }
     
 	// If not then proceed to copy the database from the application to the users filesystem
     
@@ -67,40 +71,86 @@
 	//[fileManager release];
 }
 
--(void) readAnimalsFromDatabase {
+-(void) readStoriesFromDatabase {
 	// Setup the database object
 	sqlite3 *database;
+    sqlite3 *databaseRobot=NULL;
     
+    printf("Reading stories and robot from database ...\n");
 	// Init the animals Array
 	stories = [[NSMutableArray alloc] init];
+    robotWords = [[NSMutableArray alloc] init];
+    
+
+    
     
 	// Open the database from the users filessytem
 	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		// Setup the SQL Statement and compile it for faster access
+        printf("Database opened\n");
+		// Setup the SQL Statement and compile it for faster access from table stories
 		const char *sqlStatementStories = "select * from bd_stories";
-        const char *sqlStatementRobot="select * from bd_robot";
+        const char *sqlStatementRobot="select * from bd_robot";  
 		sqlite3_stmt *compiledStatement;
+        sqlite3_stmt *compiledStatementRobot;
+        printf("Query stories: ");
 		if(sqlite3_prepare_v2(database, sqlStatementStories, -1, &compiledStatement, NULL) == SQLITE_OK) {
+            printf("successful\n");
 			// Loop through the results and add them to the feeds array
 			while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+                printf("add story");
 				// Read the data from the result row
 				NSString *aContent = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
 				
                 
-				// Create a new animal object with the data from the database
+				// Create a new story object with the data from the database
 				Stories *story = [[Stories alloc] initWithContent:aContent];
                 
-				// Add the animal object to the animals Array
+				// Add the Stories object to the Stories Array
 				[stories addObject:story];
                 
 				
 			}
-		}
+		} else {
+            //printf("");
+            printf("%s\n",sqlite3_errmsg(database));
+        }
 		// Release the compiled statement from memory
 		sqlite3_finalize(compiledStatement);
+            
+        //        
+        // Setup the SQL Statement and compile it for faster access from table robot
+    
+//		if(sqlite3_prepare_v2(database, sqlStatementRobot, -1, &compiledStatementRobot, NULL) == SQLITE_OK) {
+//			// Loop through the results and add them to the feeds array
+//			while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+//				// Read the data from the result row
+//          //      NSUInteger aID = sqlite3_column_int(compiledStatementRobot, 0);
+//                NSUInteger aWordID= sqlite3_column_int(compiledStatementRobot, 1);
+//                NSString *aWordMean= [NSString stringWithUTF8String:(char*)sqlite3_column_text(compiledStatementRobot, 2)];
+//				NSString *aWord = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatementRobot, 3)];
+//                NSUInteger aPlayerYN=sqlite3_column_int(compiledStatementRobot, 4);
+//				
+//                
+//				// Create a new animal object with the data from the database
+//			//	 Robot *robotFull = [[Robot alloc] initWithRobot:aWord wordMean:aWordMean  wordID:aWordID isPlayerYN:aPlayerYN];
+//                Robot *robot=[[Robot alloc]initWithWord:aWord];
+//                
+//				// Add the word object to the robotwords Array
+//				[robotWords addObject:robot];
+//                
+//				
+//			}
+//		} else {
+//            printf("%s\n",sqlite3_errmsg(database));
+//        }
+//		// Release the compiled statement from memory
+//		sqlite3_finalize(compiledStatementRobot);
         
-	}
-	sqlite3_close(database);
+        sqlite3_close(database);
+	} else {
+        printf("Error in opening database\n");
+    }
+	
     
 }
 

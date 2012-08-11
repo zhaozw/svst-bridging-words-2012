@@ -111,30 +111,30 @@
     }
     
     //Check word in paragraph
-    NSRange searchRange = NSMakeRange(1, [self.story length]-1);
+    NSRange searchRange = NSMakeRange(0, [self.story length]-1);
     NSRange wordRange;
-    NSLog(@"STORY LENGTH: %d",[self.story length]);
+    //NSLog(@"STORY LENGTH: %d",[self.story length]);
     do {
         wordRange = [self.story rangeOfString:word options:NSCaseInsensitiveSearch range:searchRange];
         if (wordRange.location == NSNotFound){
-            NSLog(@"%@ is not in story",word);
+            printf("%s is not found in story\n",[word cStringUsingEncoding:NSUTF8StringEncoding]);
             result = false;
         } else {
             NSInteger before = wordRange.location-1;
             NSInteger after = wordRange.location + wordRange.length;
             if ([self.story characterAtIndex:before]>'a'&&[self.story characterAtIndex:before]<'z') {
                 result = false;
-                NSLog(@"%@ is not a word in story",word);
+                printf("%s is not a word in story\n",[word cStringUsingEncoding:NSUTF8StringEncoding]);
             } else if ([self.story characterAtIndex:after]>'a'&&[self.story characterAtIndex:after]<'z') {
                 result = false;
-                NSLog(@"%@ is not a word in story",word);
+                printf("%s is not a word in story\n",[word cStringUsingEncoding:NSUTF8StringEncoding]);
             } else {
                 result = true;
             }
             
             searchRange.location = after;
-            searchRange.length = [self.story length] - after;
-            NSLog(@"New searchRange: %d - %d",searchRange.location,searchRange.length);
+            searchRange.length = [self.story length] - after + 1;
+            //NSLog(@"New searchRange: %d - %d",searchRange.location,searchRange.length);
         }
     } while (wordRange.location != NSNotFound && result==false);
     

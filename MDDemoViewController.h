@@ -10,8 +10,13 @@
 
 @interface MDDemoViewController : SSMessagesViewController<UITextFieldDelegate> {
    NSMutableArray *myArray;
-
+	NSMutableArray *arrListDictObj;
+	NSMutableArray *arrListWord;
 }
 @property(strong,nonatomic) NSMutableArray *myArray;
+@property (nonatomic, retain) NSMutableArray *arrListDictObj;
+@property (nonatomic, retain) NSMutableArray *arrListWord;
 
+- (void) copyDatabaseIfNeeded;
+- (NSString *) getDBPath;
 @end

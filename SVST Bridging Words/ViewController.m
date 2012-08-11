@@ -32,7 +32,7 @@
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    int ranMax=appDelegate.stories.count;
+    int ranMax = appDelegate.stories.count;
     Stories *story=[appDelegate.stories objectAtIndex:[self randomValue:ranMax]];
     
     self.myTextView.text= story.content;
@@ -64,8 +64,7 @@
 //generate random value
 -(unsigned int) randomValue:(NSInteger)ranMax
 {
-    unsigned int randomNumber = 
-    arc4random() % ranMax;
+    unsigned int randomNumber = arc4random() % ranMax;
     return randomNumber;
     
 }
