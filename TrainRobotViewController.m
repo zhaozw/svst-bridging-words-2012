@@ -30,7 +30,6 @@
     self.arrListDictObj= [[NSMutableArray alloc]init];
    
     self.arrListWord = [[NSMutableArray alloc] init];
-	//self.arrListDictObj = [[NSMutableArray alloc] init];
     self.arrListDictObj = [Robot getInitialDataToDisplay:[appDelegate getDBPath]];
 	//[self.arrListWord addObjectsFromArray:self.arrListDictObj];
     int ranMax=self.arrListDictObj.count;
