@@ -36,9 +36,11 @@
 	NSError *error;
 	NSString *dbPath = [self getDBPath];
 	BOOL success = [fileManager fileExistsAtPath:dbPath]; 
+     NSLog(@"Path store database is %@",dbPath);
 	if(!success) {
 		NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"bw_svst"];
 		success = [fileManager copyItemAtPath:defaultDBPath toPath:dbPath error:&error];
+        NSLog(@"Path store database is %@",dbPath);
 		if (!success) 
 			NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
 	}

@@ -7,17 +7,23 @@
 //
 
 #import "SSMessagesViewController.h"
+#import "ResultRobotTrainingViewController.h"
 
 @interface TrainRobotViewController : SSMessagesViewController<UITextFieldDelegate> {
    NSMutableArray *myArray;
 	NSMutableArray *arrListDictObj;
 	NSMutableArray *arrListWord;
+ 
+
 }
 @property(strong,nonatomic) NSMutableArray *myArray;
 @property (nonatomic, retain) NSMutableArray *arrListDictObj;
 @property (nonatomic, retain) NSMutableArray *arrListWord;
+
 @property char currentChar;
 
 - (void) copyDatabaseIfNeeded;
 - (NSString *) getDBPath;
+
+
 @end

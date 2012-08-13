@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		803D2C8315D4190B00F9A9CB /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 803D2C8215D4190B00F9A9CB /* Robot.m */; };
-		80990CB415D8C0B200802510 /* bw_stories.db in Resources */ = {isa = PBXBuildFile; fileRef = 80990CB315D8C0B200802510 /* bw_stories.db */; };
 		809EB70E15C99D0D00DF309E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70D15C99D0D00DF309E /* UIKit.framework */; };
 		809EB71015C99D0D00DF309E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70F15C99D0D00DF309E /* Foundation.framework */; };
 		809EB71215C99D0D00DF309E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB71115C99D0D00DF309E /* CoreGraphics.framework */; };
@@ -54,7 +53,6 @@
 /* Begin PBXFileReference section */
 		803D2C8115D4190B00F9A9CB /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Robot.h; path = "../SVST Bridging Words/Robot.h"; sourceTree = "<group>"; };
 		803D2C8215D4190B00F9A9CB /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Robot.m; path = "../SVST Bridging Words/Robot.m"; sourceTree = "<group>"; };
-		80990CB315D8C0B200802510 /* bw_stories.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = bw_stories.db; sourceTree = "<group>"; };
 		809EB70915C99D0D00DF309E /* SVST Bridging Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SVST Bridging Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		809EB70D15C99D0D00DF309E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		809EB70F15C99D0D00DF309E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -168,6 +166,8 @@
 		809EB71315C99D0D00DF309E /* SVST Bridging Words */ = {
 			isa = PBXGroup;
 			children = (
+				80A15B0E15D6B16C00D48F6D /* ResultRobotTrainingViewController.h */,
+				80A15B0F15D6B16C00D48F6D /* ResultRobotTrainingViewController.m */,
 				80B4967A15D2BE0F0066FFD1 /* TrainRobotViewController.h */,
 				80B4967B15D2BE0F0066FFD1 /* TrainRobotViewController.m */,
 				809EB73115C99EAC00DF309E /* ResultViewController.h */,
@@ -180,8 +180,6 @@
 				809EB72215C99D0D00DF309E /* StoriesViewController.h */,
 				809EB72315C99D0D00DF309E /* StoriesViewController.m */,
 				809EB71415C99D0D00DF309E /* Supporting Files */,
-				80A15B0E15D6B16C00D48F6D /* ResultRobotTrainingViewController.h */,
-				80A15B0F15D6B16C00D48F6D /* ResultRobotTrainingViewController.m */,
 			);
 			path = "SVST Bridging Words";
 			sourceTree = "<group>";
@@ -190,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				80ABE13E15D8D25800229CC8 /* bw_svst */,
-				80990CB315D8C0B200802510 /* bw_stories.db */,
 				809EB71515C99D0D00DF309E /* SVST Bridging Words-Info.plist */,
 				809EB71615C99D0D00DF309E /* InfoPlist.strings */,
 				809EB71915C99D0D00DF309E /* main.m */,
@@ -319,7 +316,6 @@
 				80B496AE15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png in Resources */,
 				80AC5EDE15D4BD8C009621A4 /* robot.png in Resources */,
 				80AC5EE015D4C2DB009621A4 /* user.png in Resources */,
-				80990CB415D8C0B200802510 /* bw_stories.db in Resources */,
 				80ABE13F15D8D25800229CC8 /* bw_svst in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

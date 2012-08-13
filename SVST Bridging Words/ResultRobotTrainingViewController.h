@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ResultRobotTrainingViewController : UIViewController
+{
+    NSString *errorMsg;
+}
+@property (nonatomic,strong) NSString *errorMsg;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 - (IBAction)replayButtonTouch:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *mainMenuButtonTouch;
 - (IBAction)backToMainMenu:(id)sender;
-
+-(void) viewErrorMsg:(NSInteger) intMsg;
 @end

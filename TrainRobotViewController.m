@@ -17,35 +17,33 @@
 @implementation TrainRobotViewController
 @synthesize myArray,arrListWord,arrListDictObj;
 @synthesize currentChar;
-
+static bool insertYN=true;
 #pragma mark UIViewController
 
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.title = @"Messages";
-    AppDelegate *appDelegate =[[AppDelegate alloc]init];
-  
-   
-    self.arrListDictObj= [[NSMutableArray alloc]init];
-   
-    self.arrListWord = [[NSMutableArray alloc] init];
-    self.arrListDictObj = [Robot getInitialDataToDisplay:[appDelegate getDBPath]];
-	//[self.arrListWord addObjectsFromArray:self.arrListDictObj];
-    int ranMax=self.arrListDictObj.count;
-    [self.arrListWord addObject:[self.arrListDictObj objectAtIndex:[self randomValue:ranMax]]];
-    self.currentChar = '*';
-     //[robotObj hydrateDetailViewData:@"interesting"];
-     Robot *robotObj=[[Robot alloc]init];
-    NSMutableArray *testArr= [robotObj detailViewWithCharater:'h'];
-
-     NSLog(@" content robot %@",[testArr objectAtIndex:0]);
     
+    self.arrListDictObj= [[NSMutableArray alloc]init];   
+    self.arrListWord = [[NSMutableArray alloc] init];
+    ResultRobotTrainingViewController *resultView=[[ResultRobotTrainingViewController alloc]init];
+       
    }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-   
+    [super viewDidLoad];
+     AppDelegate *appDelegate =[[AppDelegate alloc]init];  
+    self.arrListDictObj = [Robot getInitialDataToDisplay:[appDelegate getDBPath]];
+	int ranMax=self.arrListDictObj.count;
+    [self.arrListWord addObject:[self.arrListDictObj objectAtIndex:[self randomValue:ranMax]]];
+    self.currentChar = '*';
+    Robot *robotObj=[[Robot alloc]init];
+    NSMutableArray *testArr= [robotObj detailViewWithCharater:'h'];
+    
+    NSLog(@" content robot %@",[testArr objectAtIndex:0]);
+
 }
 -(unsigned int) randomValue:(NSInteger)ranMax
 {
@@ -81,17 +79,18 @@
     // Check word
     if ([self checkValidWord:word]) {
         [self.arrListWord addObject:word];
-       
-        //[self.myArray addObject:textField.text];
-      
+        Robot *robotObj=[[Robot alloc]init];
         [self.tableView reloadData];
-        
         [self robotAnswer:currentChar];
-        
+        if (insertYN) {
+             [robotObj insertWordToRobot:word];
+        }
+       
           textField.text=nil;
     } else {
         ResultRobotTrainingViewController *resultView;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+        [resultView viewErrorMsg:1];
         [self.navigationController pushViewController:resultView animated:YES];
     }
     [textField resignFirstResponder];
@@ -106,42 +105,63 @@
     if (countArr==0) {
         ResultRobotTrainingViewController *resultView;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+        [resultView viewErrorMsg:2];
         [self.navigationController pushViewController:resultView animated:YES];
+        return;
     }
     NSString *robotAns=[testArr objectAtIndex:[self randomValue:countArr]];
-    NSLog(@"index of object %@ is %d",robotAns,[self.arrListWord indexOfObject:robotAns]);
-    if ([self.arrListWord indexOfObject:robotAns]!=nil) {
+   // NSLog(@"index of object %@ is %d",robotAns,[self.arrListWord indexOfObject:robotAns]);
+    if ([self checkExistWord:robotAns]) {
         [self.arrListWord addObject:robotAns];
         currentChar= [self lastCharacter:robotAns];
         NSLog(@" content robot %@",[testArr objectAtIndex:0]);
-        
+        insertYN=true;
         [self.tableView reloadData];
 
     }
-    else {
+    else 
+    {
         ResultRobotTrainingViewController *resultView;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+        [resultView viewErrorMsg:4];
         [self.navigationController pushViewController:resultView animated:YES];
+        insertYN=false;
     }
        
 }
 
 -(BOOL)checkValidWord:(NSString *)word
 {
-    printf("Check valid word: ");
+
     if ([self checkWordCharacter:word] == false) {
-        printf("Some invalid character\n");
+       
         return false;
     }
     if (self.currentChar != '*') {
         if ([word characterAtIndex:0]!=self.currentChar) {
-            printf("Word not start by current letter\n");
+         
             return false;
         }
     }
-    printf("OK\n");
+    if ([self.arrListDictObj containsObject:word]) {
+      
+        return false;
+    }
+    if ([self.arrListWord containsObject:word]) {
+        return false;
+    }
     self.currentChar = [self lastCharacter:word];
     return true;
+}
+-(BOOL)checkExistWord:(NSString *)wordInput
+{
+   
+    if ([self.arrListWord containsObject:wordInput]) {
+     
+        return false;
+    }
+    return true;
+
 }
 -(char)lastCharacter:(NSString*)word
 {
@@ -158,15 +178,14 @@
             }
         }
     }
+    return true;
 }
 
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath {
   
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    Robot *robot= [appDelegate.robotWords objectAtIndex:indexPath.row];
-//    if (self.arrListWord == NULL) {
-//        return ;
-//    }
+    if (self.arrListWord.count==0) {
+        return @"";
+    }
     return [NSString stringWithFormat:@"%@",[self.arrListWord objectAtIndex:indexPath.row]];
     
  

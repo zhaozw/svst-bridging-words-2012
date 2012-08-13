@@ -245,9 +245,10 @@
                                 <rect key="frame" x="0.0" y="108" width="203" height="175"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ngu vai" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="RGH-vq-CaM">
-                                <rect key="frame" x="180" y="30" width="110" height="85"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="14" id="RGH-vq-CaM">
+                                <rect key="frame" x="103" y="26" width="187" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -424,6 +425,54 @@
         <image name="robot.png" width="256" height="256"/>
         <image name="start-icon.png" width="256" height="256"/>
     </resources>
+    <classes>
+        <class className="ResultRobotTrainingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultRobotTrainingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backToMainMenu:"/>
+                <relationship kind="action" name="replayButtonTouch:"/>
+                <relationship kind="outlet" name="mainMenuButtonTouch" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ResultViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuButtonTouch:"/>
+                <relationship kind="action" name="replayButtonTouch:"/>
+                <relationship kind="outlet" name="gameScoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeScoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalScoreLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SSMessagesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMessagesViewController.h"/>
+        </class>
+        <class className="SelfPlayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelfPlayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonTouch:"/>
+                <relationship kind="action" name="finishButtonTouch:"/>
+                <relationship kind="action" name="newBridgeButtonTouch:"/>
+                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="counterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pointLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="wordTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="StoriesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StoriesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="counterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="TrainRobotViewController" superclassName="SSMessagesViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrainRobotViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

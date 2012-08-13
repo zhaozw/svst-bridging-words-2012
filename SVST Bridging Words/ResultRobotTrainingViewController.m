@@ -7,6 +7,7 @@
 //
 
 #import "ResultRobotTrainingViewController.h"
+#import "TrainRobotViewController.h"
 
 @interface ResultRobotTrainingViewController ()
 
@@ -14,7 +15,7 @@
 
 @implementation ResultRobotTrainingViewController
 @synthesize mainMenuButtonTouch;
-@synthesize resultLabel;
+@synthesize resultLabel,errorMsg;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +39,12 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
-
+-(void) viewDidAppear:(BOOL)animated{
+    self.resultLabel.text=self.errorMsg;
+    self.resultLabel.textAlignment= UITextAlignmentCenter;
+    
+    
+}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -64,5 +70,27 @@
     [newControllers removeLastObject];
     /* Assign this array to the Navigation Controller */
     self.navigationController.viewControllers = newControllers;
+}
+-(void) viewErrorMsg:(NSInteger) intMsg
+{
+    switch (intMsg) {
+        case 1:
+            self.errorMsg=@" Robot have known this word";
+            break;
+        case 2:
+            self.errorMsg=@"Robot has been defeated by you. Congratulation!";
+            break;
+        case 3: 
+            self.errorMsg=@"You lose! \n You have enterd word twice.";
+            break;
+        case 4:
+            self.errorMsg=@"You have been defeated by your robot.\n You enterd wrong word. Try again!";
+            break;
+            
+            
+        default: self.errorMsg=@"Game Finish!";
+            break;
+    }    
+    
 }
 @end

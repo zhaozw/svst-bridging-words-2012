@@ -1,39 +1,4 @@
-////
-////  Robot.m
-////  SVST Bridging Words
-////
-////  Created by Mahmood1 on 8/9/12.
-////  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-////
-//
-//#import "Robot.h"
-//
-//@implementation Robot
-//
-//@synthesize wordMean;
-//@synthesize word;
-//-(id) initWithRobot:(NSString *)w wordMean:(NSString *) wm wordID:(NSUInteger) wid isPlayerYN:(NSUInteger)pl
-//
-//{
-//    self.word=w;
-//    self.wordMean=wm;
-////    wordCount=wc;
-//    wordId=wid;
-//    isPlayerYN=pl;
-//    return  self;
-//}
-//-(id)initWithWord:(NSString*)w
-//{
-//    self.word=w;
-//    return self;
-//
-//}
-//
-//  simple dictionary project
-//
-//  Created by khoinguonit-mac on 11/1/11.
-//  Copyright 2011 __KhoiNguonIT__. All rights reserved.
-//
+
 
 #import "Robot.h"
 #import <sqlite3.h>
@@ -42,6 +7,7 @@
 static sqlite3 *database = nil;
 static sqlite3_stmt *detailStmt = nil;
 static sqlite3_stmt *wordWithCharater=nil;
+static sqlite3_stmt *addStmt=nil;
 
 @implementation Robot
 
@@ -71,6 +37,7 @@ static sqlite3_stmt *wordWithCharater=nil;
 
 + (void) finalizeStatements {
 	if(database) sqlite3_close(database);
+    if(addStmt) sqlite3_finalize(addStmt);
 }
 
 - (void) hydrateDetailViewData:(NSString *) wordSelected
@@ -94,6 +61,25 @@ static sqlite3_stmt *wordWithCharater=nil;
 	sqlite3_reset(detailStmt);
 	//Set isDetailViewHydrated as YES, so we do not get it again from the database.
 	isDetailViewHydrated = YES;	
+}
+-(void) insertWordToRobot:(NSString *)wordInsert{
+    if (addStmt==nil) {
+        const char *sql = "insert into bd_robot(word,player_id) Values(?, ?)";
+        if(sqlite3_prepare_v2(database, sql, -1, &addStmt, NULL) != SQLITE_OK)
+            NSAssert1(0, @"Error while creating add statement. '%s'", sqlite3_errmsg(database));
+    }
+    sqlite3_bind_text(addStmt, 1, [wordInsert UTF8String], -1, SQLITE_TRANSIENT);
+    sqlite3_bind_double(addStmt, 2, 0);
+    
+    if(SQLITE_DONE != sqlite3_step(addStmt))
+        NSAssert1(0, @"Error while inserting data. '%s'", sqlite3_errmsg(database));
+    else
+        //SQLite provides a method to get the last primary key inserted by using sqlite3_last_insert_rowid
+        wordID = sqlite3_last_insert_rowid(database);
+    
+    //Reset the add statement.
+    sqlite3_reset(addStmt);
+
 }
 -(NSMutableArray *) detailViewWithCharater:(char)charBegin
 {
