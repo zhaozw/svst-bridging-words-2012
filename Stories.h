@@ -13,5 +13,5 @@
     NSString *content;
 }
 @property (nonatomic,retain) NSString *content;
--(id) initWithContent:(NSString *) c;
++ (NSMutableArray *) getInitialDataToDisplay:(NSString *)dbPath;
 @end

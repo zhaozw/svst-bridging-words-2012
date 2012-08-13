@@ -27,4 +27,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong,nonatomic) NSMutableArray *stories;
 @property (strong,nonatomic) NSMutableArray *robotWords;
+- (NSString *) getDBPath ;
+- (void) copyDatabaseIfNeeded ;
 @end

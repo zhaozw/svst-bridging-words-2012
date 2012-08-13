@@ -111,29 +111,37 @@
     }
     
     //Check word in paragraph
-    NSRange searchRange = NSMakeRange(0, [self.story length]-1);
+    NSRange searchRange = NSMakeRange(0, [self.story length]);
     NSRange wordRange;
     //NSLog(@"STORY LENGTH: %d",[self.story length]);
+    
     do {
+        printf("Search %d letters, with range %d, %d\n",[self.story length],searchRange.location,searchRange.length);
         wordRange = [self.story rangeOfString:word options:NSCaseInsensitiveSearch range:searchRange];
+        
         if (wordRange.location == NSNotFound){
             printf("%s is not found in story\n",[word cStringUsingEncoding:NSUTF8StringEncoding]);
             result = false;
         } else {
             NSInteger before = wordRange.location-1;
             NSInteger after = wordRange.location + wordRange.length;
-            if ([self.story characterAtIndex:before]>'a'&&[self.story characterAtIndex:before]<'z') {
-                result = false;
-                printf("%s is not a word in story\n",[word cStringUsingEncoding:NSUTF8StringEncoding]);
-            } else if ([self.story characterAtIndex:after]>'a'&&[self.story characterAtIndex:after]<'z') {
-                result = false;
-                printf("%s is not a word in story\n",[word cStringUsingEncoding:NSUTF8StringEncoding]);
-            } else {
-                result = true;
+            if (before>=0) {
+                if ([self.story characterAtIndex:before]>'a'&&[self.story characterAtIndex:before]<'z') {
+                    result = false;
+                    printf("%s is not a word in story\n",[word cStringUsingEncoding:NSUTF8StringEncoding]);
+                } else if(after<[self.story length])
+                {
+                    if ([self.story characterAtIndex:after]>'a'&&[self.story characterAtIndex:after]<'z') {
+                        result = false;
+                        printf("%s is not a word in story\n",[word cStringUsingEncoding:NSUTF8StringEncoding]);
+                    } else {
+                        result = true;
+                    }
+                }
             }
             
             searchRange.location = after;
-            searchRange.length = [self.story length] - after + 1;
+            searchRange.length = [self.story length] - after;
             //NSLog(@"New searchRange: %d - %d",searchRange.location,searchRange.length);
         }
     } while (wordRange.location != NSNotFound && result==false);
@@ -142,7 +150,7 @@
     if (self.currentCharacter != '*') {
         if (self.currentCharacter != [word characterAtIndex:0]) {
             result = false;
-            NSLog(@"%c != %c",self.currentCharacter,[word characterAtIndex:0]);
+            printf("%c != %c",self.currentCharacter,[word characterAtIndex:0]);
         }
     }
     
@@ -181,8 +189,8 @@
      * TODO: show result
      */
     ResultViewController *resultView;
-    resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultView"];
-    resultView.timeScore = self.counter*10;
+    resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil]instantiateViewControllerWithIdentifier:@"resultView"];
+    resultView.timeScore = self.counter;
     resultView.wordScore = self.score;
     self.counter = 0;
     [self.navigationController pushViewController:resultView animated:YES];

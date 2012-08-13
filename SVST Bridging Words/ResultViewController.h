@@ -10,6 +10,11 @@
 
 @interface ResultViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gameScoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeScoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
+
+
 @property NSString *resultString;
 @property NSInteger wordScore;
 @property NSInteger timeScore;

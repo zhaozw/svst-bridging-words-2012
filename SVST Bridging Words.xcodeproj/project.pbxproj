@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		803D2C8315D4190B00F9A9CB /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 803D2C8215D4190B00F9A9CB /* Robot.m */; };
+		80990CB415D8C0B200802510 /* bw_stories.db in Resources */ = {isa = PBXBuildFile; fileRef = 80990CB315D8C0B200802510 /* bw_stories.db */; };
 		809EB70E15C99D0D00DF309E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70D15C99D0D00DF309E /* UIKit.framework */; };
 		809EB71015C99D0D00DF309E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70F15C99D0D00DF309E /* Foundation.framework */; };
 		809EB71215C99D0D00DF309E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB71115C99D0D00DF309E /* CoreGraphics.framework */; };
@@ -15,17 +16,18 @@
 		809EB71A15C99D0D00DF309E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB71915C99D0D00DF309E /* main.m */; };
 		809EB71E15C99D0D00DF309E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB71D15C99D0D00DF309E /* AppDelegate.m */; };
 		809EB72115C99D0D00DF309E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809EB71F15C99D0D00DF309E /* MainStoryboard.storyboard */; };
-		809EB72415C99D0D00DF309E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB72315C99D0D00DF309E /* ViewController.m */; };
-		809EB72D15C99D5900DF309E /* bw_stories.db in Resources */ = {isa = PBXBuildFile; fileRef = 809EB72A15C99D5900DF309E /* bw_stories.db */; };
+		809EB72415C99D0D00DF309E /* StoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB72315C99D0D00DF309E /* StoriesViewController.m */; };
 		809EB72E15C99D5900DF309E /* Stories.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB72C15C99D5900DF309E /* Stories.m */; };
 		809EB73015C99DC000DF309E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB72F15C99DC000DF309E /* libsqlite3.0.dylib */; };
 		809EB73515C99EAC00DF309E /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB73215C99EAC00DF309E /* ResultViewController.m */; };
 		809EB73615C99EAC00DF309E /* SelfPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB73415C99EAC00DF309E /* SelfPlayViewController.m */; };
+		80A15B1015D6B16C00D48F6D /* ResultRobotTrainingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A15B0F15D6B16C00D48F6D /* ResultRobotTrainingViewController.m */; };
+		80ABE13F15D8D25800229CC8 /* bw_svst in Resources */ = {isa = PBXBuildFile; fileRef = 80ABE13E15D8D25800229CC8 /* bw_svst */; };
 		80AC220215CAD6D90070F986 /* large_brooklyn_bridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80AC220015CAD6D90070F986 /* large_brooklyn_bridge.jpg */; };
 		80AC220315CAD6D90070F986 /* start-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AC220115CAD6D90070F986 /* start-icon.png */; };
 		80AC5EDE15D4BD8C009621A4 /* robot.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AC5EDD15D4BD8C009621A4 /* robot.png */; };
 		80AC5EE015D4C2DB009621A4 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AC5EDF15D4C2DB009621A4 /* user.png */; };
-		80B4967C15D2BE100066FFD1 /* MDDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4967B15D2BE0F0066FFD1 /* MDDemoViewController.m */; };
+		80B4967C15D2BE100066FFD1 /* TrainRobotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4967B15D2BE0F0066FFD1 /* TrainRobotViewController.m */; };
 		80B4969A15D2BE4F0066FFD1 /* SSDrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4967F15D2BE4F0066FFD1 /* SSDrawingUtilities.m */; };
 		80B4969B15D2BE4F0066FFD1 /* SSMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4968115D2BE4F0066FFD1 /* SSMessagesViewController.m */; };
 		80B4969C15D2BE4F0066FFD1 /* SSMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4968315D2BE4F0066FFD1 /* SSMessageTableViewCell.m */; };
@@ -52,6 +54,7 @@
 /* Begin PBXFileReference section */
 		803D2C8115D4190B00F9A9CB /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Robot.h; path = "../SVST Bridging Words/Robot.h"; sourceTree = "<group>"; };
 		803D2C8215D4190B00F9A9CB /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Robot.m; path = "../SVST Bridging Words/Robot.m"; sourceTree = "<group>"; };
+		80990CB315D8C0B200802510 /* bw_stories.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = bw_stories.db; sourceTree = "<group>"; };
 		809EB70915C99D0D00DF309E /* SVST Bridging Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SVST Bridging Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		809EB70D15C99D0D00DF309E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		809EB70F15C99D0D00DF309E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,9 +66,8 @@
 		809EB71C15C99D0D00DF309E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		809EB71D15C99D0D00DF309E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		809EB72015C99D0D00DF309E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		809EB72215C99D0D00DF309E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		809EB72315C99D0D00DF309E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		809EB72A15C99D5900DF309E /* bw_stories.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = bw_stories.db; path = ../bw_stories.db; sourceTree = "<group>"; };
+		809EB72215C99D0D00DF309E /* StoriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoriesViewController.h; sourceTree = "<group>"; };
+		809EB72315C99D0D00DF309E /* StoriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoriesViewController.m; sourceTree = "<group>"; };
 		809EB72B15C99D5900DF309E /* Stories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stories.h; path = ../Stories.h; sourceTree = "<group>"; };
 		809EB72C15C99D5900DF309E /* Stories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stories.m; path = ../Stories.m; sourceTree = "<group>"; };
 		809EB72F15C99DC000DF309E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -73,12 +75,15 @@
 		809EB73215C99EAC00DF309E /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		809EB73315C99EAC00DF309E /* SelfPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfPlayViewController.h; sourceTree = "<group>"; };
 		809EB73415C99EAC00DF309E /* SelfPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfPlayViewController.m; sourceTree = "<group>"; };
+		80A15B0E15D6B16C00D48F6D /* ResultRobotTrainingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultRobotTrainingViewController.h; sourceTree = "<group>"; };
+		80A15B0F15D6B16C00D48F6D /* ResultRobotTrainingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultRobotTrainingViewController.m; sourceTree = "<group>"; };
+		80ABE13E15D8D25800229CC8 /* bw_svst */ = {isa = PBXFileReference; lastKnownFileType = file; path = bw_svst; sourceTree = "<group>"; };
 		80AC220015CAD6D90070F986 /* large_brooklyn_bridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = large_brooklyn_bridge.jpg; path = ../large_brooklyn_bridge.jpg; sourceTree = "<group>"; };
 		80AC220115CAD6D90070F986 /* start-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "start-icon.png"; path = "../start-icon.png"; sourceTree = "<group>"; };
 		80AC5EDD15D4BD8C009621A4 /* robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot.png; sourceTree = "<group>"; };
 		80AC5EDF15D4C2DB009621A4 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		80B4967A15D2BE0F0066FFD1 /* MDDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDemoViewController.h; path = ../MDDemoViewController.h; sourceTree = "<group>"; };
-		80B4967B15D2BE0F0066FFD1 /* MDDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDemoViewController.m; path = ../MDDemoViewController.m; sourceTree = "<group>"; };
+		80B4967A15D2BE0F0066FFD1 /* TrainRobotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrainRobotViewController.h; path = ../TrainRobotViewController.h; sourceTree = "<group>"; };
+		80B4967B15D2BE0F0066FFD1 /* TrainRobotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrainRobotViewController.m; path = ../TrainRobotViewController.m; sourceTree = "<group>"; };
 		80B4967E15D2BE4F0066FFD1 /* SSDrawingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDrawingUtilities.h; sourceTree = "<group>"; };
 		80B4967F15D2BE4F0066FFD1 /* SSDrawingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDrawingUtilities.m; sourceTree = "<group>"; };
 		80B4968015D2BE4F0066FFD1 /* SSMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMessagesViewController.h; sourceTree = "<group>"; };
@@ -163,8 +168,8 @@
 		809EB71315C99D0D00DF309E /* SVST Bridging Words */ = {
 			isa = PBXGroup;
 			children = (
-				80B4967A15D2BE0F0066FFD1 /* MDDemoViewController.h */,
-				80B4967B15D2BE0F0066FFD1 /* MDDemoViewController.m */,
+				80B4967A15D2BE0F0066FFD1 /* TrainRobotViewController.h */,
+				80B4967B15D2BE0F0066FFD1 /* TrainRobotViewController.m */,
 				809EB73115C99EAC00DF309E /* ResultViewController.h */,
 				809EB73215C99EAC00DF309E /* ResultViewController.m */,
 				809EB73315C99EAC00DF309E /* SelfPlayViewController.h */,
@@ -172,9 +177,11 @@
 				809EB71C15C99D0D00DF309E /* AppDelegate.h */,
 				809EB71D15C99D0D00DF309E /* AppDelegate.m */,
 				809EB71F15C99D0D00DF309E /* MainStoryboard.storyboard */,
-				809EB72215C99D0D00DF309E /* ViewController.h */,
-				809EB72315C99D0D00DF309E /* ViewController.m */,
+				809EB72215C99D0D00DF309E /* StoriesViewController.h */,
+				809EB72315C99D0D00DF309E /* StoriesViewController.m */,
 				809EB71415C99D0D00DF309E /* Supporting Files */,
+				80A15B0E15D6B16C00D48F6D /* ResultRobotTrainingViewController.h */,
+				80A15B0F15D6B16C00D48F6D /* ResultRobotTrainingViewController.m */,
 			);
 			path = "SVST Bridging Words";
 			sourceTree = "<group>";
@@ -182,7 +189,8 @@
 		809EB71415C99D0D00DF309E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				809EB72A15C99D5900DF309E /* bw_stories.db */,
+				80ABE13E15D8D25800229CC8 /* bw_svst */,
+				80990CB315D8C0B200802510 /* bw_stories.db */,
 				809EB71515C99D0D00DF309E /* SVST Bridging Words-Info.plist */,
 				809EB71615C99D0D00DF309E /* InfoPlist.strings */,
 				809EB71915C99D0D00DF309E /* main.m */,
@@ -291,7 +299,6 @@
 			files = (
 				809EB71815C99D0D00DF309E /* InfoPlist.strings in Resources */,
 				809EB72115C99D0D00DF309E /* MainStoryboard.storyboard in Resources */,
-				809EB72D15C99D5900DF309E /* bw_stories.db in Resources */,
 				80AC220215CAD6D90070F986 /* large_brooklyn_bridge.jpg in Resources */,
 				80AC220315CAD6D90070F986 /* start-icon.png in Resources */,
 				80B4969F15D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton.png in Resources */,
@@ -312,6 +319,8 @@
 				80B496AE15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png in Resources */,
 				80AC5EDE15D4BD8C009621A4 /* robot.png in Resources */,
 				80AC5EE015D4C2DB009621A4 /* user.png in Resources */,
+				80990CB415D8C0B200802510 /* bw_stories.db in Resources */,
+				80ABE13F15D8D25800229CC8 /* bw_svst in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,17 +333,18 @@
 			files = (
 				809EB71A15C99D0D00DF309E /* main.m in Sources */,
 				809EB71E15C99D0D00DF309E /* AppDelegate.m in Sources */,
-				809EB72415C99D0D00DF309E /* ViewController.m in Sources */,
+				809EB72415C99D0D00DF309E /* StoriesViewController.m in Sources */,
 				809EB72E15C99D5900DF309E /* Stories.m in Sources */,
 				809EB73515C99EAC00DF309E /* ResultViewController.m in Sources */,
 				809EB73615C99EAC00DF309E /* SelfPlayViewController.m in Sources */,
-				80B4967C15D2BE100066FFD1 /* MDDemoViewController.m in Sources */,
+				80B4967C15D2BE100066FFD1 /* TrainRobotViewController.m in Sources */,
 				80B4969A15D2BE4F0066FFD1 /* SSDrawingUtilities.m in Sources */,
 				80B4969B15D2BE4F0066FFD1 /* SSMessagesViewController.m in Sources */,
 				80B4969C15D2BE4F0066FFD1 /* SSMessageTableViewCell.m in Sources */,
 				80B4969D15D2BE4F0066FFD1 /* SSMessageTableViewCellBubbleView.m in Sources */,
 				80B4969E15D2BE4F0066FFD1 /* SSTextField.m in Sources */,
 				803D2C8315D4190B00F9A9CB /* Robot.m in Sources */,
+				80A15B1015D6B16C00D48F6D /* ResultRobotTrainingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
