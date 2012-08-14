@@ -8,12 +8,12 @@
 
 #import "SSMessageTableViewCellBubbleView.h"
 
-#define kFont [UIFont systemFontOfSize:15.0]
+#define kFont [UIFont systemFontOfSize:20.0]
 #define kDetailFont [UIFont systemFontOfSize:11.0]
 static UILineBreakMode kLineBreakMode = UILineBreakModeWordWrap;
 static CGFloat kMaxWidth = 223.0f; // TODO: Make dynamic
 static CGFloat kPaddingTop = 4.0f;
-static CGFloat kTextMarginTop = -2.0f;
+static CGFloat kTextMarginTop = -4.0f;
 static CGFloat kPaddingBottom = 8.0f;
 static CGFloat kMarginTop = 2.0f;
 static CGFloat kMarginBottom = 2.0f;
@@ -24,6 +24,7 @@ static CGFloat kMarginBottom = 2.0f;
 @synthesize messageTextView = _messageTextView;
 @synthesize detailText = _detailText;
 @synthesize detailTextColor = _detailTextColor;
+@synthesize messageTextColor=_messageTextColor;
 @synthesize detailBackgroundColor = _detailBackgroundColor;
 @synthesize leftBackgroundImage = _leftBackgroundImage;
 @synthesize rightBackgroundImage = _rightBackgroundImage;
@@ -34,6 +35,7 @@ static CGFloat kMarginBottom = 2.0f;
 + (CGSize)textSizeForText:(NSString *)text {
 	CGSize maxSize = CGSizeMake(kMaxWidth - 35.0f, 1000.0f);
 	return [text sizeWithFont:kFont constrainedToSize:maxSize lineBreakMode:kLineBreakMode];
+    
 }
 
 + (CGSize)textSizeForText:(NSString *)text withFont:(UIFont *)font {
@@ -51,7 +53,6 @@ static CGFloat kMarginBottom = 2.0f;
 + (CGFloat)cellHeightForText:(NSString *)text {
 	return [self bubbleSizeForText:text].height + kMarginTop + kMarginBottom;
 }
-
 
 #pragma mark NSObject
 
@@ -96,7 +97,7 @@ static CGFloat kMarginBottom = 2.0f;
 		else
 			detailBackgroundFrame = CGRectMake(detailFrame.origin.x - detailTextPadding, detailFrame.origin.y - detailTextPadding, detailFrame.size.width + (10 * 2) + detailTextPadding, detailFrame.size.height + (detailTextPadding * 2));			
 
-		if(_detailTextColor == nil)_detailTextColor = [UIColor blackColor];
+		if(_detailTextColor == nil)_detailTextColor = [UIColor whiteColor];
 		if(_detailBackgroundColor == nil)_detailBackgroundColor = [UIColor whiteColor];
 
 		CGContextRef context = UIGraphicsGetCurrentContext();
@@ -116,6 +117,7 @@ static CGFloat kMarginBottom = 2.0f;
     [_messageTextView setFont:kFont];
     [_messageTextView setText:_messageText];
     [_messageTextView setEditable:NO];
+    [_messageTextView setTextColor:[UIColor whiteColor]];
     [_messageTextView setScrollEnabled:NO];
     [_messageTextView setBackgroundColor:[UIColor clearColor]];
     [_messageTextView setDataDetectorTypes:UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber];

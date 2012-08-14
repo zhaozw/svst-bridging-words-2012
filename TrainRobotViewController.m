@@ -17,6 +17,7 @@
 @implementation TrainRobotViewController
 @synthesize myArray,arrListWord,arrListDictObj;
 @synthesize currentChar;
+
 static bool insertYN=true;
 #pragma mark UIViewController
 
@@ -27,7 +28,7 @@ static bool insertYN=true;
     
     self.arrListDictObj= [[NSMutableArray alloc]init];   
     self.arrListWord = [[NSMutableArray alloc] init];
-    ResultRobotTrainingViewController *resultView=[[ResultRobotTrainingViewController alloc]init];
+   
        
    }
 
@@ -72,8 +73,10 @@ static bool insertYN=true;
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {	
-    if (![textField.text length])
-    return YES;
+    if (![textField.text length]){
+        [textField resignFirstResponder];
+        return YES;
+    }
     
     NSString *word = textField.text;
     // Check word

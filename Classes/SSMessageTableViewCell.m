@@ -23,7 +23,7 @@
 		self.selectionStyle = UITableViewCellSelectionStyleNone;		
 		self.textLabel.hidden = YES;
        // Draw bubble view position
-		_bubbleView = [[SSMessageTableViewCellBubbleView alloc] initWithFrame:CGRectMake(80.0f, 0.0f, self.contentView.frame.size.width-150.0f, self.contentView.frame.size.height)];
+		_bubbleView = [[SSMessageTableViewCellBubbleView alloc] initWithFrame:CGRectMake(60.0f, 30.0f, self.contentView.frame.size.width-120.0f, self.contentView.frame.size.height)];
 		_bubbleView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 		[self.contentView addSubview:_bubbleView];
        
@@ -47,6 +47,10 @@
 - (NSString *)detailText {
 	return _bubbleView.detailText;
 }
+-(UIColor *) messageTextColor{
+    return _bubbleView.messageTextColor;
+
+}
 
 - (UIColor *)detailTextColor {
 	return _bubbleView.detailTextColor;
@@ -67,7 +71,8 @@
 
 - (void)setMessageText:(NSString *)text {
 	_bubbleView.messageText = text;
-  [_bubbleView setNeedsDisplay];
+    
+    [_bubbleView setNeedsDisplay];
 }
 
 - (void)setDetailText:(NSString *)text {

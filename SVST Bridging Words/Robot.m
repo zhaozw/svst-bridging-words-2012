@@ -11,7 +11,7 @@ static sqlite3_stmt *addStmt=nil;
 
 @implementation Robot
 
-@synthesize  word, content, isDetailViewHydrated,playerID;
+@synthesize  word, content, isDetailViewHydrated,playerID,wordMean,wordCount;
 
 + (NSMutableArray *) getInitialDataToDisplay:(NSString *)dbPath
 {
@@ -25,6 +25,7 @@ static sqlite3_stmt *addStmt=nil;
 							[listWord addObject:[NSString stringWithUTF8String:(char *)sqlite3_column_text(selectstmt, 0)]];				
 			}
 		}
+       
 		return listWord;
 	}
 	else
@@ -98,7 +99,7 @@ static sqlite3_stmt *addStmt=nil;
         [listRobotWord addObject:[NSString stringWithUTF8String:(char *)sqlite3_column_text(wordWithCharater, 0)]];
         
     }
-    
+   
 
 	//Reset the detail statement.
 	sqlite3_reset(wordWithCharater);

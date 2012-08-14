@@ -10,7 +10,8 @@
 #import "SSMessageTableViewCell.h"
 #import "SSMessageTableViewCellBubbleView.h"
 #import "SSTextField.h"
-
+#import "Robot.h"
+#import "AppDelegate.h"
 CGFloat kInputHeight = 40.0f;
 
 @implementation SSMessagesViewController
@@ -18,27 +19,39 @@ CGFloat kInputHeight = 40.0f;
 @synthesize tableHeaderView = _tableHeaderView;
 @synthesize tableView = _tableView;
 @synthesize tableViewContentOffset;
+@synthesize textField=_textField;
 @synthesize inputBackgroundView = _inputBackgroundView;
-@synthesize textField = _textField;
+@synthesize textFieldView = _textFieldView;
 @synthesize cameraButton = _cameraButton;
 @synthesize sendButton = _sendButton;
 @synthesize leftBackgroundImage = _leftBackgroundImage;
 @synthesize rightBackgroundImage = _rightBackgroundImage;
+@synthesize wordArr;
+@synthesize imageRobotCount=_imageRobotCount;
+@synthesize labeRobotCount=_labelRobotCount;
 
 #pragma mark NSObject
 
 #pragma mark UIViewController
 
 - (void)viewDidLoad {
-	self.view.backgroundColor = [UIColor colorWithRed:0.859f green:0.886f blue:0.929f alpha:1.0f];
-	
+	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    
 	CGSize size = self.view.frame.size;
+
 	
 	// Table view
     
-     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, size.width, size.height - kInputHeight) style:UITableViewStylePlain];
+     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 65.0f, size.width, size.height - kInputHeight) style:UITableViewStylePlain];
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	_tableView.backgroundColor = self.view.backgroundColor;
+    _tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    
+    [_tableView setDelegate:self];
+    [_tableView setDataSource:self];
+
+    [_tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
+
 	_tableView.dataSource = self;
 	_tableView.delegate = self;
 	_tableView.separatorColor = self.view.backgroundColor;
@@ -71,6 +84,7 @@ CGFloat kInputHeight = 40.0f;
 	_textField.background = [[UIImage imageNamed:@"SSMessagesViewControllerTextFieldBackground.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
 	_textField.delegate = self;
 	_textField.font = [UIFont systemFontOfSize:15.0f];
+ 
 	_textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	_textField.textEdgeInsets = UIEdgeInsetsMake(4.0f, 12.0f, 0.0f, 12.0f);
     [_textField setPlaceholder:@"Input Word"];
@@ -88,7 +102,7 @@ CGFloat kInputHeight = 40.0f;
 	[_sendButton setTitleShadowColor:[UIColor colorWithRed:0.455f green:0.671f blue:0.22f alpha:1.0f] forState:UIControlStateNormal];
 	[_inputBackgroundView addSubview:_sendButton];
 	self.leftBackgroundImage = [[UIImage imageNamed:@"SSMessageTableViewCellBackgroundClear.png"] stretchableImageWithLeftCapWidth:24 topCapHeight:14];
-	self.rightBackgroundImage = [[UIImage imageNamed:@"SSMessageTableViewCellBackgroundGreen.png"] stretchableImageWithLeftCapWidth:17 topCapHeight:14];
+	self.rightBackgroundImage = [[UIImage imageNamed:@"SSMessageTableViewCellBackgroundBlue.png"] stretchableImageWithLeftCapWidth:17 topCapHeight:14];
 }
 
 
@@ -137,7 +151,20 @@ CGFloat kInputHeight = 40.0f;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *cellIdentifier = @"cellIdentifier";
-    
+    //Word Robot count
+    CGSize size = self.view.frame.size;
+    AppDelegate *appDelegate =[[AppDelegate alloc]init]; 
+    self.wordArr=[[NSMutableArray alloc]init];
+	self.wordArr=[Robot getInitialDataToDisplay:[appDelegate getDBPath]];
+    _imageRobotCount=[[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 10.0f, size.width, 55.0f)];
+    _imageRobotCount.image=[UIImage imageNamed:@"backgroundTextField.png"];
+    [self.view addSubview:_imageRobotCount];
+    _labelRobotCount=[[UILabel alloc]initWithFrame:CGRectMake(0.0f, 20.0f, size.width, 25.0f)];
+    _labelRobotCount.text=[NSString stringWithFormat:@"Your robot has %d words",self.wordArr.count];
+    _labelRobotCount.textColor=[UIColor whiteColor];
+    _labelRobotCount.backgroundColor=[UIColor clearColor];
+    _labelRobotCount.textAlignment=UITextAlignmentCenter;
+    [self.view addSubview:_labelRobotCount];
     //Load avatar
 	SSMessageTableViewCell *cell = (SSMessageTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
   if (cell == nil) {
@@ -150,7 +177,7 @@ CGFloat kInputHeight = 40.0f;
         
         UIImageView *imageView =
         [[UIImageView alloc]
-         initWithFrame:CGRectMake(cell.contentView.frame.size.width-75.0f, 10.0f, 75.0f, 75.0f)];
+         initWithFrame:CGRectMake(cell.contentView.frame.size.width-75.0f, 50.0f, 75.0f, 75.0f)];
         UIImage *image =[[UIImage imageNamed:@"user.png"]stretchableImageWithLeftCapWidth:24 topCapHeight:14];
         [imageView setImage:image];
         [cell.contentView addSubview:imageView];
@@ -160,8 +187,8 @@ CGFloat kInputHeight = 40.0f;
         
                UIImageView *imageView =
         [[UIImageView alloc]
-         initWithFrame:CGRectMake(0.0f, 10.0f,75.0f, 75.0f)];
-        UIImage *image =[[UIImage imageNamed:@"robot.png"]stretchableImageWithLeftCapWidth:24 topCapHeight:14];
+         initWithFrame:CGRectMake(25.0f, 60.0f,45.0f, 65.0f)];
+        UIImage *image =[[UIImage imageNamed:@"robot2.png"]stretchableImageWithLeftCapWidth:24 topCapHeight:14];
         [imageView setImage:image];
         
         [cell.contentView addSubview:imageView];
@@ -170,6 +197,7 @@ CGFloat kInputHeight = 40.0f;
   
    cell.messageStyle = [self messageStyleForRowAtIndexPath:indexPath];
 	cell.messageText = [self textForRowAtIndexPath:indexPath];
+    
 	cell.detailText = [self detailTextForRowAtIndexPath:indexPath];
 	cell.detailTextColor = [self detailTextColorForRowAtIndexPath:indexPath];
 	cell.detailBackgroundColor = [self detailBackgroundColorForRowAtIndexPath:indexPath];

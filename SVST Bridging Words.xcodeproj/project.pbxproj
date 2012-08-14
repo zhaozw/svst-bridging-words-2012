@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		803D2C8315D4190B00F9A9CB /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 803D2C8215D4190B00F9A9CB /* Robot.m */; };
+		809B15CD15DA4CBB00F39DF9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 809B15CC15DA4CBB00F39DF9 /* background.png */; };
+		809B15D015DA4D8400F39DF9 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 809B15CF15DA4D8400F39DF9 /* logo.jpg */; };
+		809B15D215DA582D00F39DF9 /* background-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 809B15D115DA582D00F39DF9 /* background-pattern.png */; };
 		809EB70E15C99D0D00DF309E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70D15C99D0D00DF309E /* UIKit.framework */; };
 		809EB71015C99D0D00DF309E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70F15C99D0D00DF309E /* Foundation.framework */; };
 		809EB71215C99D0D00DF309E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB71115C99D0D00DF309E /* CoreGraphics.framework */; };
@@ -21,6 +24,19 @@
 		809EB73515C99EAC00DF309E /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB73215C99EAC00DF309E /* ResultViewController.m */; };
 		809EB73615C99EAC00DF309E /* SelfPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809EB73415C99EAC00DF309E /* SelfPlayViewController.m */; };
 		80A15B1015D6B16C00D48F6D /* ResultRobotTrainingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A15B0F15D6B16C00D48F6D /* ResultRobotTrainingViewController.m */; };
+		80A57A7D15DA7E5D004F6F3F /* btn_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A7C15DA7E5D004F6F3F /* btn_menu.png */; };
+		80A57A8315DA80B8004F6F3F /* BTN_HISTORY.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A7F15DA80B8004F6F3F /* BTN_HISTORY.png */; };
+		80A57A8415DA80B8004F6F3F /* btn_playWithRobot.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A8015DA80B8004F6F3F /* btn_playWithRobot.png */; };
+		80A57A8515DA80B8004F6F3F /* BTN_RANDOM.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A8115DA80B8004F6F3F /* BTN_RANDOM.png */; };
+		80A57A8615DA80B8004F6F3F /* btn_selfPratice.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A8215DA80B8004F6F3F /* btn_selfPratice.png */; };
+		80A57A8B15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A8715DA82C8004F6F3F /* SSMessageTableViewCellBackgroundBlue.png */; };
+		80A57A8C15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A8815DA82C8004F6F3F /* SSMessageTableViewCellBackgroundBlue@2x.png */; };
+		80A57A8D15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundClear.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A8915DA82C9004F6F3F /* SSMessageTableViewCellBackgroundClear.png */; };
+		80A57A8E15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundClear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A8A15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundClear@2x.png */; };
+		80A57A9015DAA7FC004F6F3F /* backgroundTextField.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A8F15DAA7FB004F6F3F /* backgroundTextField.png */; };
+		80A57A9215DAACED004F6F3F /* robot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A9115DAACEC004F6F3F /* robot2.png */; };
+		80A57A9415DAAEDA004F6F3F /* SSMessagesViewControllerInputBackground2.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A9315DAAED9004F6F3F /* SSMessagesViewControllerInputBackground2.png */; };
+		80A57A9615DAB26D004F6F3F /* SSMessagesViewControllerTextFieldBackground2.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A57A9515DAB26C004F6F3F /* SSMessagesViewControllerTextFieldBackground2.png */; };
 		80ABE13F15D8D25800229CC8 /* bw_svst in Resources */ = {isa = PBXBuildFile; fileRef = 80ABE13E15D8D25800229CC8 /* bw_svst */; };
 		80AC220215CAD6D90070F986 /* large_brooklyn_bridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80AC220015CAD6D90070F986 /* large_brooklyn_bridge.jpg */; };
 		80AC220315CAD6D90070F986 /* start-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AC220115CAD6D90070F986 /* start-icon.png */; };
@@ -42,10 +58,6 @@
 		80B496A615D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969015D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen@2x.png */; };
 		80B496A715D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969115D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground.png */; };
 		80B496A815D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969215D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png */; };
-		80B496A915D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969315D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue.png */; };
-		80B496AA15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969415D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue@2x.png */; };
-		80B496AB15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969515D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear.png */; };
-		80B496AC15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969615D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear@2x.png */; };
 		80B496AD15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969715D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png */; };
 		80B496AE15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969815D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png */; };
 /* End PBXBuildFile section */
@@ -53,6 +65,9 @@
 /* Begin PBXFileReference section */
 		803D2C8115D4190B00F9A9CB /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Robot.h; path = "../SVST Bridging Words/Robot.h"; sourceTree = "<group>"; };
 		803D2C8215D4190B00F9A9CB /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Robot.m; path = "../SVST Bridging Words/Robot.m"; sourceTree = "<group>"; };
+		809B15CC15DA4CBB00F39DF9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		809B15CF15DA4D8400F39DF9 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
+		809B15D115DA582D00F39DF9 /* background-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-pattern.png"; sourceTree = "<group>"; };
 		809EB70915C99D0D00DF309E /* SVST Bridging Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SVST Bridging Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		809EB70D15C99D0D00DF309E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		809EB70F15C99D0D00DF309E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -75,6 +90,19 @@
 		809EB73415C99EAC00DF309E /* SelfPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfPlayViewController.m; sourceTree = "<group>"; };
 		80A15B0E15D6B16C00D48F6D /* ResultRobotTrainingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultRobotTrainingViewController.h; sourceTree = "<group>"; };
 		80A15B0F15D6B16C00D48F6D /* ResultRobotTrainingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultRobotTrainingViewController.m; sourceTree = "<group>"; };
+		80A57A7C15DA7E5D004F6F3F /* btn_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_menu.png; sourceTree = "<group>"; };
+		80A57A7F15DA80B8004F6F3F /* BTN_HISTORY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BTN_HISTORY.png; sourceTree = "<group>"; };
+		80A57A8015DA80B8004F6F3F /* btn_playWithRobot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_playWithRobot.png; sourceTree = "<group>"; };
+		80A57A8115DA80B8004F6F3F /* BTN_RANDOM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BTN_RANDOM.png; sourceTree = "<group>"; };
+		80A57A8215DA80B8004F6F3F /* btn_selfPratice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_selfPratice.png; sourceTree = "<group>"; };
+		80A57A8715DA82C8004F6F3F /* SSMessageTableViewCellBackgroundBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessageTableViewCellBackgroundBlue.png; sourceTree = "<group>"; };
+		80A57A8815DA82C8004F6F3F /* SSMessageTableViewCellBackgroundBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessageTableViewCellBackgroundBlue@2x.png"; sourceTree = "<group>"; };
+		80A57A8915DA82C9004F6F3F /* SSMessageTableViewCellBackgroundClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessageTableViewCellBackgroundClear.png; sourceTree = "<group>"; };
+		80A57A8A15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundClear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessageTableViewCellBackgroundClear@2x.png"; sourceTree = "<group>"; };
+		80A57A8F15DAA7FB004F6F3F /* backgroundTextField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundTextField.png; sourceTree = "<group>"; };
+		80A57A9115DAACEC004F6F3F /* robot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot2.png; sourceTree = "<group>"; };
+		80A57A9315DAAED9004F6F3F /* SSMessagesViewControllerInputBackground2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessagesViewControllerInputBackground2.png; sourceTree = "<group>"; };
+		80A57A9515DAB26C004F6F3F /* SSMessagesViewControllerTextFieldBackground2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessagesViewControllerTextFieldBackground2.png; sourceTree = "<group>"; };
 		80ABE13E15D8D25800229CC8 /* bw_svst */ = {isa = PBXFileReference; lastKnownFileType = file; path = bw_svst; sourceTree = "<group>"; };
 		80AC220015CAD6D90070F986 /* large_brooklyn_bridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = large_brooklyn_bridge.jpg; path = ../large_brooklyn_bridge.jpg; sourceTree = "<group>"; };
 		80AC220115CAD6D90070F986 /* start-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "start-icon.png"; path = "../start-icon.png"; sourceTree = "<group>"; };
@@ -102,10 +130,6 @@
 		80B4969015D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessagesViewControllerSendButtonBackgroundGreen@2x.png"; sourceTree = "<group>"; };
 		80B4969115D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessagesViewControllerTextFieldBackground.png; sourceTree = "<group>"; };
 		80B4969215D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessagesViewControllerTextFieldBackground@2x.png"; sourceTree = "<group>"; };
-		80B4969315D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessageTableViewCellBackgroundBlue.png; sourceTree = "<group>"; };
-		80B4969415D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessageTableViewCellBackgroundBlue@2x.png"; sourceTree = "<group>"; };
-		80B4969515D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessageTableViewCellBackgroundClear.png; sourceTree = "<group>"; };
-		80B4969615D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessageTableViewCellBackgroundClear@2x.png"; sourceTree = "<group>"; };
 		80B4969715D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessageTableViewCellBackgroundGreen.png; sourceTree = "<group>"; };
 		80B4969815D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessageTableViewCellBackgroundGreen@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,6 +244,17 @@
 		80B4968815D2BE4F0066FFD1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				80A57A9315DAAED9004F6F3F /* SSMessagesViewControllerInputBackground2.png */,
+				80A57A9115DAACEC004F6F3F /* robot2.png */,
+				80A57A8F15DAA7FB004F6F3F /* backgroundTextField.png */,
+				80A57A7F15DA80B8004F6F3F /* BTN_HISTORY.png */,
+				80A57A8015DA80B8004F6F3F /* btn_playWithRobot.png */,
+				80A57A8115DA80B8004F6F3F /* BTN_RANDOM.png */,
+				80A57A8215DA80B8004F6F3F /* btn_selfPratice.png */,
+				80A57A7C15DA7E5D004F6F3F /* btn_menu.png */,
+				809B15D115DA582D00F39DF9 /* background-pattern.png */,
+				809B15CF15DA4D8400F39DF9 /* logo.jpg */,
+				809B15CC15DA4CBB00F39DF9 /* background.png */,
 				80AC5EDF15D4C2DB009621A4 /* user.png */,
 				80AC5EDD15D4BD8C009621A4 /* robot.png */,
 				80AC220015CAD6D90070F986 /* large_brooklyn_bridge.jpg */,
@@ -233,11 +268,12 @@
 				80B4968F15D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen.png */,
 				80B4969015D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen@2x.png */,
 				80B4969115D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground.png */,
+				80A57A9515DAB26C004F6F3F /* SSMessagesViewControllerTextFieldBackground2.png */,
 				80B4969215D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png */,
-				80B4969315D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue.png */,
-				80B4969415D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue@2x.png */,
-				80B4969515D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear.png */,
-				80B4969615D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear@2x.png */,
+				80A57A8715DA82C8004F6F3F /* SSMessageTableViewCellBackgroundBlue.png */,
+				80A57A8815DA82C8004F6F3F /* SSMessageTableViewCellBackgroundBlue@2x.png */,
+				80A57A8915DA82C9004F6F3F /* SSMessageTableViewCellBackgroundClear.png */,
+				80A57A8A15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundClear@2x.png */,
 				80B4969715D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png */,
 				80B4969815D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png */,
 			);
@@ -308,15 +344,27 @@
 				80B496A615D2BE4F0066FFD1 /* SSMessagesViewControllerSendButtonBackgroundGreen@2x.png in Resources */,
 				80B496A715D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground.png in Resources */,
 				80B496A815D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png in Resources */,
-				80B496A915D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue.png in Resources */,
-				80B496AA15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundBlue@2x.png in Resources */,
-				80B496AB15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear.png in Resources */,
-				80B496AC15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundClear@2x.png in Resources */,
 				80B496AD15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png in Resources */,
 				80B496AE15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png in Resources */,
 				80AC5EDE15D4BD8C009621A4 /* robot.png in Resources */,
 				80AC5EE015D4C2DB009621A4 /* user.png in Resources */,
 				80ABE13F15D8D25800229CC8 /* bw_svst in Resources */,
+				809B15CD15DA4CBB00F39DF9 /* background.png in Resources */,
+				809B15D015DA4D8400F39DF9 /* logo.jpg in Resources */,
+				809B15D215DA582D00F39DF9 /* background-pattern.png in Resources */,
+				80A57A7D15DA7E5D004F6F3F /* btn_menu.png in Resources */,
+				80A57A8315DA80B8004F6F3F /* BTN_HISTORY.png in Resources */,
+				80A57A8415DA80B8004F6F3F /* btn_playWithRobot.png in Resources */,
+				80A57A8515DA80B8004F6F3F /* BTN_RANDOM.png in Resources */,
+				80A57A8615DA80B8004F6F3F /* btn_selfPratice.png in Resources */,
+				80A57A8B15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundBlue.png in Resources */,
+				80A57A8C15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundBlue@2x.png in Resources */,
+				80A57A8D15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundClear.png in Resources */,
+				80A57A8E15DA82C9004F6F3F /* SSMessageTableViewCellBackgroundClear@2x.png in Resources */,
+				80A57A9015DAA7FC004F6F3F /* backgroundTextField.png in Resources */,
+				80A57A9215DAACED004F6F3F /* robot2.png in Resources */,
+				80A57A9415DAAEDA004F6F3F /* SSMessagesViewControllerInputBackground2.png in Resources */,
+				80A57A9615DAB26D004F6F3F /* SSMessagesViewControllerTextFieldBackground2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@
 @property (nonatomic, copy) NSString *word;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, readwrite) BOOL isDetailViewHydrated;
-
+@property (nonatomic,readwrite) NSInteger wordCount;
 //Static methods.
 + (NSMutableArray *) getInitialDataToDisplay:(NSString *)dbPath;
 + (void) finalizeStatements;

@@ -17,6 +17,7 @@
 @synthesize gameScoreLabel;
 @synthesize timeScoreLabel;
 @synthesize totalScoreLabel;
+@synthesize titleLabel;
 @synthesize resultString;
 @synthesize timeScore;
 @synthesize wordScore;
@@ -54,7 +55,7 @@
         self.totalScoreLabel.text = [NSString stringWithFormat:@"%d",self.wordScore];
         self.timeScore --;
         self.wordScore ++;
-        [self performSelector:@selector(updateResult) withObject:nil afterDelay:0.1];
+        [self performSelector:@selector(updateResult) withObject:nil afterDelay:0.05];
     } else {
         printf("Timescore: %d\n", self.timeScore);
     }
@@ -66,6 +67,7 @@
     [self setGameScoreLabel:nil];
     [self setTimeScoreLabel:nil];
     [self setTotalScoreLabel:nil];
+    [self setTitleLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

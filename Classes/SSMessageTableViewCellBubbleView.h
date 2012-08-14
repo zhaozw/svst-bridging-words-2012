@@ -15,6 +15,7 @@
 	NSString *_messageText;
     UITextView *_messageTextView;
 	NSString *_detailText;
+    UIColor *_messageTextColor;
 	UIColor *_detailTextColor;
 	UIColor *_detailBackgroundColor;
 	UIImage *_leftBackgroundImage;
@@ -26,6 +27,7 @@
 @property (nonatomic, retain) UITextView *messageTextView;
 @property (nonatomic, copy) NSString *detailText;
 @property (nonatomic, retain) UIColor *detailTextColor;
+@property (nonatomic, retain) UIColor *messageTextColor;
 @property (nonatomic, retain) UIColor *detailBackgroundColor;
 @property (nonatomic, retain) UIImage *leftBackgroundImage;
 @property (nonatomic, retain) UIImage *rightBackgroundImage;

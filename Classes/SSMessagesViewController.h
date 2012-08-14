@@ -18,20 +18,27 @@
 @private
 	
     UIView *_tableHeaderView;
+    UITextField *_textFieldView;
 	UITableView *_tableView;
     CGPoint tableViewContentOffset;
 	UIImageView *_inputBackgroundView;
+    UIImageView *_imageRobotCount;
+    UILabel *_labelRobotCount;
 	SSTextField *_textField;
     UIButton *_cameraButton;
 	UIButton *_sendButton;
 	
 	UIImage *_leftBackgroundImage;
 	UIImage *_rightBackgroundImage;
+    NSMutableArray *wordArr;
     
 }
-
+@property (nonatomic,retain) UIImageView *imageRobotCount;
+@property (nonatomic,retain) UILabel *labeRobotCount;
+@property (nonatomic,retain) NSMutableArray *wordArr;
 @property (nonatomic, retain) UIView *tableHeaderView;
 @property (nonatomic, retain, readonly) UITableView *tableView;
+@property (nonatomic,retain) UITextField *textFieldView;
 @property (nonatomic) CGPoint tableViewContentOffset;
 @property (nonatomic, retain, readonly) UIImageView *inputBackgroundView;
 @property (nonatomic, retain, readonly) SSTextField *textField;

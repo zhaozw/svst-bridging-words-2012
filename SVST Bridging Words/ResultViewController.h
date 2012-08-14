@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *gameScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 
 @property NSString *resultString;
