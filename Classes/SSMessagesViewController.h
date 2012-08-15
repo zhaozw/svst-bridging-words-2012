@@ -31,6 +31,7 @@
 	UIImage *_leftBackgroundImage;
 	UIImage *_rightBackgroundImage;
     NSMutableArray *wordArr;
+ 
     
 }
 @property (nonatomic,retain) UIImageView *imageRobotCount;

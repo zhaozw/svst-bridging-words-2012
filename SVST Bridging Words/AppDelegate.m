@@ -26,6 +26,7 @@
     self.stories=[Stories getInitialDataToDisplay:[self getDBPath]];
 	[window makeKeyAndVisible];
     // Override point for customization after application launch.
+    [UIApplication sharedApplication].statusBarHidden = YES;
     return YES;
 }
 

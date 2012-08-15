@@ -36,6 +36,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.hidesBackButton = YES;
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -46,6 +47,11 @@
     self.timeScoreLabel.text = [NSString stringWithFormat:@"%d",self.timeScore];
     printf("Total score: %d\n",self.wordScore+self.timeScore);
     [self updateResult];
+    
+    [UIView beginAnimations:@"Zoom" context:NULL];
+    [UIView setAnimationDuration:0.5];
+    self.titleLabel.frame = CGRectMake(0.0f, 0.0f, 280.0f, 50.0f);
+    [UIView commitAnimations];
 }
 
 - (void)updateResult
