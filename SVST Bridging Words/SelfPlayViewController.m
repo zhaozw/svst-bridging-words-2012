@@ -19,6 +19,7 @@
 @synthesize resultLabel;
 @synthesize pointLabel;
 @synthesize counterLabel;
+@synthesize scrollView;
 @synthesize _startBridge;
 @synthesize counter;
 @synthesize _countdown;
@@ -51,6 +52,7 @@
 {
     [self.wordTextField resignFirstResponder];
     [self addWord];
+    textField.text=nil;
     return YES;
 }
 
@@ -79,20 +81,54 @@
             if (self._startBridge == true) {
                 self.scoreLevel = 10;
                 self.score += self.scoreLevel;
+                
+                //TODO
+                // update
+                // draw new container
+                printf("draw new container");
+                [self drawNewContainer];
+                // draw label
                 self.resultLabel.text = [self.resultLabel.text stringByAppendingFormat:@"\n-%@",self.wordTextField.text];
                 self._startBridge = false;
-                self.wordTextField.placeholder = @"Input new word";
+                self.wordTextField.placeholder = @"Input hear";
+                
+                
             } else {
                 self.scoreLevel *= 2;
                 self.score += self.scoreLevel;
+                
+                //TODO
+                printf("draw new container");
+                [self drawNewContainer];
+                
                 self.resultLabel.text = [self.resultLabel.text stringByAppendingFormat:@" => %@",self.wordTextField.text];
             }
+            
             //[self updateScore];
             self.wordTextField.text = @"";
+            // update new text field position
         }
         
     }
     
+}
+
+- (void)drawNewContainer
+{
+    UIImage *containterImage = [UIImage imageNamed:@"train.PNG"];
+    
+    UIView *newContainer = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
+    UIImageView *containerImageView = [[UIImageView alloc] initWithFrame:newContainer.bounds];
+    //UITextField *containerTextField = [[UITextField alloc] initWithFrame:newContainer.bounds];
+    [containerImageView setImage:containterImage];
+    [newContainer addSubview:containerImageView];
+    //[newContainer addSubview:containerTextField];
+    [self.scrollView addSubview:newContainer];
+    
+    // update text field
+    self.wordTextField.center = newContainer.center;
+    self.wordTextField.placeholder = @"abc";
+    //printf("x= %f, y= %f",self.wordTextField.bounds.origin.x,self.wordTextField.bounds.origin.y);
 }
 
 - (BOOL)checkWord:(NSString *)word
@@ -204,6 +240,7 @@
     [self setResultLabel:nil];
     //[self setPointLabel:nil];
     [self setCounterLabel:nil];
+    [self setScrollView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

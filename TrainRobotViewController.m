@@ -28,29 +28,25 @@ static bool insertYN=true;
     
     self.arrListDictObj= [[NSMutableArray alloc]init];   
     self.arrListWord = [[NSMutableArray alloc] init];
-   
-       
-   }
+    
+    
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidLoad];
-     AppDelegate *appDelegate =[[AppDelegate alloc]init];  
+    AppDelegate *appDelegate =[[AppDelegate alloc]init];  
     self.arrListDictObj = [Robot getInitialDataToDisplay:[appDelegate getDBPath]];
-	int ranMax=self.arrListDictObj.count;
-    [self.arrListWord addObject:[self.arrListDictObj objectAtIndex:[self randomValue:ranMax]]];
+	//int ranMax=self.arrListDictObj.count;
+    // [self.arrListWord addObject:[self.arrListDictObj objectAtIndex:[self randomValue:ranMax]]];
     self.currentChar = '*';
-    Robot *robotObj=[[Robot alloc]init];
-    NSMutableArray *testArr= [robotObj detailViewWithCharater:'h'];
+    // Robot *robotObj=[[Robot alloc]init];
     
-    NSLog(@" content robot %@",[testArr objectAtIndex:0]);
-
 }
 -(unsigned int) randomValue:(NSInteger)ranMax
 {
     unsigned int randomNumber = arc4random() % ranMax;
     return randomNumber;
-    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -84,12 +80,13 @@ static bool insertYN=true;
         [self.arrListWord addObject:word];
         Robot *robotObj=[[Robot alloc]init];
         [self.tableView reloadData];
+        
         [self robotAnswer:currentChar];
         if (insertYN) {
-             [robotObj insertWordToRobot:word];
+            [robotObj insertWordToRobot:word];
         }
-       
-          textField.text=nil;
+        
+        textField.text=nil;
     } else {
         ResultRobotTrainingViewController *resultView;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
@@ -113,14 +110,14 @@ static bool insertYN=true;
         return;
     }
     NSString *robotAns=[testArr objectAtIndex:[self randomValue:countArr]];
-   // NSLog(@"index of object %@ is %d",robotAns,[self.arrListWord indexOfObject:robotAns]);
+    // NSLog(@"index of object %@ is %d",robotAns,[self.arrListWord indexOfObject:robotAns]);
     if ([self checkExistWord:robotAns]) {
         [self.arrListWord addObject:robotAns];
         currentChar= [self lastCharacter:robotAns];
         NSLog(@" content robot %@",[testArr objectAtIndex:0]);
         insertYN=true;
         [self.tableView reloadData];
-
+        
     }
     else 
     {
@@ -130,24 +127,24 @@ static bool insertYN=true;
         [self.navigationController pushViewController:resultView animated:YES];
         insertYN=false;
     }
-       
+    
 }
 
 -(BOOL)checkValidWord:(NSString *)word
 {
-
+    
     if ([self checkWordCharacter:word] == false) {
-       
+        
         return false;
     }
     if (self.currentChar != '*') {
         if ([word characterAtIndex:0]!=self.currentChar) {
-         
+            
             return false;
         }
     }
     if ([self.arrListDictObj containsObject:word]) {
-      
+        
         return false;
     }
     if ([self.arrListWord containsObject:word]) {
@@ -158,13 +155,13 @@ static bool insertYN=true;
 }
 -(BOOL)checkExistWord:(NSString *)wordInput
 {
-   
+    
     if ([self.arrListWord containsObject:wordInput]) {
-     
+        
         return false;
     }
     return true;
-
+    
 }
 -(char)lastCharacter:(NSString*)word
 {
@@ -185,23 +182,23 @@ static bool insertYN=true;
 }
 
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
+    
     if (self.arrListWord.count==0) {
-        return @"";
+        return NULL;
     }
     return [NSString stringWithFormat:@"%@",[self.arrListWord objectAtIndex:indexPath.row]];
     
- 
+    
 }
 
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    NSUInteger count=appDelegate.robotWords.count;
+    //    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //    NSUInteger count=appDelegate.robotWords.count;
     //NSUInteger count= [self.myArray count];
     NSUInteger count=[self.arrListWord count];
-    if(count ==0) return 1;
+    if(count ==0) return 0;
     else {
         return count;
     }

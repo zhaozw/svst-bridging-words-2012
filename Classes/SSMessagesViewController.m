@@ -39,7 +39,21 @@ CGFloat kInputHeight = 40.0f;
     
 	CGSize size = self.view.frame.size;
 
-	
+    //Word Robot count
+    //CGSize size = self.view.frame.size;
+    AppDelegate *appDelegate =[[AppDelegate alloc]init]; 
+    self.wordArr=[[NSMutableArray alloc]init];
+	self.wordArr=[Robot getInitialDataToDisplay:[appDelegate getDBPath]];
+    _imageRobotCount=[[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 10.0f, size.width, 55.0f)];
+    _imageRobotCount.image=[UIImage imageNamed:@"backgroundTextField.png"];
+    [self.view addSubview:_imageRobotCount];
+    _labelRobotCount=[[UILabel alloc]initWithFrame:CGRectMake(0.0f, 20.0f, size.width, 25.0f)];
+    _labelRobotCount.text=[NSString stringWithFormat:@"Your robot has %d words",self.wordArr.count];
+    _labelRobotCount.textColor=[UIColor whiteColor];
+    _labelRobotCount.backgroundColor=[UIColor clearColor];
+    _labelRobotCount.textAlignment=UITextAlignmentCenter;
+    [self.view addSubview:_labelRobotCount];
+
 	// Table view
     
      _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 65.0f, size.width, size.height - kInputHeight) style:UITableViewStylePlain];
@@ -150,26 +164,14 @@ CGFloat kInputHeight = 40.0f;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  static NSString *cellIdentifier = @"cellIdentifier";
-    //Word Robot count
-    CGSize size = self.view.frame.size;
-    AppDelegate *appDelegate =[[AppDelegate alloc]init]; 
-    self.wordArr=[[NSMutableArray alloc]init];
-	self.wordArr=[Robot getInitialDataToDisplay:[appDelegate getDBPath]];
-    _imageRobotCount=[[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 10.0f, size.width, 55.0f)];
-    _imageRobotCount.image=[UIImage imageNamed:@"backgroundTextField.png"];
-    [self.view addSubview:_imageRobotCount];
-    _labelRobotCount=[[UILabel alloc]initWithFrame:CGRectMake(0.0f, 20.0f, size.width, 25.0f)];
-    _labelRobotCount.text=[NSString stringWithFormat:@"Your robot has %d words",self.wordArr.count];
-    _labelRobotCount.textColor=[UIColor whiteColor];
-    _labelRobotCount.backgroundColor=[UIColor clearColor];
-    _labelRobotCount.textAlignment=UITextAlignmentCenter;
-    [self.view addSubview:_labelRobotCount];
+  
+    static NSString *cellIdentifier = @"cellIdentifier";
+
     //Load avatar
 	SSMessageTableViewCell *cell = (SSMessageTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-  if (cell == nil) {
-		cell = [[SSMessageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] ;
-      
+    if (cell == nil) {
+		cell = [[SSMessageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] ;
+        
 		[cell setBackgroundImage:self.leftBackgroundImage forMessageStyle:SSMessageStyleLeft];
 		[cell setBackgroundImage:self.rightBackgroundImage forMessageStyle:SSMessageStyleRight];
 	}
@@ -181,37 +183,39 @@ CGFloat kInputHeight = 40.0f;
         UIImage *image =[[UIImage imageNamed:@"user.png"]stretchableImageWithLeftCapWidth:24 topCapHeight:14];
         [imageView setImage:image];
         [cell.contentView addSubview:imageView];
-
-           }
+        
+    }
     else {
         
-               UIImageView *imageView =
+        UIImageView *imageView =
         [[UIImageView alloc]
          initWithFrame:CGRectMake(25.0f, 60.0f,45.0f, 65.0f)];
         UIImage *image =[[UIImage imageNamed:@"robot2.png"]stretchableImageWithLeftCapWidth:24 topCapHeight:14];
         [imageView setImage:image];
         
         [cell.contentView addSubview:imageView];
-
+        
     }
-  
-   cell.messageStyle = [self messageStyleForRowAtIndexPath:indexPath];
-	cell.messageText = [self textForRowAtIndexPath:indexPath];
-    
-	cell.detailText = [self detailTextForRowAtIndexPath:indexPath];
-	cell.detailTextColor = [self detailTextColorForRowAtIndexPath:indexPath];
-	cell.detailBackgroundColor = [self detailBackgroundColorForRowAtIndexPath:indexPath];
-    
-    NSDataDetector *dataDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink | NSTextCheckingTypePhoneNumber error:nil];
-    
-    NSArray *matches = [dataDetector matchesInString:cell.messageText options:0 range:NSMakeRange(0, [cell.messageText length])];
-    
-    [cell setLinks:matches];
-    
-    if([matches count] > 0)
-        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    if (indexPath!=NULL) {
+        cell.messageStyle = [self messageStyleForRowAtIndexPath:indexPath];
+        cell.messageText = [self textForRowAtIndexPath:indexPath];
+        
+        cell.detailText = [self detailTextForRowAtIndexPath:indexPath];
+        cell.detailTextColor = [self detailTextColorForRowAtIndexPath:indexPath];
+        cell.detailBackgroundColor = [self detailBackgroundColorForRowAtIndexPath:indexPath];
+        
+        NSDataDetector *dataDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink | NSTextCheckingTypePhoneNumber error:nil];
+        
+        NSArray *matches = [dataDetector matchesInString:cell.messageText options:0 range:NSMakeRange(0, [cell.messageText length])];
+        
+        [cell setLinks:matches];
+      
+        if([matches count] > 0)
+            cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+        return cell;
+    }
 
-  return cell;
+    return NULL;
 }
 
 

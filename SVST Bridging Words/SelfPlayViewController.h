@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pointLabel;
 @property (weak, nonatomic) IBOutlet UILabel *counterLabel;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 - (IBAction)finishButtonTouch:(id)sender;
 @property BOOL _startBridge;
 @property NSInteger counter;

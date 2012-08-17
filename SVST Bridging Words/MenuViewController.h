@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface MenuViewController : UIViewController
+
+@property SystemSoundID _laserSound;
 
 @end
