@@ -20,6 +20,9 @@
 @synthesize pointLabel;
 @synthesize counterLabel;
 @synthesize scrollView;
+@synthesize bridgeView;
+@synthesize currentContainer;
+@synthesize timeProgressView;
 @synthesize _startBridge;
 @synthesize counter;
 @synthesize _countdown;
@@ -42,10 +45,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.wordTextField.delegate = self;
+    self.wordTextField.placeholder = @"Input here";
     self._countdown = true;
-    self.counter = 10;
+    self.counter = 90;
     self.navigationItem.hidesBackButton = YES;
     [self countdown];
+    self.scrollView.contentSize = CGSizeMake(320, 680);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -62,7 +67,7 @@
     self._startBridge = true;
     self._countdown = true;
     self.counter = 90;
-    self.resultLabel.text = @"";
+    //self.resultLabel.text = @"";
     self.score = 0;
     self.scoreLevel = 10;
     self.currentCharacter = '*';
@@ -85,23 +90,22 @@
                 //TODO
                 // update
                 // draw new container
-                printf("draw new container");
-                [self drawNewContainer];
+                //printf("draw new container");
+                [self drawNewContainer:word];
                 // draw label
-                self.resultLabel.text = [self.resultLabel.text stringByAppendingFormat:@"\n-%@",self.wordTextField.text];
+                //self.resultLabel.text = [self.resultLabel.text stringByAppendingFormat:@"\n-%@",self.wordTextField.text];
                 self._startBridge = false;
-                self.wordTextField.placeholder = @"Input hear";
-                
+                printf("Set startBridge false\n");
                 
             } else {
                 self.scoreLevel *= 2;
                 self.score += self.scoreLevel;
                 
                 //TODO
-                printf("draw new container");
-                [self drawNewContainer];
+                //printf("draw new container");
+                [self drawNewContainer:word];
                 
-                self.resultLabel.text = [self.resultLabel.text stringByAppendingFormat:@" => %@",self.wordTextField.text];
+                //self.resultLabel.text = [self.resultLabel.text stringByAppendingFormat:@" => %@",self.wordTextField.text];
             }
             
             //[self updateScore];
@@ -113,22 +117,115 @@
     
 }
 
-- (void)drawNewContainer
+- (void)drawNewContainer:(NSString *)word
 {
     UIImage *containterImage = [UIImage imageNamed:@"train.PNG"];
     
-    UIView *newContainer = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
+    UIView *newContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 50)];
+    //CGFloat dx = 100;
+    newContainer.center = CGPointMake(self.currentContainer.center.x + self.currentContainer.bounds.size.width - 10, self.currentContainer.center.y);
+    
+    CGRect wordBound = newContainer.bounds;
+    wordBound.size.height -= 12;
+//    UILabel *wordLabel = [[UILabel alloc] initWithFrame:wordBound];
+//    wordLabel.text = word;
+//    wordLabel.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+//    wordLabel.textAlignment = UITextAlignmentCenter;
+//    [self.currentContainer addSubview:wordLabel];
+    char lastCharacter = [word characterAtIndex:[word length]-1];
+    char firstCharacter = [word characterAtIndex:0];
+    
+    UIWebView *wordWebView = [[UIWebView alloc] initWithFrame:wordBound];
+    word = [word substringToIndex:[word length]-1];
+    NSString *wordHtml;
+    if (self._startBridge == false) {
+        if ([word length]>=1) {
+            word = [word substringFromIndex:1];
+            wordHtml = [NSString stringWithFormat:@"<center><font color=\"green\">%c</font>%@<font color=\"red\">%c</font><center>",firstCharacter,word,lastCharacter];
+        } else {
+            wordHtml = [NSString stringWithFormat:@"<center>%@<font color=\"red\">%c</font><center>",word,lastCharacter];
+        }
+    } else {
+        wordHtml = [NSString stringWithFormat:@"<center>%@<font color=\"red\">%c</font><center>",word,lastCharacter];
+    }
+    
+    [wordWebView loadHTMLString:wordHtml baseURL:nil];
+    [wordWebView setOpaque:NO];
+    wordWebView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+    [self.currentContainer addSubview:wordWebView];
+    
+    self.currentContainer = newContainer;
+    //NSLog(@"current container: %f, %f",self.currentContainer.bounds.size.height,self.currentContainer.bounds.size.width);
     UIImageView *containerImageView = [[UIImageView alloc] initWithFrame:newContainer.bounds];
     //UITextField *containerTextField = [[UITextField alloc] initWithFrame:newContainer.bounds];
     [containerImageView setImage:containterImage];
-    [newContainer addSubview:containerImageView];
+    [self.currentContainer addSubview:containerImageView];
     //[newContainer addSubview:containerTextField];
-    [self.scrollView addSubview:newContainer];
+    [self.bridgeView addSubview:self.currentContainer];
+    CGSize contentSize = self.scrollView.contentSize;
+    contentSize.width = self.currentContainer.center.x + self.currentContainer.bounds.size.width;
+    self.scrollView.contentSize = contentSize;
+    printf("Add new container %f, %f\n",self.currentContainer.center.x,self.currentContainer.center.y);
     
     // update text field
-    self.wordTextField.center = newContainer.center;
-    self.wordTextField.placeholder = @"abc";
-    //printf("x= %f, y= %f",self.wordTextField.bounds.origin.x,self.wordTextField.bounds.origin.y);
+    CGPoint textFieldCenter = newContainer.center;
+    textFieldCenter.y -= 5 + 80;
+    self.wordTextField.center = textFieldCenter;
+    //self.wordTextField.placeholder = @"abc";
+    //printf("x= %f, y= %f",self.wordTextField.bounds.origin.x,self.wordTextField.bounds.origin.y;
+    
+    [self.scrollView setContentOffset:CGPointMake( self.scrollView.contentSize.width - 320, self.scrollView.contentOffset.y) animated:YES];
+}
+
+- (void)drawNewTrain
+{
+    printf("Draw new train\n");
+    printf("Current container: center(%.0f,%.0f)\n",self.currentContainer.center.x,self.currentContainer.center.y);
+    // Update current container label ("END")
+    // Draw train head
+    CGFloat trainHeadY = self.currentContainer.center.y + 60;
+    UIImage *trainHeadImage = [UIImage imageNamed:@"train-head.png"];
+    UIImageView *trainHead = [[UIImageView alloc] initWithFrame:CGRectMake(20, trainHeadY, 86, 58)];
+    [trainHead setImage:trainHeadImage];
+    [self.bridgeView addSubview:trainHead];
+    
+    // Draw containter
+    UIImage *containterImage = [UIImage imageNamed:@"train.PNG"];
+    
+    UIView *newContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 50)];
+    //CGFloat dx = 100;
+    
+    newContainer.center = CGPointMake(100 + self.currentContainer.bounds.size.width/2, self.currentContainer.center.y + 89);
+    
+    CGRect wordBound = newContainer.bounds;
+    wordBound.size.height -= 12;
+    UILabel *wordLabel = [[UILabel alloc] initWithFrame:wordBound];
+    wordLabel.text = @"END";
+    wordLabel.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+    wordLabel.textAlignment = UITextAlignmentCenter;
+    [self.currentContainer addSubview:wordLabel];
+    
+    self.currentContainer = newContainer;
+    //NSLog(@"current container: %f, %f",self.currentContainer.bounds.size.height,self.currentContainer.bounds.size.width);
+    UIImageView *containerImageView = [[UIImageView alloc] initWithFrame:newContainer.bounds];
+    //UITextField *containerTextField = [[UITextField alloc] initWithFrame:newContainer.bounds];
+    [containerImageView setImage:containterImage];
+    [self.currentContainer addSubview:containerImageView];
+    //[newContainer addSubview:containerTextField];
+    [self.bridgeView addSubview:self.currentContainer];
+    CGSize contentSize = self.scrollView.contentSize;
+    if (self.currentContainer.center.y + self.currentContainer.bounds.size.height + 200> contentSize.height) {
+        contentSize.height = self.currentContainer.center.y + self.currentContainer.bounds.size.height + 200;
+        self.scrollView.contentSize = contentSize;
+    }
+    
+    // update text field
+    CGPoint textFieldCenter = newContainer.center;
+    textFieldCenter.y -= 5 + 80;
+    self.wordTextField.center = textFieldCenter;
+    
+    // update scroll content offset:
+    [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentOffset.y) animated:YES];
 }
 
 - (BOOL)checkWord:(NSString *)word
@@ -207,9 +304,12 @@
 
 - (void)countdown
 {
-    self.counterLabel.text = [NSString stringWithFormat:@"%d",counter];
+    //self.counterLabel.text = [NSString stringWithFormat:@"%d",counter];
     if (self.counter != 0) {
         self.counter --;
+        self.timeProgressView.progress = (float)self.counter/90;
+//        printf("counter/90: %.2f\n",((float)self.counter/90));
+//        printf("progress: %.2f\n",self.timeProgressView.progress);
     } else {
         if (self._countdown == true) {
             [self showResult];
@@ -233,6 +333,31 @@
     
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    //CGPoint bottomOffset = CGPointMake(<#CGFloat x#>, <#CGFloat y#>)
+    printf("current container center: %.0f\n",self.currentContainer.center.y - self.scrollView.contentOffset.y);
+    printf("content offset: %.0f, %.0f\n",self.scrollView.contentOffset.x, self.scrollView.contentOffset.y);
+    
+    CGFloat currentContainerBottom = self.currentContainer.center.y - self.scrollView.contentOffset.y;
+    if (400 - currentContainerBottom <200) {
+        CGFloat currentOffsetY = self.scrollView.contentOffset.y;
+        currentOffsetY -= 400 - currentContainerBottom - 200 - 50;
+        [self.scrollView setContentOffset:CGPointMake(0, currentOffsetY) animated:YES];
+    }
+    
+    //printf("offset need: %.0f", 480 - (self.currentContainer.center.y + 30 - self.scrollView.contentOffset.y));
+    
+//    CGFloat currentContainerBottom = self.currentContainer.center.y + 30 - self.scrollView.contentOffset.y;
+//    if (480 - currentContainerBottom < 400) {
+//        CGFloat offsetY = 400 - 480 + currentContainerBottom;
+//        [self.scrollView setContentOffset:CGPointMake(0, offsetY) animated:YES];
+//        printf("botton: %.0f\n",currentContainerBottom);
+//    }
+    
+    return YES;
+}
+
 - (void)viewDidUnload
 {
     [self setWordTextField:nil];
@@ -241,6 +366,9 @@
     //[self setPointLabel:nil];
     [self setCounterLabel:nil];
     [self setScrollView:nil];
+    [self setBridgeView:nil];
+    [self setCurrentContainer:nil];
+    [self setTimeProgressView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -261,9 +389,12 @@
 }
 
 - (IBAction)newBridgeButtonTouch:(id)sender {
-    self._startBridge = true;
-    self.wordTextField.placeholder = @"Input new bridge";
-    self.currentCharacter = '*';
+    if (self._startBridge == false) {
+        self._startBridge = true;
+        printf("Set startBridge true\n");
+        self.currentCharacter = '*';
+        [self drawNewTrain];
+    }
 }
 - (IBAction)finishButtonTouch:(id)sender {
     [self.wordTextField resignFirstResponder];
