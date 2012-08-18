@@ -1,0 +1,24 @@
+<style type="text/css">
+.none {}
+
+.type {
+	font-weight: bold;
+	color: #CC0000;
+}
+
+.title {
+	font-weight: bold;
+	color: #6600FF;
+	font-size: 18px;
+}
+a {
+	text-decoration: none;
+	color: #000000;
+}
+.example .aexample {
+	color: #006600;
+}
+.aidiom {
+	color: #0000FF;
+}
+</style>

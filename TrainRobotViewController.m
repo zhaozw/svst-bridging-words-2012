@@ -13,7 +13,7 @@
 #import "Robot.h"
 #import "AppDelegate.h"
 #import "ResultRobotTrainingViewController.h"
-
+#define TABLEVIEWTAG	300
 @implementation TrainRobotViewController
 @synthesize myArray,arrListWord,arrListDictObj;
 @synthesize currentChar;
@@ -43,6 +43,23 @@ static bool insertYN=true;
     // Robot *robotObj=[[Robot alloc]init];
     
 }
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+
+	UITableView *tableView = (UITableView *)[self.view viewWithTag:TABLEVIEWTAG];
+	tableView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 156.0f);
+    
+		NSLog(@"textFieldShouldBeginEditing");
+	return YES;
+}
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+	// return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
+	UITableView *tableView = (UITableView *)[self.view viewWithTag:TABLEVIEWTAG];
+	tableView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 372.0f);
+	
+		NSLog(@"textFieldShouldEndEditing");
+	return YES;
+}
+
 -(unsigned int) randomValue:(NSInteger)ranMax
 {
     unsigned int randomNumber = arc4random() % ranMax;
@@ -94,7 +111,8 @@ static bool insertYN=true;
         [self.navigationController pushViewController:resultView animated:YES];
     }
     [textField resignFirstResponder];
-    return YES;
+//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.arrListWord count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+       return YES;
     
 }
 -(void)robotAnswer:(char)charBegin

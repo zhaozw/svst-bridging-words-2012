@@ -10,20 +10,25 @@
 #import "Stories.h"
 #import "StoriesViewController.h"
 #import "Robot.h"
+#import "History.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize stories;
 @synthesize robotWords;
+@synthesize playerArr;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-       [self copyDatabaseIfNeeded];
+    [self copyDatabaseIfNeeded];
 	// Query the database for all animal records and construct the "animals" array
 	NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     self.stories = tempArray;
     self.stories=[Stories getInitialDataToDisplay:[self getDBPath]];
+    NSMutableArray *tempArray2 = [[NSMutableArray alloc] init];
+	self.playerArr = tempArray2;
+    [History getInitialDataToDisplay:[self getDBPath]];
 	[window makeKeyAndVisible];
     // Override point for customization after application launch.
     [UIApplication sharedApplication].statusBarHidden = YES;
@@ -37,7 +42,7 @@
 	NSError *error;
 	NSString *dbPath = [self getDBPath];
 	BOOL success = [fileManager fileExistsAtPath:dbPath]; 
-     NSLog(@"Path store database is %@",dbPath);
+    NSLog(@"Path store database is %@",dbPath);
 	if(!success) {
 		NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"bw_svst"];
 		success = [fileManager copyItemAtPath:defaultDBPath toPath:dbPath error:&error];
