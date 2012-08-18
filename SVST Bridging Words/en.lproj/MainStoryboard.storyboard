@@ -424,6 +424,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="IBRememberBtn" destination="MkC-4P-ipJ" id="Omu-Sv-K3p"/>
                         <outlet property="webView" destination="5Rk-SQ-Y7L" id="I68-y0-RSm"/>
                     </connections>
                 </viewController>

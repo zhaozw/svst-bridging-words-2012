@@ -183,16 +183,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     History *playersObj = [appDelegate.playerArr objectAtIndex:indexPath.row];
-//    if(dvHistoryViewCL == nil) 
-//		dvHistoryViewCL = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil]instantiateViewControllerWithIdentifier:@"dvHistoryView"];
-    NSLog(@"%d",playersObj.playerID);
-//    dvHistoryViewCL.myArray=[playersObj detailDataToDisplay:playersObj.playerID];
-//    [self.navigationController pushViewController:dvHistoryViewCL animated:YES];
-//    
+    NSLog(@"%d",playersObj.playerID);   
     ListPlayerWordsViewController *dvListHistoryViewCL=[[ListPlayerWordsViewController alloc] init];
     dvListHistoryViewCL.myArray=[playersObj detailDataToDisplay:playersObj.playerID];
-//		dvListHistoryViewCL = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil]instantiateViewControllerWithIdentifier:@"dvHistory"];
-   // NSLog(@"%d",playersObj.playerID);
     [self.navigationController pushViewController:dvListHistoryViewCL animated:YES];
 
 }

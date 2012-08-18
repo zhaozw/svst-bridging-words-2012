@@ -25,22 +25,10 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-//    self.myArray=[[NSMutableArray alloc]init];
-    NSLog(@"object is %@",[self.myArray objectAtIndex:0]);
+    [super viewDidLoad];    
     self.arrListWords=[[NSMutableArray alloc]init];
-//    History *wordsObj=[[History alloc]init];
-//    AppDelegate *appDelegate=[[AppDelegate alloc]init];
-//    [History getInitialDataToDisplay:[appDelegate getDBPath] ];
     [self.arrListWords addObjectsFromArray:self.myArray];    
-//    self.arrListWords=[wordsObj detailDataToDisplay:3];
-    NSLog(@"%@",[self.arrListWords objectAtIndex:0]);
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -65,8 +53,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.arrListWords.count==0) {
+        return NULL;
+    }
+          return [self.arrListWords count];
+    
 
-    return [self.arrListWords count];
+  
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -155,13 +148,11 @@
     
     WordMeanViewController *detailViewController;
     detailViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"wordMeanView"];
-    NSLog(@"%@",[self.arrListWords objectAtIndex:indexPath.row]);
     History *historyObj=[[History alloc]init];
     [historyObj wordMeanForWord:[self.arrListWords objectAtIndex:indexPath.row]];
-    NSLog(@"%@",historyObj.wordMean);
+    
     detailViewController.historyObj =historyObj;
     detailViewController.historyObj.word=[self.arrListWords objectAtIndex:indexPath.row];
-    NSLog(@" detail view word%@",detailViewController.historyObj.word);
     // ...
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];

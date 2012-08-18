@@ -255,10 +255,10 @@
 			children = (
 				80A2B22C15DFFC7000058DDF /* HistoryPlayersViewController.h */,
 				80A2B22D15DFFC7000058DDF /* HistoryPlayersViewController.m */,
-				80A2B23A15DFFD7300058DDF /* WordMeanViewController.h */,
-				80A2B23B15DFFD7300058DDF /* WordMeanViewController.m */,
 				80A2B23015DFFC7100058DDF /* ListPlayerWordsViewController.h */,
 				80A2B23115DFFC7100058DDF /* ListPlayerWordsViewController.m */,
+				80A2B23A15DFFD7300058DDF /* WordMeanViewController.h */,
+				80A2B23B15DFFD7300058DDF /* WordMeanViewController.m */,
 			);
 			name = History;
 			sourceTree = "<group>";
