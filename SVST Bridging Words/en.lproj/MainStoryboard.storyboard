@@ -177,54 +177,46 @@
                                 <color key="backgroundColor" white="0.16759808394160583" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="0dk-Gv-kpJ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="79" width="320" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eO2-X3-M43">
-                                        <rect key="frame" x="228" y="28" width="72" height="37"/>
+                                    <view contentMode="scaleToFill" id="jLC-C6-fBD">
+                                        <rect key="frame" x="-1" y="-79" width="320" height="480"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Add">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addButtonTouch:" destination="L3J-DY-kRw" eventType="touchUpInside" id="Pgl-JG-9gm"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" id="d1x-cT-QYL">
-                                        <rect key="frame" x="20" y="254" width="280" height="174"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="train-head.png" id="7fh-Uq-wab">
+                                                <rect key="frame" x="20" y="118" width="86" height="58"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" id="OCq-ad-vyb">
+                                                <rect key="frame" x="100" y="126" width="120" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="train.PNG" id="Ayp-bv-a2B">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="input hear" textAlignment="center" minimumFontSize="17" id="2CR-cK-Xao">
+                                        <rect key="frame" x="113" y="51" width="96" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="k04-Nl-JPm">
-                                        <rect key="frame" x="225" y="386" width="59" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="train-head.png" id="7fh-Uq-wab">
-                                        <rect key="frame" x="42" y="116" width="86" height="52"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="train.PNG" id="mLP-NY-Tbe">
-                                        <rect key="frame" x="141" y="126" width="102" height="52"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                             </scrollView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="input hear" minimumFontSize="17" id="2CR-cK-Xao">
-                                <rect key="frame" x="158" y="131" width="73" height="31"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" progress="1" id="Gc5-Iw-RLd">
+                                <rect key="frame" x="42" y="18" width="235" height="9"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <color key="backgroundColor" white="0.68587477189781032" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="progressTintColor" white="0.0" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                                <color key="trackTintColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -243,10 +235,10 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent" prompted="NO"/>
                     <connections>
-                        <outlet property="addButton" destination="eO2-X3-M43" id="quj-xw-b2c"/>
-                        <outlet property="counterLabel" destination="k04-Nl-JPm" id="PwC-ee-Q1D"/>
-                        <outlet property="resultLabel" destination="d1x-cT-QYL" id="xWV-GB-oqI"/>
+                        <outlet property="bridgeView" destination="jLC-C6-fBD" id="heM-Au-FHW"/>
+                        <outlet property="currentContainer" destination="OCq-ad-vyb" id="HWz-6Z-VMC"/>
                         <outlet property="scrollView" destination="0dk-Gv-kpJ" id="1FI-1Y-Ynz"/>
+                        <outlet property="timeProgressView" destination="Gc5-Iw-RLd" id="2i9-ON-ygb"/>
                         <outlet property="wordTextField" destination="2CR-cK-Xao" id="wjG-OG-Whf"/>
                         <segue destination="Uwi-Mu-dnd" kind="push" id="l4x-eR-6XK"/>
                     </connections>
@@ -363,6 +355,81 @@
             </objects>
             <point key="canvasLocation" x="-188" y="79"/>
         </scene>
+        <!--History Players View Controller-->
+        <scene sceneID="CS7-d9-3vu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8er-iJ-zHq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="b4U-DT-9SA" customClass="HistoryPlayersViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8Pf-Qa-tYG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Dvm-Yo-Onc">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="b4U-DT-9SA" id="xfD-WZ-rC4"/>
+                            <outlet property="delegate" destination="b4U-DT-9SA" id="P6O-sS-TrR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="NHa-NY-Sa3"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-20" y="830"/>
+        </scene>
+        <!--Word Mean View Controller-->
+        <scene sceneID="qbi-j1-r4n">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blo-Mc-bgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="wordMeanView" id="9LC-ni-prf" customClass="WordMeanViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F9u-av-agv">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hha-Kd-I2B">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <webView contentMode="scaleToFill" id="5Rk-SQ-Y7L">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </webView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MkC-4P-ipJ">
+                                        <rect key="frame" x="100" y="292" width="120" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="I remember it" backgroundImage="background.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rememberButtonTouch:" destination="9LC-ni-prf" eventType="touchUpInside" id="CkF-d3-FIY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="5Rk-SQ-Y7L" id="I68-y0-RSm"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="416" y="884"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="ERG-Uh-PGm">
             <objects>
@@ -429,6 +496,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="b4U-DT-9SA" kind="push" id="bAo-Zf-uvW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -456,59 +526,6 @@
         <image name="train-head.png" width="245" height="170"/>
         <image name="train.PNG" width="734" height="281"/>
     </resources>
-    <classes>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-        </class>
-        <class className="ResultRobotTrainingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultRobotTrainingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backToMainMenu:"/>
-                <relationship kind="action" name="replayButtonTouch:"/>
-                <relationship kind="outlet" name="mainMenuButtonTouch" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ResultViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuButtonTouch:"/>
-                <relationship kind="action" name="replayButtonTouch:"/>
-                <relationship kind="outlet" name="gameScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalScoreLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SSMessagesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMessagesViewController.h"/>
-        </class>
-        <class className="SelfPlayViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelfPlayViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addButtonTouch:"/>
-                <relationship kind="action" name="finishButtonTouch:"/>
-                <relationship kind="action" name="newBridgeButtonTouch:"/>
-                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="counterLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pointLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="wordTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="StoriesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StoriesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="counterLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="TrainRobotViewController" superclassName="SSMessagesViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrainRobotViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

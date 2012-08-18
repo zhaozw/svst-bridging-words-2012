@@ -22,11 +22,14 @@
 	NSMutableArray *stories;
     NSUInteger *wordCount;
     NSMutableArray *robotWords;
+    NSMutableArray *playerArr;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong,nonatomic) NSMutableArray *stories;
 @property (strong,nonatomic) NSMutableArray *robotWords;
+@property (strong,nonatomic) NSMutableArray *playerArr;
+
 - (NSString *) getDBPath ;
 - (void) copyDatabaseIfNeeded ;
 @end
