@@ -48,10 +48,10 @@
     printf("Total score: %d\n",self.wordScore+self.timeScore);
     [self updateResult];
     
-    [UIView beginAnimations:@"Zoom" context:NULL];
-    [UIView setAnimationDuration:0.5];
-    self.titleLabel.frame = CGRectMake(0.0f, 0.0f, 280.0f, 50.0f);
-    [UIView commitAnimations];
+//    [UIView beginAnimations:@"Zoom" context:NULL];
+//    [UIView setAnimationDuration:0.5];
+//    self.titleLabel.frame = CGRectMake(0.0f, 0.0f, 280.0f, 50.0f);
+//    [UIView commitAnimations];
 }
 
 - (void)updateResult
@@ -87,13 +87,8 @@
     if (self.timeScore == -1) {
         /* Get the current array of View Controllers */
         NSArray *currentControllers = self.navigationController.viewControllers;
-        /* Create a mutable array out of this array */ 
-        NSMutableArray *newControllers = [NSMutableArray arrayWithArray:currentControllers];
         /* Remove the last object from the array */ 
-        [newControllers removeLastObject];
-        [newControllers removeLastObject];
-        /* Assign this array to the Navigation Controller */
-        self.navigationController.viewControllers = newControllers;
+        [self.navigationController popToViewController:[currentControllers objectAtIndex:2] animated:YES];
     }
 }
 
@@ -101,14 +96,8 @@
     if (self.timeScore == -1) {
         /* Get the current array of View Controllers */
         NSArray *currentControllers = self.navigationController.viewControllers;
-        /* Create a mutable array out of this array */ 
-        NSMutableArray *newControllers = [NSMutableArray arrayWithArray:currentControllers];
-        /* Remove the last object from the array */ 
-        [newControllers removeLastObject];
-        [newControllers removeLastObject];
-        [newControllers removeLastObject];
-        /* Assign this array to the Navigation Controller */
-        self.navigationController.viewControllers = newControllers;
+        /* Remove the last object from the array */ \
+        [self.navigationController popToViewController:[currentControllers objectAtIndex:1] animated:YES];
     }
 }
 @end
