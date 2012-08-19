@@ -15,6 +15,7 @@
 
 @implementation ResultRobotTrainingViewController
 @synthesize mainMenuButtonTouch;
+@synthesize myLabel;
 @synthesize resultLabel,errorMsg;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -29,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
 	// Do any additional setup after loading the view.
 }
 
@@ -36,6 +38,7 @@
 {
     [self setResultLabel:nil];
     [self setMainMenuButtonTouch:nil];
+    [self setMyLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -75,16 +78,20 @@
 {
     switch (intMsg) {
         case 1:
-            self.errorMsg=@" Robot have known this word";
+            self.errorMsg=@" Robot has known this word";
+       
             break;
         case 2:
             self.errorMsg=@"Robot has been defeated by you. Congratulation!";
+        
             break;
         case 3: 
             self.errorMsg=@"You lose! \n You have enterd word twice.";
+          
             break;
         case 4:
             self.errorMsg=@"You have been defeated by your robot.\n You enterd wrong word. Try again!";
+          
             break;
             
             

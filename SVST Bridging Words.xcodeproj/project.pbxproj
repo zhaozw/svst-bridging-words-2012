@@ -188,6 +188,18 @@
 			name = Sound;
 			sourceTree = "<group>";
 		};
+		809C707A15E0BD07002B48DF /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				809EB71C15C99D0D00DF309E /* AppDelegate.h */,
+				809EB71D15C99D0D00DF309E /* AppDelegate.m */,
+				809EB71F15C99D0D00DF309E /* MainStoryboard.storyboard */,
+				80A57A9915DADB5C004F6F3F /* MenuViewController.h */,
+				80A57A9A15DADB5D004F6F3F /* MenuViewController.m */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
 		809EB6FE15C99D0D00DF309E = {
 			isa = PBXGroup;
 			children = (
@@ -227,11 +239,7 @@
 				80A2B23315DFFC7700058DDF /* History */,
 				80A2B23415DFFC8000058DDF /* PlayWIthRobot */,
 				80A2B23515DFFCA700058DDF /* SelfPlay */,
-				809EB71C15C99D0D00DF309E /* AppDelegate.h */,
-				809EB71D15C99D0D00DF309E /* AppDelegate.m */,
-				809EB71F15C99D0D00DF309E /* MainStoryboard.storyboard */,
-				80A57A9915DADB5C004F6F3F /* MenuViewController.h */,
-				80A57A9A15DADB5D004F6F3F /* MenuViewController.m */,
+				809C707A15E0BD07002B48DF /* Others */,
 				809EB71415C99D0D00DF309E /* Supporting Files */,
 			);
 			path = "SVST Bridging Words";

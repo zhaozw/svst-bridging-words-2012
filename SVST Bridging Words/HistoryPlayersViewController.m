@@ -85,7 +85,7 @@
     imageView.image=image;
     detailLabel.backgroundColor = [UIColor clearColor];
     detailLabel.textColor = [UIColor whiteColor];
-    detailLabel.text = @"List Player";
+    detailLabel.text = @"List Players";
     detailLabel.textAlignment=UITextAlignmentCenter;
     detailLabel.font = [UIFont systemFontOfSize:15];
     detailLabel.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:15];
