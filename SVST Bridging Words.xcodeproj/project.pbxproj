@@ -54,6 +54,7 @@
 		80AC220315CAD6D90070F986 /* start-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AC220115CAD6D90070F986 /* start-icon.png */; };
 		80AC5EDE15D4BD8C009621A4 /* robot.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AC5EDD15D4BD8C009621A4 /* robot.png */; };
 		80AC5EE015D4C2DB009621A4 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AC5EDF15D4C2DB009621A4 /* user.png */; };
+		80B39BE015E1EBF8007BD2CF /* btn_backGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B39BDF15E1EBF8007BD2CF /* btn_backGround.png */; };
 		80B4967C15D2BE100066FFD1 /* TrainRobotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4967B15D2BE0F0066FFD1 /* TrainRobotViewController.m */; };
 		80B4969A15D2BE4F0066FFD1 /* SSDrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4967F15D2BE4F0066FFD1 /* SSDrawingUtilities.m */; };
 		80B4969B15D2BE4F0066FFD1 /* SSMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4968115D2BE4F0066FFD1 /* SSMessagesViewController.m */; };
@@ -138,6 +139,7 @@
 		80AC5EDD15D4BD8C009621A4 /* robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot.png; sourceTree = "<group>"; };
 		80AC5EDF15D4C2DB009621A4 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		80AFCA6A15DD18EC0037CD19 /* laser.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = laser.aif; sourceTree = "<group>"; };
+		80B39BDF15E1EBF8007BD2CF /* btn_backGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_backGround.png; sourceTree = "<group>"; };
 		80B4967A15D2BE0F0066FFD1 /* TrainRobotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrainRobotViewController.h; path = ../TrainRobotViewController.h; sourceTree = "<group>"; };
 		80B4967B15D2BE0F0066FFD1 /* TrainRobotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrainRobotViewController.m; path = ../TrainRobotViewController.m; sourceTree = "<group>"; };
 		80B4967E15D2BE4F0066FFD1 /* SSDrawingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDrawingUtilities.h; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 		80B4968815D2BE4F0066FFD1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				80B39BDF15E1EBF8007BD2CF /* btn_backGround.png */,
 				80A5896E15DD6C6D005B4778 /* selfplay-background.jpg */,
 				80A5896F15DD6C6D005B4778 /* train-head.png */,
 				80A5897015DD6C6D005B4778 /* train.PNG */,
@@ -452,6 +455,7 @@
 				80A5897215DD6C6D005B4778 /* train-head.png in Resources */,
 				80A5897315DD6C6D005B4778 /* train.PNG in Resources */,
 				80A2B23715DFFD2200058DDF /* style.css in Resources */,
+				80B39BE015E1EBF8007BD2CF /* btn_backGround.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
