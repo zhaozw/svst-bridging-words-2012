@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 - (IBAction)replayButtonTouch:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *mainMenuButtonTouch;
+@property (strong, nonatomic) IBOutlet UILabel *myLabel;
 - (IBAction)backToMainMenu:(id)sender;
 -(void) viewErrorMsg:(NSInteger) intMsg;
 @end

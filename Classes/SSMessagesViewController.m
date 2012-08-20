@@ -118,6 +118,12 @@ CGFloat kInputHeight = 40.0f;
 	self.leftBackgroundImage = [[UIImage imageNamed:@"SSMessageTableViewCellBackgroundClear.png"] stretchableImageWithLeftCapWidth:24 topCapHeight:14];
 	self.rightBackgroundImage = [[UIImage imageNamed:@"SSMessageTableViewCellBackgroundBlue.png"] stretchableImageWithLeftCapWidth:17 topCapHeight:14];
 }
+//-(void) textFieldDidBeginEditing:(UITextField *)textField {
+//    
+//    CGRect textFieldRect = [textField frame];
+//    [self.tableView  scrollRectToVisible:textFieldRect animated:YES] ;
+//} 
+
 
 
 #pragma mark SSMessagesViewController
@@ -234,7 +240,9 @@ CGFloat kInputHeight = 40.0f;
 	[UIView setAnimationDuration:0.25f];
 	_tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 166.0f, 0.0f);
 	_tableView.scrollIndicatorInsets = _tableView.contentInset;
-    
+    UITableViewCell *cell = (UITableViewCell*) [[textField superview] superview];
+    [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] 
+                          atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 	_inputBackgroundView.frame = CGRectMake(0.0f, 180.0f, self.view.frame.size.width, kInputHeight);
 	[_sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[UIView commitAnimations];

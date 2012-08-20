@@ -7,6 +7,7 @@
 //
 
 #import "WordMeanViewController.h"
+#import "ListPlayerWordsViewController.h"
 
 @interface WordMeanViewController ()
 
@@ -15,6 +16,7 @@
 @implementation WordMeanViewController
 
 @synthesize webView;
+@synthesize IBRememberBtn;
 @synthesize historyObj;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,6 +32,9 @@
 {
     [super viewDidLoad];
     self.title=historyObj.word;
+    if (historyObj.wordMean==@"") {
+        IBRememberBtn.hidden;
+    }
 	// Do any additional setup after loading the view.
 }
 -(void) viewDidAppear:(BOOL)animated{
@@ -48,6 +53,7 @@
 {
     //[self setScrollView:nil];
     [self setWebView:nil];
+    [self setIBRememberBtn:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -59,5 +65,8 @@
 
 - (IBAction)rememberButtonTouch:(id)sender {
     [historyObj updateWordFromHistory:historyObj.word];
+ 
+//    ListPlayerWordsViewController *dvListHistoryViewCL=[[ListPlayerWordsViewController alloc] init];
+//    [self.navigationController pushViewController:dvListHistoryViewCL animated:YES];
 }
 @end

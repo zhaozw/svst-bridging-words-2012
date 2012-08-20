@@ -110,8 +110,15 @@ static sqlite3_stmt *updateStmt=nil;
 	if(sqlite3_step(wordMeanStmt) != SQLITE_DONE ) {
 		NSString *cssPath = [[NSBundle mainBundle] pathForResource:@"style" ofType:@"css"];
 		NSString *cssString = [NSString stringWithContentsOfFile:cssPath];
-		_wordMean = [NSString stringWithUTF8String:(char *)sqlite3_column_text(wordMeanStmt, 0)];
-		_wordMean = [_wordMean stringByAppendingString:cssString];
+        char* newName=(char *)sqlite3_column_text(wordMeanStmt, 0);
+        if (newName != NULL) {
+            _wordMean = [NSString stringWithUTF8String:(char *)sqlite3_column_text(wordMeanStmt, 0)];
+            _wordMean = [_wordMean stringByAppendingString:cssString];
+
+        }
+        else {
+                _wordMean=@"User has not put mean";
+        }
 	}
 	else
 		NSAssert1(0, @"Error while getting the content of dict. '%s'", sqlite3_errmsg(database));
