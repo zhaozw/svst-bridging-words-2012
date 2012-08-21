@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "SoundHelper.h"
 
 @interface MenuViewController : UIViewController
 
-@property SystemSoundID _laserSound;
+@property (strong, nonatomic) SoundHelper *audioPlayer;
 
 @end

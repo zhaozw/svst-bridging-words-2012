@@ -14,7 +14,7 @@
 @end
 
 @implementation MenuViewController
-@synthesize _laserSound;
+@synthesize audioPlayer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,22 +29,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    //SystemSoundID sound1;
-    NSURL *soundURL = [[NSBundle mainBundle] URLForResource:@"laser-01"
-                                              withExtension:@"aif"];
-    NSString *alanSugarFilePath =
-    [[NSBundle mainBundle] pathForResource:@"laser"
-                                    ofType:@"aif"];
-    NSLog(@"path: %@",alanSugarFilePath);
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &_laserSound);
+    
+    self.audioPlayer = [[SoundHelper alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    AudioServicesPlaySystemSound(_laserSound);
-    printf("\nlaser sound played\n");
     [self.navigationController setNavigationBarHidden:NO];
-    
+    [self.audioPlayer playSound:@"mylove" ofType:@"mp3"];
+    //[self.audioPlayer setVolume:1];
 }
 
 - (void)viewDidUnload

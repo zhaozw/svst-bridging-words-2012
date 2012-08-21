@@ -160,7 +160,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1728" y="79"/>
+            <point key="canvasLocation" x="1740" y="79"/>
         </scene>
         <!--Self Play View Controller-->
         <scene sceneID="B3M-1Z-ob6">
@@ -430,7 +430,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="416" y="884"/>
+            <point key="canvasLocation" x="374" y="836"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="ERG-Uh-PGm">
@@ -542,7 +542,6 @@
                 <relationship kind="action" name="backToMainMenu:"/>
                 <relationship kind="action" name="replayButtonTouch:"/>
                 <relationship kind="outlet" name="mainMenuButtonTouch" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -592,7 +591,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WordMeanViewController.h"/>
             <relationships>
                 <relationship kind="action" name="rememberButtonTouch:"/>
-                <relationship kind="outlet" name="IBRememberBtn" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>

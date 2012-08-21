@@ -13,6 +13,10 @@
 		809B15CD15DA4CBB00F39DF9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 809B15CC15DA4CBB00F39DF9 /* background.png */; };
 		809B15D015DA4D8400F39DF9 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 809B15CF15DA4D8400F39DF9 /* logo.jpg */; };
 		809B15D215DA582D00F39DF9 /* background-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 809B15D115DA582D00F39DF9 /* background-pattern.png */; };
+		809DF27415E2AA3D0040B7CF /* laser.aif in Resources */ = {isa = PBXBuildFile; fileRef = 80AFCA6A15DD18EC0037CD19 /* laser.aif */; };
+		809DF27A15E2AD380040B7CF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809DF27915E2AD380040B7CF /* MediaPlayer.framework */; };
+		809DF27D15E2AE650040B7CF /* SoundHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 809DF27C15E2AE650040B7CF /* SoundHelper.m */; };
+		809DF27F15E2AF650040B7CF /* mylove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 809DF27E15E2AF650040B7CF /* mylove.mp3 */; };
 		809EB70E15C99D0D00DF309E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70D15C99D0D00DF309E /* UIKit.framework */; };
 		809EB71015C99D0D00DF309E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70F15C99D0D00DF309E /* Foundation.framework */; };
 		809EB71215C99D0D00DF309E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB71115C99D0D00DF309E /* CoreGraphics.framework */; };
@@ -83,6 +87,10 @@
 		809B15CC15DA4CBB00F39DF9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		809B15CF15DA4D8400F39DF9 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		809B15D115DA582D00F39DF9 /* background-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-pattern.png"; sourceTree = "<group>"; };
+		809DF27915E2AD380040B7CF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		809DF27B15E2AE650040B7CF /* SoundHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundHelper.h; sourceTree = "<group>"; };
+		809DF27C15E2AE650040B7CF /* SoundHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundHelper.m; sourceTree = "<group>"; };
+		809DF27E15E2AF650040B7CF /* mylove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mylove.mp3; sourceTree = "<group>"; };
 		809EB70915C99D0D00DF309E /* SVST Bridging Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SVST Bridging Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		809EB70D15C99D0D00DF309E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		809EB70F15C99D0D00DF309E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -171,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				809DF27A15E2AD380040B7CF /* MediaPlayer.framework in Frameworks */,
 				80977BE515DBFDAE00FCFBB7 /* AudioToolbox.framework in Frameworks */,
 				809EB73015C99DC000DF309E /* libsqlite3.0.dylib in Frameworks */,
 				80977BE315DBFD4200FCFBB7 /* AVFoundation.framework in Frameworks */,
@@ -205,6 +214,7 @@
 		809EB6FE15C99D0D00DF309E = {
 			isa = PBXGroup;
 			children = (
+				809DF27915E2AD380040B7CF /* MediaPlayer.framework */,
 				809AB42C15D4DAD7006840C1 /* Sound */,
 				80B4967D15D2BE4F0066FFD1 /* Classes */,
 				80B4968815D2BE4F0066FFD1 /* Images */,
@@ -243,6 +253,8 @@
 				80A2B23515DFFCA700058DDF /* SelfPlay */,
 				809C707A15E0BD07002B48DF /* Others */,
 				809EB71415C99D0D00DF309E /* Supporting Files */,
+				809DF27B15E2AE650040B7CF /* SoundHelper.h */,
+				809DF27C15E2AE650040B7CF /* SoundHelper.m */,
 			);
 			path = "SVST Bridging Words";
 			sourceTree = "<group>";
@@ -415,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				809DF27415E2AA3D0040B7CF /* laser.aif in Resources */,
 				809EB71815C99D0D00DF309E /* InfoPlist.strings in Resources */,
 				809EB72115C99D0D00DF309E /* MainStoryboard.storyboard in Resources */,
 				80AC220215CAD6D90070F986 /* large_brooklyn_bridge.jpg in Resources */,
@@ -485,6 +498,7 @@
 				80A15B1015D6B16C00D48F6D /* ResultRobotTrainingViewController.m in Sources */,
 				80A57A9B15DADB5D004F6F3F /* MenuViewController.m in Sources */,
 				80A8580A15E0016D003D5750 /* History.m in Sources */,
+				809DF27D15E2AE650040B7CF /* SoundHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
