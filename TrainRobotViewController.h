@@ -13,12 +13,15 @@
    NSMutableArray *myArray;
 	NSMutableArray *arrListDictObj;
 	NSMutableArray *arrListWord;
+    ResultRobotTrainingViewController *rsView;
+
  
 
 }
 @property(strong,nonatomic) NSMutableArray *myArray;
 @property (nonatomic, retain) NSMutableArray *arrListDictObj;
 @property (nonatomic, retain) NSMutableArray *arrListWord;
+@property (strong,nonatomic) ResultRobotTrainingViewController *rsView;
 
 @property char currentChar;
 

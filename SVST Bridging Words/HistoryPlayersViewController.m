@@ -10,6 +10,8 @@
 #import "History.h"
 #import "AppDelegate.h"
 #import "ListPlayerWordsViewController.h"
+#import "ClearHistoryViewController.h"
+
 @implementation HistoryPlayersViewController
 @synthesize arrListPlayers,arrListPlayerObj;
 - (id)initWithStyle:(UITableViewStyle)style
@@ -185,9 +187,16 @@
     History *playersObj = [appDelegate.playerArr objectAtIndex:indexPath.row];
     NSLog(@"%d",playersObj.playerID);   
     ListPlayerWordsViewController *dvListHistoryViewCL=[[ListPlayerWordsViewController alloc] init];
-    dvListHistoryViewCL.myArray=[playersObj detailDataToDisplay:playersObj.playerID];
-    [self.navigationController pushViewController:dvListHistoryViewCL animated:YES];
-
+    if ([[playersObj detailDataToDisplay:playersObj.playerID] count]!=0) {
+        dvListHistoryViewCL.myArray=[playersObj detailDataToDisplay:playersObj.playerID];
+        [self.navigationController pushViewController:dvListHistoryViewCL animated:YES];
+    
+    }
+    else {
+        ClearHistoryViewController *dvClearHistory = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil]instantiateViewControllerWithIdentifier:@"clearHistory"];
+            dvClearHistory.playerName=playersObj.playerName;
+         [self.navigationController pushViewController:dvClearHistory animated:YES];
+    }
 }
 
 @end

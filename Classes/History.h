@@ -33,4 +33,5 @@
 -(NSMutableArray *) detailDataToDisplay:(NSUInteger) primaryID;
 -(void) wordMeanForWord:(NSString *) wordSelected;
 -(void) updateWordFromHistory :(NSString*) wordSelected;
+-(void) updateWordFromRobot:(NSString *)wordSelected Mean:(NSString *) wordMean;
 @end

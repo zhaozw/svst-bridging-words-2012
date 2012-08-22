@@ -22,4 +22,6 @@
 - (void) hydrateDetailViewData:(NSString *) wordSelected;
 - (NSMutableArray *) detailViewWithCharater:(char) charBegin;
 -(void) insertWordToRobot:(NSString* ) wordInsert;
+-(void) deleteWordFromRobot:(NSString*) wordDelete;
+
 @end

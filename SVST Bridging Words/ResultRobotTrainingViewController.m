@@ -16,7 +16,7 @@
 @implementation ResultRobotTrainingViewController
 @synthesize mainMenuButtonTouch;
 @synthesize myLabel;
-@synthesize resultLabel,errorMsg;
+@synthesize resultLabel,errorMsg,arrListWrongWords;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +45,12 @@
 -(void) viewDidAppear:(BOOL)animated{
     self.resultLabel.text=self.errorMsg;
     self.resultLabel.textAlignment= UITextAlignmentCenter;
+    if ([self.arrListWrongWords count]==0) {
+        NSLog(@"There is no wrong words");
+    }
+    else {
+        NSLog(@"%@",[self.arrListWrongWords objectAtIndex:0]);
+    }
     
     
 }

@@ -145,8 +145,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    
-    WordMeanViewController *detailViewController;
+    // Start request
+      WordMeanViewController *detailViewController;
     detailViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"wordMeanView"];
     History *historyObj=[[History alloc]init];
     [historyObj wordMeanForWord:[self.arrListWords objectAtIndex:indexPath.row]];
@@ -157,5 +157,7 @@
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
+//JSON connection
+
 
 @end

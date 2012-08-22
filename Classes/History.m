@@ -17,6 +17,8 @@ static sqlite3_stmt *wordWithCharater=nil;
 static sqlite3_stmt *wordMeanStmt=nil;
 static sqlite3_stmt *selectstmt=nil;
 static sqlite3_stmt *updateStmt=nil;
+static sqlite3_stmt *updateMeanStmt=nil;
+
 @implementation History
 @synthesize playerName=_playerName;
 @synthesize playerID=_playerID;
@@ -74,6 +76,9 @@ static sqlite3_stmt *updateStmt=nil;
     if (updateStmt  ) {
         sqlite3_finalize(updateStmt);
     }
+    if (updateMeanStmt  ) {
+        sqlite3_finalize(updateMeanStmt);
+    }
         }
 -(NSMutableArray  *) detailDataToDisplay:(NSUInteger) primaryID
 {
@@ -117,7 +122,7 @@ static sqlite3_stmt *updateStmt=nil;
 
         }
         else {
-                _wordMean=@"User has not put mean";
+                _wordMean=@"";
         }
 	}
 	else
@@ -126,6 +131,27 @@ static sqlite3_stmt *updateStmt=nil;
 	sqlite3_reset(wordMeanStmt);
 	//Set isDetailViewHydrated as YES, so we do not get it again from the database.
 	isDetailViewHydrated = YES;	
+}
+-(void) updateWordFromRobot:(NSString *)wordSelected Mean:(NSString *) wordMean
+{
+    
+    
+    if(updateMeanStmt == nil) {
+        const char *sql = "update bd_robot Set word_mean = ? Where word = ?";
+        if(sqlite3_prepare_v2(database, sql, -1, &updateMeanStmt, NULL) != SQLITE_OK)
+            NSAssert1(0, @"Error while creating update statement. '%s'", sqlite3_errmsg(database));
+    }
+    sqlite3_bind_text(updateMeanStmt, 1, [wordMean UTF8String], -1, SQLITE_TRANSIENT);
+    
+    sqlite3_bind_text(updateMeanStmt, 2, [wordSelected UTF8String], -1, SQLITE_TRANSIENT);
+    
+    if(SQLITE_DONE != sqlite3_step(updateMeanStmt))
+        NSAssert1(0, @"Error while updating. '%s'", sqlite3_errmsg(database));
+    
+    sqlite3_reset(updateMeanStmt);
+    
+    
+    
 }
 -(void) updateWordFromHistory:(NSString *)wordSelected
 {

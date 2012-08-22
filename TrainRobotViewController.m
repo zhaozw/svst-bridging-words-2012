@@ -21,7 +21,7 @@
 @implementation TrainRobotViewController
 @synthesize myArray,arrListWord,arrListDictObj;
 @synthesize currentChar;
-
+@synthesize rsView;
 static bool insertYN=true;
 #pragma mark UIViewController
 
@@ -32,6 +32,7 @@ static bool insertYN=true;
     
     self.arrListDictObj= [[NSMutableArray alloc]init];   
     self.arrListWord = [[NSMutableArray alloc] init];
+//    self.arrListWrongWords=[[NSMutableArray alloc]init];
     
     
 }
@@ -85,6 +86,7 @@ static bool insertYN=true;
     [request setDelegate:self];
     [request startAsynchronous];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
     // Check word
     if ([self checkValidWord:word]) {
         [self.arrListWord addObject:word];
@@ -119,9 +121,13 @@ static bool insertYN=true;
         NSLog( @"Invalid code");        
     }
     else if (request.responseStatusCode==404){
+        insertYN=false;
+        NSString *wrongWord=[self.arrListWord objectAtIndex:([self.arrListWord count]-2)];
+        Robot *robotObj=[[Robot alloc]init];
+        [robotObj deleteWordFromRobot:wrongWord];
         ResultRobotTrainingViewController *resultView;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
-        [resultView viewErrorMsg:5];
+        [resultView viewErrorMsg:4];
         [self.navigationController pushViewController:resultView animated:YES];
     } 
    else if (request.responseStatusCode == 200) {
@@ -190,10 +196,6 @@ static bool insertYN=true;
 
 -(BOOL)checkValidWord:(NSString *)word
 {
-    
-    
-    
-    
     if ([self checkWordCharacter:word] == false) {
         
         return false;

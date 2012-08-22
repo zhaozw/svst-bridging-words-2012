@@ -8,6 +8,7 @@ static sqlite3 *database = nil;
 static sqlite3_stmt *detailStmt = nil;
 static sqlite3_stmt *wordWithCharater=nil;
 static sqlite3_stmt *addStmt=nil;
+static sqlite3_stmt *delStmt=nil;
 
 @implementation Robot
 
@@ -39,6 +40,9 @@ static sqlite3_stmt *addStmt=nil;
 + (void) finalizeStatements {
 	if(database) sqlite3_close(database);
     if(addStmt) sqlite3_finalize(addStmt);
+    if (delStmt) {
+        sqlite3_finalize(delStmt);
+    }
 }
 
 - (void) hydrateDetailViewData:(NSString *) wordSelected
@@ -82,6 +86,22 @@ static sqlite3_stmt *addStmt=nil;
     sqlite3_reset(addStmt);
 
 }
+-(void) deleteWordFromRobot:(NSString *)wordDelete
+{
+
+    if (delStmt==nil) {
+        const char *sql = "delete from bd_robot where word=?";
+        if(sqlite3_prepare_v2(database, sql, -1, &delStmt, NULL) != SQLITE_OK)
+			NSAssert1(0, @"Error while creating detail view statement. '%s'", sqlite3_errmsg(database));
+	}
+	const char *abc = [wordDelete UTF8String];
+	sqlite3_bind_text(delStmt, 1, abc, -1, SQLITE_TRANSIENT);	
+	if (SQLITE_DONE != sqlite3_step(delStmt))
+        NSAssert1(0, @"Error while deleting. '%s'", sqlite3_errmsg(database));
+	sqlite3_reset(delStmt);
+	//Set isDetailViewHydrated as YES, so we do not get it again from the database.
+}
+
 -(NSMutableArray *) detailViewWithCharater:(char)charBegin
 {
     NSMutableArray *listRobotWord= [[NSMutableArray alloc]init];

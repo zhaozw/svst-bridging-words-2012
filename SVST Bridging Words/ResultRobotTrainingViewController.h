@@ -11,9 +11,12 @@
 @interface ResultRobotTrainingViewController : UIViewController
 {
     NSString *errorMsg;
+    NSMutableArray *arrListWrongWords;
+  
 }
 @property (nonatomic,strong) NSString *errorMsg;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+  @property (nonatomic,strong) NSMutableArray *arrListWrongWords;
 - (IBAction)replayButtonTouch:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *mainMenuButtonTouch;
 @property (strong, nonatomic) IBOutlet UILabel *myLabel;
