@@ -13,6 +13,10 @@
 #import "Robot.h"
 #import "AppDelegate.h"
 #import "ResultRobotTrainingViewController.h"
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+#import "JSON.h"
+#import "MBProgressHUD.h"
 #define TABLEVIEWTAG	300
 @implementation TrainRobotViewController
 @synthesize myArray,arrListWord,arrListDictObj;
@@ -73,6 +77,14 @@ static bool insertYN=true;
     }
     
     NSString *word = textField.text;
+    
+    // Start request
+    NSURL *url = [NSURL URLWithString:@"http://bobbymistery.byethost11.com/bw/"];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setPostValue:word forKey:@"word"];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     // Check word
     if ([self checkValidWord:word]) {
         [self.arrListWord addObject:word];
@@ -92,10 +104,57 @@ static bool insertYN=true;
         [self.navigationController pushViewController:resultView animated:YES];
     }
     [textField resignFirstResponder];
+     hud.labelText = @"Cheking word...";
 //    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.arrListWord count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
        return YES;
     
 }
+//JSON connection
+
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if (request.responseStatusCode == 400) {
+        NSLog( @"Invalid code");        
+    }
+    else if (request.responseStatusCode==404){
+        ResultRobotTrainingViewController *resultView;
+        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+        [resultView viewErrorMsg:5];
+        [self.navigationController pushViewController:resultView animated:YES];
+    } 
+   else if (request.responseStatusCode == 200) {
+        NSString *responseString = [request responseString];
+        NSLog(@"%@",responseString);
+        NSDictionary *responseDict = [responseString JSONValue] ;
+        NSArray *tweets=[[responseDict objectForKey:@"posts"] valueForKey:@"post"];
+        for (NSDictionary *tweet in tweets)
+        {
+            NSString *url = [tweet valueForKey:@"Meaning"];
+            NSLog(@"url is: %@",url);
+            
+        }
+        
+    } else {
+       NSLog(@"Unexpected error");
+    }
+    
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    NSError *error = [request error];
+   NSLog(error.localizedDescription);
+}
+
+
+
+//
+
+
+
 -(void)robotAnswer:(char)charBegin
 {
     Robot *robotObj=[[Robot alloc]init];
@@ -131,6 +190,9 @@ static bool insertYN=true;
 
 -(BOOL)checkValidWord:(NSString *)word
 {
+    
+    
+    
     
     if ([self checkWordCharacter:word] == false) {
         
