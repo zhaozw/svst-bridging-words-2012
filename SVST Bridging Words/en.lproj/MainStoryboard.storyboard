@@ -627,10 +627,79 @@ All rights reserved</string>
                     </navigationItem>
                     <connections>
                         <segue destination="S1h-e6-emM" kind="push" id="THI-qb-VTk"/>
+                        <segue destination="dAt-vm-3d8" kind="push" id="ZXl-K7-1bB"/>
                     </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="288" y="-541"/>
+        </scene>
+        <!--Player Profile View Controller-->
+        <scene sceneID="hzA-dS-xGO">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmB-Ag-MIF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="dAt-vm-3d8" customClass="PlayerProfileViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hAh-sr-5pm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="profile_backGround.png" id="9Jz-Wh-j2D">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xNc-fn-due">
+                                <rect key="frame" x="219" y="109" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Yhu-gC-rNP">
+                                <rect key="frame" x="219" y="129" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="tI3-Sq-BYw">
+                                <rect key="frame" x="157" y="250" width="99" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.96104281652803347" green="1" blue="0.031750368139744078" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" id="WNe-to-e0C">
+                                <rect key="frame" x="163" y="289" width="52" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" red="1" green="0.97410282228265943" blue="0.058471553663562825" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7Zw-vk-5Ru">
+                                <rect key="frame" x="25" y="206" width="275" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="M7y-31-tng">
+                                <rect key="frame" x="25" y="64" width="111" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="K9n-X6-n7A"/>
+                    <connections>
+                        <outlet property="avartarImageView" destination="M7y-31-tng" id="kCO-2g-q6L"/>
+                        <outlet property="loseLabel" destination="Yhu-gC-rNP" id="sW8-oP-Bm5"/>
+                        <outlet property="numberWordsUseLabel" destination="WNe-to-e0C" id="2Vi-8x-8lA"/>
+                        <outlet property="statusLabel" destination="7Zw-vk-5Ru" id="RTO-GE-2WC"/>
+                        <outlet property="totalScoreLabel" destination="tI3-Sq-BYw" id="th8-4D-Vpo"/>
+                        <outlet property="winLabel" destination="xNc-fn-due" id="FnY-1C-Bfb"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="20" y="-1163"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="sG9-bh-rC7">
@@ -835,17 +904,110 @@ All rights reserved</string>
         <image name="btn_selfPratice.png" width="395" height="71"/>
         <image name="logo.jpg" width="640" height="960"/>
         <image name="lose_scence1.png" width="640" height="960"/>
+        <image name="profile_backGround.png" width="640" height="960"/>
         <image name="selfplay-background.jpg" width="573" height="696"/>
         <image name="start-icon.png" width="256" height="256"/>
         <image name="train-head.png" width="245" height="170"/>
         <image name="train.PNG" width="734" height="281"/>
     </resources>
+    <classes>
+        <class className="ClearHistoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClearHistoryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FriendsListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FriendsListViewController.h"/>
+        </class>
+        <class className="HistoryPlayersViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryPlayersViewController.h"/>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+        </class>
+        <class className="PlayerProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerProfileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="avartarImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loseLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberWordsUseLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalScoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="winLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ResultRobotTrainingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultRobotTrainingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backToMainMenu:"/>
+                <relationship kind="action" name="replayButtonTouch:"/>
+                <relationship kind="outlet" name="imageViewBackGround" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="mainMenuButtonTouch" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ResultViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuButtonTouch:"/>
+                <relationship kind="action" name="replayButtonTouch:"/>
+                <relationship kind="outlet" name="gameScoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeScoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalScoreLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RoomsListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoomsListViewController.h"/>
+        </class>
+        <class className="SSMessagesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMessagesViewController.h"/>
+        </class>
+        <class className="SelfPlayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelfPlayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonTouch:"/>
+                <relationship kind="action" name="finishButtonTouch:"/>
+                <relationship kind="action" name="newBridgeButtonTouch:"/>
+                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bridgeView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="counterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pointLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="timeProgressView" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="wordTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="StoriesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StoriesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="counterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="TrainRobotViewController" superclassName="SSMessagesViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrainRobotViewController.h"/>
+        </class>
+        <class className="WordMeanViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WordMeanViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="rememberButtonTouch:"/>
+                <relationship kind="outlet" name="IBRememberBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="1u5-Ln-Rcx"/>
+        <segue reference="THI-qb-VTk"/>
     </inferredMetricsTieBreakers>
 </document>
