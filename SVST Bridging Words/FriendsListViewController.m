@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    listFriend=[[NSMutableArray alloc]initWithObjects:@"hello",@"alo",@"helo",@"tom",@"Lady Gaga", nil];
+    listFriend=[[NSMutableArray alloc]initWithObjects:@"T.O.M",@"ChimSeDiNang",@"CuongBG",@"ChiChi",@"Lady Gaga", nil];
     isReady=false;
     
     // Uncomment the following line to preserve selection between presentations.
@@ -117,7 +117,7 @@
     imageView.image=image;
     detailLabel.backgroundColor = [UIColor clearColor];
     detailLabel.textColor = [UIColor whiteColor];
-    detailLabel.text = @"List Players";
+    detailLabel.text = @"List Friends";
     detailLabel.textAlignment=UITextAlignmentCenter;
     detailLabel.font = [UIFont systemFontOfSize:15];
     detailLabel.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:15];

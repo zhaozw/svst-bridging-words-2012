@@ -90,21 +90,24 @@ static bool insertYN=true;
     // Check word
     if ([self checkValidWord:word]) {
         [self.arrListWord addObject:word];
-        Robot *robotObj=[[Robot alloc]init];
-        [self.tableView reloadData];
         
+        [self.tableView reloadData];
+        Robot *robotObj=[[Robot alloc]init];
         [self robotAnswer:currentChar];
+        [self.tableView reloadData];
         if (insertYN) {
             [robotObj insertWordToRobot:word];
         }
-        
+                
         textField.text=nil;
-    } else {
-        ResultRobotTrainingViewController *resultView;
-        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
-        [resultView viewErrorMsg:1];
-        [self.navigationController pushViewController:resultView animated:YES];
-    }
+    } 
+//    else {
+//        ResultRobotTrainingViewController *resultView;
+//        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+//        [resultView viewErrorMsg:1];
+//        [self.navigationController pushViewController:resultView animated:YES];
+//        return YES;
+//    }
     [textField resignFirstResponder];
      hud.labelText = @"Cheking word...";
 //    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.arrListWord count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
@@ -123,12 +126,15 @@ static bool insertYN=true;
     else if (request.responseStatusCode==404){
         insertYN=false;
         NSString *wrongWord=[self.arrListWord objectAtIndex:([self.arrListWord count]-2)];
-        Robot *robotObj=[[Robot alloc]init];
-        [robotObj deleteWordFromRobot:wrongWord];
-        ResultRobotTrainingViewController *resultView;
-        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
-        [resultView viewErrorMsg:4];
-        [self.navigationController pushViewController:resultView animated:YES];
+        ResultRobotTrainingViewController *resultView=[[ResultRobotTrainingViewController alloc]init];
+        [resultView.arrListWrongWords addObject:wrongWord];
+//        Robot *robotObj=[[Robot alloc]init];
+//        [robotObj deleteWordFromRobot:wrongWord];
+//        ResultRobotTrainingViewController *resultView;
+//        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+//        [resultView viewErrorMsg:4];
+//        [self.navigationController pushViewController:resultView animated:YES];
+//        return;
     } 
    else if (request.responseStatusCode == 200) {
         NSString *responseString = [request responseString];
@@ -146,6 +152,8 @@ static bool insertYN=true;
        NSLog(@"Unexpected error");
     }
     
+
+
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
@@ -187,9 +195,10 @@ static bool insertYN=true;
     {
         ResultRobotTrainingViewController *resultView;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
-        [resultView viewErrorMsg:4];
+        [resultView viewErrorMsg:9];
         [self.navigationController pushViewController:resultView animated:YES];
         insertYN=false;
+        return;
     }
     
 }
@@ -203,14 +212,29 @@ static bool insertYN=true;
     if (self.currentChar != '*') {
         if ([word characterAtIndex:0]!=self.currentChar) {
             
+
+            ResultRobotTrainingViewController *resultView;
+            resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+            [resultView viewErrorMsg:4];
+            [self.navigationController pushViewController:resultView animated:YES];
             return false;
         }
     }
     if ([self.arrListDictObj containsObject:word]) {
         
+      
+        ResultRobotTrainingViewController *resultView;
+        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+        [resultView viewErrorMsg:1];
+        [self.navigationController pushViewController:resultView animated:YES];
         return false;
     }
     if ([self.arrListWord containsObject:word]) {
+        ResultRobotTrainingViewController *resultView;
+        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+        [resultView viewErrorMsg:3];
+        [self.navigationController pushViewController:resultView animated:YES];
+ 
         return false;
     }
     self.currentChar = [self lastCharacter:word];

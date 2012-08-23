@@ -11,7 +11,8 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
-#import "MBProgressHUD.h"
+#import "MBProgressHUD.h"]
+#import "HistoryPlayersViewController.h"
 @interface WordMeanViewController ()
 
 @end
@@ -128,5 +129,8 @@
 - (IBAction)rememberButtonTouch:(id)sender {
     [historyObj updateWordFromHistory:historyObj.word];
     [historyObj updateWordFromRobot:historyObj.word Mean:historyObj.wordMean];
+   
+    
+    
 }
 @end

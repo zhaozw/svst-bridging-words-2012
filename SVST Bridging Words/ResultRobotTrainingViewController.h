@@ -14,6 +14,7 @@
     NSMutableArray *arrListWrongWords;
   
 }
+@property (strong, nonatomic) IBOutlet UIImageView *imageViewBackGround;
 @property (nonatomic,strong) NSString *errorMsg;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
   @property (nonatomic,strong) NSMutableArray *arrListWrongWords;

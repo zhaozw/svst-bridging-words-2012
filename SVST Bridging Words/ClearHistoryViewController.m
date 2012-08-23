@@ -34,6 +34,7 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     self.myLabel.text=[NSString stringWithFormat:@"You have already known all of %@'s words",playerName];
+    self.myLabel.font=[UIFont fontWithName:@"ChalkboardSE" size:20];
     NSLog(@"text is %@",self.myLabel.text);
 
    }   
