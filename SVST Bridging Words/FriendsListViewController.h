@@ -13,7 +13,7 @@ enum flagType {
 
 @interface FriendsListViewController : UITableViewController
 {
-    NSMutableArray *listFriend;
+    NSMutableArray *listFriendObj;
     BOOL isReady;
 }
 @property (strong,nonatomic) NSMutableArray *listFriend;

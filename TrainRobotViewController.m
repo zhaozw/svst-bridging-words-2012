@@ -125,7 +125,10 @@ static bool insertYN=true;
     }
     else if (request.responseStatusCode==404){
         insertYN=false;
-        NSString *wrongWord=[self.arrListWord objectAtIndex:([self.arrListWord count]-2)];
+        NSString *wrongWord =[[NSString alloc]init];
+        if ([self.arrListWord count]>1) {
+          
+        wrongWord=[self.arrListWord objectAtIndex:([self.arrListWord count]-2)];}
         ResultRobotTrainingViewController *resultView=[[ResultRobotTrainingViewController alloc]init];
         [resultView.arrListWrongWords addObject:wrongWord];
 //        Robot *robotObj=[[Robot alloc]init];
@@ -227,6 +230,7 @@ static bool insertYN=true;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
         [resultView viewErrorMsg:1];
         [self.navigationController pushViewController:resultView animated:YES];
+        [self viewDidUnload];
         return false;
     }
     if ([self.arrListWord containsObject:word]) {

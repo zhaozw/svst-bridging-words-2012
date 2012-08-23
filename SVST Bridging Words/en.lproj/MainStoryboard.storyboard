@@ -261,7 +261,7 @@
                                 <color key="backgroundColor" white="0.17472627739999999" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Q3-sI-8T3">
-                                <rect key="frame" x="71" y="343" width="168" height="54"/>
+                                <rect key="frame" x="4" y="339" width="168" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Main Menu" image="btn_back.png">
@@ -275,6 +275,21 @@
                                     <action selector="backToMainMenu:" destination="kyH-91-PZD" eventType="touchUpInside" id="rmJ-yH-1Fn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GwN-rT-LsH">
+                                <rect key="frame" x="165" y="343" width="155" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="btn_robotWords.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cT4-5b-slM" kind="push" id="3LO-BN-htA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -285,6 +300,36 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1269" y="733"/>
+        </scene>
+        <!--List Robot Words View Controller-->
+        <scene sceneID="hSz-PT-I0o">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adH-al-jJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="cT4-5b-slM" customClass="ListRobotWordsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="W7L-FN-QdQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7gm-t0-T7f">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cT4-5b-slM" id="Y2i-1z-xQx"/>
+                            <outlet property="delegate" destination="cT4-5b-slM" id="Qwb-sc-enS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="5tL-2N-TdE"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1690" y="690"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Fy-H0-dhN">
@@ -901,6 +946,7 @@ All rights reserved</string>
         <image name="btn_back.png" width="234" height="68"/>
         <image name="btn_multiplayer.png" width="396" height="71"/>
         <image name="btn_playWithRobot.png" width="395" height="71"/>
+        <image name="btn_robotWords.png" width="224" height="58"/>
         <image name="btn_selfPratice.png" width="395" height="71"/>
         <image name="logo.jpg" width="640" height="960"/>
         <image name="lose_scence1.png" width="640" height="960"/>
@@ -910,6 +956,101 @@ All rights reserved</string>
         <image name="train-head.png" width="245" height="170"/>
         <image name="train.PNG" width="734" height="281"/>
     </resources>
+    <classes>
+        <class className="ClearHistoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClearHistoryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FriendsListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FriendsListViewController.h"/>
+        </class>
+        <class className="HistoryPlayersViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryPlayersViewController.h"/>
+        </class>
+        <class className="ListRobotWordsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListRobotWordsViewController.h"/>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+        </class>
+        <class className="PlayerProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerProfileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="avartarImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loseLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberWordsUseLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalScoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="winLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ResultRobotTrainingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultRobotTrainingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backToMainMenu:"/>
+                <relationship kind="action" name="replayButtonTouch:"/>
+                <relationship kind="outlet" name="imageViewBackGround" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="mainMenuButtonTouch" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ResultViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuButtonTouch:"/>
+                <relationship kind="action" name="replayButtonTouch:"/>
+                <relationship kind="outlet" name="gameScoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeScoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalScoreLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RoomsListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoomsListViewController.h"/>
+        </class>
+        <class className="SSMessagesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMessagesViewController.h"/>
+        </class>
+        <class className="SelfPlayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelfPlayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonTouch:"/>
+                <relationship kind="action" name="finishButtonTouch:"/>
+                <relationship kind="action" name="newBridgeButtonTouch:"/>
+                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bridgeView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="counterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pointLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="timeProgressView" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="wordTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="StoriesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StoriesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="counterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="TrainRobotViewController" superclassName="SSMessagesViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrainRobotViewController.h"/>
+        </class>
+        <class className="WordMeanViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WordMeanViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="rememberButtonTouch:"/>
+                <relationship kind="outlet" name="IBRememberBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

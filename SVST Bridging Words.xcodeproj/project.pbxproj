@@ -22,6 +22,8 @@
 		809AAD2A15E675570090E79A /* PlayerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809AAD2915E675570090E79A /* PlayerProfileViewController.m */; };
 		809AAD2C15E6783B0090E79A /* profile_backGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 809AAD2B15E6783B0090E79A /* profile_backGround.png */; };
 		809AAD3215E690170090E79A /* cellBackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 809AAD3115E690160090E79A /* cellBackGround.png */; };
+		809AAD5A15E699840090E79A /* ListRobotWordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809AAD5915E699840090E79A /* ListRobotWordsViewController.m */; };
+		809AAD5F15E6A6F70090E79A /* btn_robotWords.png in Resources */ = {isa = PBXBuildFile; fileRef = 809AAD5E15E6A6F70090E79A /* btn_robotWords.png */; };
 		809B15CD15DA4CBB00F39DF9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 809B15CC15DA4CBB00F39DF9 /* background.png */; };
 		809B15D015DA4D8400F39DF9 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 809B15CF15DA4D8400F39DF9 /* logo.jpg */; };
 		809B15D215DA582D00F39DF9 /* background-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 809B15D115DA582D00F39DF9 /* background-pattern.png */; };
@@ -173,6 +175,9 @@
 		809AAD2915E675570090E79A /* PlayerProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileViewController.m; sourceTree = "<group>"; };
 		809AAD2B15E6783B0090E79A /* profile_backGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_backGround.png; sourceTree = "<group>"; };
 		809AAD3115E690160090E79A /* cellBackGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellBackGround.png; sourceTree = "<group>"; };
+		809AAD5815E699840090E79A /* ListRobotWordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListRobotWordsViewController.h; sourceTree = "<group>"; };
+		809AAD5915E699840090E79A /* ListRobotWordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListRobotWordsViewController.m; sourceTree = "<group>"; };
+		809AAD5E15E6A6F70090E79A /* btn_robotWords.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_robotWords.png; sourceTree = "<group>"; };
 		809B15CC15DA4CBB00F39DF9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		809B15CF15DA4D8400F39DF9 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		809B15D115DA582D00F39DF9 /* background-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-pattern.png"; sourceTree = "<group>"; };
@@ -520,6 +525,8 @@
 				80A15B0F15D6B16C00D48F6D /* ResultRobotTrainingViewController.m */,
 				80B4967A15D2BE0F0066FFD1 /* TrainRobotViewController.h */,
 				80B4967B15D2BE0F0066FFD1 /* TrainRobotViewController.m */,
+				809AAD5815E699840090E79A /* ListRobotWordsViewController.h */,
+				809AAD5915E699840090E79A /* ListRobotWordsViewController.m */,
 			);
 			name = PlayWIthRobot;
 			sourceTree = "<group>";
@@ -580,6 +587,7 @@
 		80B4968815D2BE4F0066FFD1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				809AAD5E15E6A6F70090E79A /* btn_robotWords.png */,
 				80A55AFB15E5E5CC00A11C54 /* avatarPlayer.png */,
 				809B15D115DA582D00F39DF9 /* background-pattern.png */,
 				809B15CC15DA4CBB00F39DF9 /* background.png */,
@@ -743,6 +751,7 @@
 				809F42E915E629B5009A786E /* headtrainView.png in Resources */,
 				809AAD2C15E6783B0090E79A /* profile_backGround.png in Resources */,
 				809AAD3215E690170090E79A /* cellBackGround.png in Resources */,
+				809AAD5F15E6A6F70090E79A /* btn_robotWords.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,6 +810,7 @@
 				80AA5C0215E5182D00395E8F /* Player.m in Sources */,
 				809693CC15E53EAD0009DE5F /* ClearHistoryViewController.m in Sources */,
 				809AAD2A15E675570090E79A /* PlayerProfileViewController.m in Sources */,
+				809AAD5A15E699840090E79A /* ListRobotWordsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

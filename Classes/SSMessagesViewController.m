@@ -56,7 +56,7 @@ CGFloat kInputHeight = 40.0f;
 
 	// Table view
     
-     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 65.0f, size.width, size.height - kInputHeight) style:UITableViewStylePlain];
+     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 65.0f, size.width, size.height - kInputHeight-50.0f) style:UITableViewStylePlain];
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	_tableView.backgroundColor = self.view.backgroundColor;
     _tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
@@ -255,7 +255,7 @@ CGFloat kInputHeight = 40.0f;
 	[UIView setAnimationDuration:0.25f];
 	_tableView.contentInset = UIEdgeInsetsZero;
 	_tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
-	_inputBackgroundView.frame = CGRectMake(0.0f, _tableView.frame.size.height, self.view.frame.size.width, kInputHeight);
+	_inputBackgroundView.frame = CGRectMake(0.0f, _tableView.frame.size.height+50.0f, self.view.frame.size.width, kInputHeight);
 	[_sendButton setTitleColor:[UIColor colorWithWhite:1.0f alpha:0.4f] forState:UIControlStateNormal];
 	[UIView commitAnimations];
 //    [_tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionBottom animated:YES];
