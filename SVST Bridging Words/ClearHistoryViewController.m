@@ -33,8 +33,8 @@
 }
 -(void) viewDidAppear:(BOOL)animated
 {
-    self.myLabel.text=[NSString stringWithFormat:@"You have already known all of %@'s words",playerName];
-    self.myLabel.font=[UIFont fontWithName:@"ChalkboardSE" size:20];
+    self.myLabel.text=[NSString stringWithFormat:@"You have already known all of %@'s words!\n Congratulation!",playerName];
+   // self.myLabel.font=[UIFont fontWithName:@"ChalkboardSE" size:40];
     NSLog(@"text is %@",self.myLabel.text);
 
    }   
