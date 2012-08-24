@@ -11,8 +11,9 @@
 @interface PlayerProfileViewController : UIViewController
 {
     Player *playerProfile;
-
+    
 }
+@property (strong, nonatomic) IBOutlet UILabel *playerNameLabel;
 @property (strong,nonatomic) Player *playerProfile;
 @property (strong, nonatomic) IBOutlet UIImageView *avartarImageView;
 @property (strong, nonatomic) IBOutlet UILabel *winLabel;

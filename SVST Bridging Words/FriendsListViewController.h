@@ -8,14 +8,16 @@
 enum flagType {
     UnreadyFlag = 1,
     ReadyFlag = 2
-    };
+};
 #import <UIKit/UIKit.h>
-
+#import "Player.h"
 @interface FriendsListViewController : UITableViewController
 {
     NSMutableArray *listFriendObj;
+    Player *friendObj;
     BOOL isReady;
 }
-@property (strong,nonatomic) NSMutableArray *listFriend;
+@property (strong,nonatomic) NSMutableArray *listFriendObj;
+@property (strong,nonatomic) Player *friendObj;
 @property (nonatomic,readwrite) BOOL isReady;
 @end

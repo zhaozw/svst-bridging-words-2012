@@ -1,18 +1,31 @@
 //
-//  ListRobotWordsViewController.h
-//  SVST Bridging Words
+//  simple dictionary project
 //
-//  Created by Mahmood1 on 8/24/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by khoinguonit-mac on 11/1/11.
+//  Copyright 2011 __KhoiNguonIT__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface ListRobotWordsViewController : UITableViewController
-{
-    NSMutableArray  *arrListWords;
 
+@interface ListRobotWordsViewController : UITableViewController<UISearchBarDelegate> {
+	
+	AppDelegate *appDelegate;
+    
+	UINavigationController *addNavigationController;
+	NSMutableArray *arrListDictObj;
+	NSMutableArray *arrListWord;
+	IBOutlet UITableView *theTableView;
+	NSArray *searchResult;
 }
-@property (strong,nonatomic) NSMutableArray *arrListWords;
+- (IBAction)menuButtonTouch:(id)sender;
+@property (nonatomic, retain) NSMutableArray *arrListDictObj;
+@property (nonatomic, retain) NSMutableArray *arrListWord;
+@property (nonatomic, retain) IBOutlet UITableView *theTableView;
+@property (nonatomic, retain) NSArray *searchResult;
 
+- (void) copyDatabaseIfNeeded;
+- (NSString *) getDBPath;
+- (void) reloadTable;
 @end

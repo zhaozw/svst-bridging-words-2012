@@ -27,8 +27,8 @@ CGFloat kInputHeight = 40.0f;
 @synthesize leftBackgroundImage = _leftBackgroundImage;
 @synthesize rightBackgroundImage = _rightBackgroundImage;
 @synthesize wordArr;
-@synthesize imageRobotCount=_imageRobotCount;
-@synthesize labeRobotCount=_labelRobotCount;
+
+
 
 #pragma mark NSObject
 
@@ -36,36 +36,20 @@ CGFloat kInputHeight = 40.0f;
 
 - (void)viewDidLoad {
 	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    CGSize size = self.view.frame.size;
     
-	CGSize size = self.view.frame.size;
-
-    //Word Robot count
-    //CGSize size = self.view.frame.size;
-    AppDelegate *appDelegate =[[AppDelegate alloc]init]; 
-    self.wordArr=[[NSMutableArray alloc]init];
-	self.wordArr=[Robot getInitialDataToDisplay:[appDelegate getDBPath]];
-    _imageRobotCount=[[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 10.0f, size.width, 55.0f)];
-    _imageRobotCount.image=[UIImage imageNamed:@"backgroundTextField.png"];
-    [self.view addSubview:_imageRobotCount];
-    _labelRobotCount=[[UILabel alloc]initWithFrame:CGRectMake(0.0f, 20.0f, size.width, 25.0f)];
-    _labelRobotCount.text=[NSString stringWithFormat:@"Your robot has %d words",self.wordArr.count];
-    _labelRobotCount.textColor=[UIColor whiteColor];
-    _labelRobotCount.backgroundColor=[UIColor clearColor];
-    _labelRobotCount.textAlignment=UITextAlignmentCenter;
-    [self.view addSubview:_labelRobotCount];
-
 	// Table view
     
-     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 65.0f, size.width, size.height - kInputHeight-50.0f) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 65.0f, size.width, size.height - kInputHeight-50.0f) style:UITableViewStylePlain];
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	_tableView.backgroundColor = self.view.backgroundColor;
     _tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     
     [_tableView setDelegate:self];
     [_tableView setDataSource:self];
-
+    
     [_tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
-
+    
 	_tableView.dataSource = self;
 	_tableView.delegate = self;
 	_tableView.separatorColor = self.view.backgroundColor;
@@ -98,7 +82,7 @@ CGFloat kInputHeight = 40.0f;
 	_textField.background = [[UIImage imageNamed:@"SSMessagesViewControllerTextFieldBackground.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
 	_textField.delegate = self;
 	_textField.font = [UIFont systemFontOfSize:15.0f];
- 
+    
 	_textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	_textField.textEdgeInsets = UIEdgeInsetsMake(4.0f, 12.0f, 0.0f, 12.0f);
     [_textField setPlaceholder:@"Input Word"];
@@ -170,9 +154,9 @@ CGFloat kInputHeight = 40.0f;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
+    
     static NSString *cellIdentifier = @"cellIdentifier";
-
+    
     //Load avatar
 	SSMessageTableViewCell *cell = (SSMessageTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
@@ -215,12 +199,12 @@ CGFloat kInputHeight = 40.0f;
         NSArray *matches = [dataDetector matchesInString:cell.messageText options:0 range:NSMakeRange(0, [cell.messageText length])];
         
         [cell setLinks:matches];
-      
+        
         if([matches count] > 0)
             cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
         return cell;
     }
-
+    
     return NULL;
 }
 
@@ -235,7 +219,7 @@ CGFloat kInputHeight = 40.0f;
 #pragma mark UITextFieldDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-//	[UIView beginAnimations:@"beginEditing" context:_inputBackgroundView];
+    //	[UIView beginAnimations:@"beginEditing" context:_inputBackgroundView];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	[UIView setAnimationDuration:0.25f];
 	_tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 166.0f, 0.0f);
@@ -250,7 +234,7 @@ CGFloat kInputHeight = 40.0f;
 
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-//	[UIView beginAnimations:@"endEditing" context:_inputBackgroundView];
+    //	[UIView beginAnimations:@"endEditing" context:_inputBackgroundView];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	[UIView setAnimationDuration:0.25f];
 	_tableView.contentInset = UIEdgeInsetsZero;
@@ -258,7 +242,7 @@ CGFloat kInputHeight = 40.0f;
 	_inputBackgroundView.frame = CGRectMake(0.0f, _tableView.frame.size.height+50.0f, self.view.frame.size.width, kInputHeight);
 	[_sendButton setTitleColor:[UIColor colorWithWhite:1.0f alpha:0.4f] forState:UIControlStateNormal];
 	[UIView commitAnimations];
-//    [_tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    //    [_tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 @end

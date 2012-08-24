@@ -7,14 +7,19 @@
 //
 
 #import "FriendsListViewController.h"
-
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+#import "JSON.h"
+#import "MBProgressHUD.h"
+#import "PlayerProfileViewController.h"
 @interface FriendsListViewController ()
 
 @end
 
 @implementation FriendsListViewController
-@synthesize listFriend;
+@synthesize listFriendObj;
 @synthesize isReady;
+@synthesize friendObj;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -27,15 +32,65 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    listFriend=[[NSMutableArray alloc]initWithObjects:@"T.O.M",@"ChimSeDiNang",@"CuongBG",@"ChiChi",@"Lady Gaga", nil];
+    //    listFriend=[[NSMutableArray alloc]initWithObjects:@"T.O.M",@"ChimSeDiNang",@"CuongBG",@"ChiChi",@"Lady Gaga", nil];
     isReady=false;
+    self.listFriendObj=[[NSMutableArray alloc]init ];
+    NSURL *url = [NSURL URLWithString:@"http://bobbymistery.byethost11.com/bw/multiplayer/"];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setPostValue:@"1" forKey:@"PLAYER_ID"];
+    [request setPostValue:@"1" forKey:@"STT"];
+    
+    [request setDelegate:self];
+    [request startAsynchronous];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+- (void)requestFinished:(ASIHTTPRequest *)request
+{    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if (request.responseStatusCode == 400) {
+        NSLog( @"Invalid code");        
+    }
+    else if (request.responseStatusCode == 403) {
+        NSLog(@"Code already used");
+    } else if (request.responseStatusCode == 200) {
+        NSString *responseString = [request responseString];
+        NSLog(@"string%@",responseString);
+        NSDictionary *responseDict = [responseString JSONValue] ;
+        NSArray *tweets=[[responseDict objectForKey:@"posts"] valueForKey:@"post"];
+        for (NSDictionary *tweet in tweets)
+        {
+            Player *playerObj=[[Player alloc]init];
+            playerObj.playerID  = [tweet valueForKey:@"FRIEND_ID"];
+            playerObj.playerName= [tweet valueForKey:@"NAME"];
+            playerObj.status= [tweet valueForKey:@"STATUS"];
+            if (playerObj.status==NULL) {
+                playerObj.status==@"I'm a new bie";
+            }
+            playerObj.stt= [[tweet valueForKey:@"STT"] integerValue];
+            [listFriendObj addObject:playerObj];
+        }
+        
+    } else {
+        NSLog(@"Unexpected error");
+    }
+    [self.tableView reloadData];
+    
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    NSError *error = [request error];
+    NSLog(@"%@",error.localizedDescription);
+}
+
+
 
 - (void)viewDidUnload
 {
@@ -62,13 +117,16 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    int count=[listFriend count];
-    return [listFriend count];
+    int count=[listFriendObj count];
+    if (count==0) {
+        return 0;
+    }
+    return [listFriendObj count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
- 
+    
     NSString *imageName=[[NSString alloc]init];
     static NSString *CellIdentifier = @"Cell";
     
@@ -80,24 +138,45 @@
     UILabel *cellLabel=[[UILabel alloc]initWithFrame:CGRectMake(100.0f, 0.0f, 250.0f, 60.0f)];
     cellLabel.backgroundColor = [UIColor clearColor];
     cellLabel.textColor = [UIColor blackColor];
-    cellLabel.text = [NSString stringWithFormat:@"%@",[listFriend objectAtIndex:indexPath.row]];
+    friendObj=[listFriendObj objectAtIndex:indexPath.row];
+    cellLabel.text = [NSString stringWithFormat:@"%@",friendObj.playerName];
     cellLabel.textAlignment=UITextAlignmentLeft;
     cellLabel.font = [UIFont systemFontOfSize:15];
     cellLabel.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:15];
+    
+    //Label Status
+    UILabel *statusLabel=[[UILabel alloc]initWithFrame:CGRectMake(100.0f, 28.0f, 250.0f, 33.0f)];
+    statusLabel.backgroundColor = [UIColor clearColor];
+    statusLabel.textColor = [UIColor grayColor];
+    NSString *friendStt=[[NSString alloc]init];
+    if (friendObj.status== NULL) {
+        friendStt=@"hello";
+    }else {
+        friendStt=friendObj.status;
+    }
+    
+    statusLabel.text = [NSString stringWithFormat:@"%@",friendStt];
+    statusLabel.textAlignment=UITextAlignmentLeft;
+    statusLabel.font = [UIFont systemFontOfSize:10];
+    statusLabel.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:10];
+    
+    
+    ///
+    [cell addSubview:statusLabel];
     [cell addSubview:cellLabel];
     [cell setBackgroundColor:[UIColor clearColor]];
     // Flag Image 
     if (isReady) {
-       imageName=@"flag_ready.png";
+        imageName=@"flag_ready.png";
     }
     else {
         imageName=@"flag_unready.png";
     }
     UIImage *imageFlag=[UIImage imageNamed:imageName];
-   UIImageView *imageView=[[UIImageView alloc] initWithImage:imageFlag];
-   imageView.frame=CGRectMake(0.0f, 0.0f, 35.0f, 35.0f);
-   //Avartar
-
+    UIImageView *imageView=[[UIImageView alloc] initWithImage:imageFlag];
+    imageView.frame=CGRectMake(0.0f, 0.0f, 35.0f, 35.0f);
+    //Avartar
+    
     cell.accessoryView= imageView;
     cell.accessoryType = UITableViewCellAccessoryNone;
     [tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
@@ -145,55 +224,53 @@
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }   
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }   
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    PlayerProfileViewController *profileView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"playerProfileView"];
+    profileView.playerProfile=[listFriendObj objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:profileView animated:YES];
+    
 }
 
 @end

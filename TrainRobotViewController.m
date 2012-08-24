@@ -22,7 +22,10 @@
 @synthesize myArray,arrListWord,arrListDictObj;
 @synthesize currentChar;
 @synthesize rsView;
+@synthesize labelRobotCount=_labelRobotCount;
+@synthesize imageRobotCount=_imageRobotCount;
 static bool insertYN=true;
+static int numberRobotWords;
 #pragma mark UIViewController
 
 
@@ -32,7 +35,7 @@ static bool insertYN=true;
     
     self.arrListDictObj= [[NSMutableArray alloc]init];   
     self.arrListWord = [[NSMutableArray alloc] init];
-//    self.arrListWrongWords=[[NSMutableArray alloc]init];
+    //    self.arrListWrongWords=[[NSMutableArray alloc]init];
     
     
 }
@@ -42,7 +45,27 @@ static bool insertYN=true;
     [super viewDidLoad];
     AppDelegate *appDelegate =[[AppDelegate alloc]init];  
     self.arrListDictObj = [Robot getInitialDataToDisplay:[appDelegate getDBPath]];
+    numberRobotWords=[self.arrListDictObj count];
     self.currentChar = '*';
+    [self drawLabelCount];
+}
+-(void) drawLabelCount
+{
+    CGSize size = self.view.frame.size;
+    
+    //Word Robot count
+    //CGSize size = self.view.frame.size;
+    _imageRobotCount=[[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 10.0f, size.width, 55.0f)];
+    _imageRobotCount.image=[UIImage imageNamed:@"backgroundTextField.png"];
+    [self.view addSubview:_imageRobotCount];
+    _labelRobotCount=[[UILabel alloc]initWithFrame:CGRectMake(0.0f, 20.0f, size.width, 25.0f)];
+    _labelRobotCount.text=[NSString stringWithFormat:@"Your robot has %d words",numberRobotWords];
+    _labelRobotCount.textColor=[UIColor whiteColor];
+    _labelRobotCount.backgroundColor=[UIColor clearColor];
+    _labelRobotCount.textAlignment=UITextAlignmentCenter;
+    [self.view addSubview:_labelRobotCount];
+    
+    
     
 }
 
@@ -86,32 +109,27 @@ static bool insertYN=true;
     [request setDelegate:self];
     [request startAsynchronous];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-
+    
     // Check word
     if ([self checkValidWord:word]) {
         [self.arrListWord addObject:word];
-        
+        insertYN=true;
         [self.tableView reloadData];
         Robot *robotObj=[[Robot alloc]init];
         [self robotAnswer:currentChar];
         [self.tableView reloadData];
         if (insertYN) {
             [robotObj insertWordToRobot:word];
+            numberRobotWords=numberRobotWords+1;
         }
-                
+        
         textField.text=nil;
     } 
-//    else {
-//        ResultRobotTrainingViewController *resultView;
-//        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
-//        [resultView viewErrorMsg:1];
-//        [self.navigationController pushViewController:resultView animated:YES];
-//        return YES;
-//    }
+    
     [textField resignFirstResponder];
-     hud.labelText = @"Cheking word...";
-//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.arrListWord count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-       return YES;
+    hud.labelText = @"Cheking word...";
+    [self drawLabelCount];
+    return YES;
     
 }
 //JSON connection
@@ -127,19 +145,12 @@ static bool insertYN=true;
         insertYN=false;
         NSString *wrongWord =[[NSString alloc]init];
         if ([self.arrListWord count]>1) {
-          
-        wrongWord=[self.arrListWord objectAtIndex:([self.arrListWord count]-2)];}
+            
+            wrongWord=[self.arrListWord objectAtIndex:([self.arrListWord count]-2)];}
         ResultRobotTrainingViewController *resultView=[[ResultRobotTrainingViewController alloc]init];
         [resultView.arrListWrongWords addObject:wrongWord];
-//        Robot *robotObj=[[Robot alloc]init];
-//        [robotObj deleteWordFromRobot:wrongWord];
-//        ResultRobotTrainingViewController *resultView;
-//        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
-//        [resultView viewErrorMsg:4];
-//        [self.navigationController pushViewController:resultView animated:YES];
-//        return;
-    } 
-   else if (request.responseStatusCode == 200) {
+            } 
+    else if (request.responseStatusCode == 200) {
         NSString *responseString = [request responseString];
         NSLog(@"%@",responseString);
         NSDictionary *responseDict = [responseString JSONValue] ;
@@ -152,23 +163,19 @@ static bool insertYN=true;
         }
         
     } else {
-       NSLog(@"Unexpected error");
+        NSLog(@"Unexpected error");
     }
     
-
-
+    
+    
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {    
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     NSError *error = [request error];
-   NSLog(error.localizedDescription);
+    NSLog(error.localizedDescription);
 }
-
-
-
-//
 
 
 
@@ -215,7 +222,7 @@ static bool insertYN=true;
     if (self.currentChar != '*') {
         if ([word characterAtIndex:0]!=self.currentChar) {
             
-
+            
             ResultRobotTrainingViewController *resultView;
             resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
             [resultView viewErrorMsg:4];
@@ -225,7 +232,7 @@ static bool insertYN=true;
     }
     if ([self.arrListDictObj containsObject:word]) {
         
-      
+        
         ResultRobotTrainingViewController *resultView;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
         [resultView viewErrorMsg:1];
@@ -238,7 +245,7 @@ static bool insertYN=true;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
         [resultView viewErrorMsg:3];
         [self.navigationController pushViewController:resultView animated:YES];
- 
+        
         return false;
     }
     self.currentChar = [self lastCharacter:word];

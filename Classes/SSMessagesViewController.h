@@ -14,7 +14,7 @@
 @class SSTextField;
 
 @interface SSMessagesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
-
+    
 @private
 	
     UIView *_tableHeaderView;
@@ -22,20 +22,20 @@
 	UITableView *_tableView;
     CGPoint tableViewContentOffset;
 	UIImageView *_inputBackgroundView;
-    UIImageView *_imageRobotCount;
-    UILabel *_labelRobotCount;
-	SSTextField *_textField;
-    UIButton *_cameraButton;
+    
+    
+	SSTextField *_textFaield;
+    UIButton *_camearaButton;
 	UIButton *_sendButton;
 	
 	UIImage *_leftBackgroundImage;
 	UIImage *_rightBackgroundImage;
     NSMutableArray *wordArr;
- 
+    
     
 }
-@property (nonatomic,retain) UIImageView *imageRobotCount;
-@property (nonatomic,retain) UILabel *labeRobotCount;
+
+
 @property (nonatomic,retain) NSMutableArray *wordArr;
 @property (nonatomic, retain) UIView *tableHeaderView;
 @property (nonatomic, retain, readonly) UITableView *tableView;

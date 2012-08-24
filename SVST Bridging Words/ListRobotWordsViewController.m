@@ -1,73 +1,46 @@
 //
-//  ListRobotWordsViewController.m
-//  SVST Bridging Words
+//  simple dictionary project
 //
-//  Created by Mahmood1 on 8/24/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by khoinguonit-mac on 11/1/11.
+//  Copyright 2011 __KhoiNguonIT__. All rights reserved.
 //
 
 #import "ListRobotWordsViewController.h"
-
 #import "AppDelegate.h"
 #import "Robot.h"
+
 @implementation ListRobotWordsViewController
-@synthesize arrListWords;
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize arrListDictObj, theTableView, arrListWord, searchResult;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-self.arrListWords = [[NSMutableArray alloc] init];
-    AppDelegate *appDelegate =[[AppDelegate alloc]init];  
-    self.arrListWords = [Robot getInitialDataToDisplay:[appDelegate getDBPath]];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-     return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    if (self.arrListWords.count==0) {
-        return NULL;
-    }
-    return [self.arrListWords count];
+    self.navigationItem.hidesBackButton=YES;
+	UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
+	searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
+	searchBarView.autoresizingMask = 0;
+	searchBar.delegate = self;
+	[searchBarView addSubview:searchBar];
+	self.navigationItem.titleView = searchBarView;
+	appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	self.title = @"Dictionary";
     
+	self.arrListWord = [[NSMutableArray alloc] init];
+	self.arrListDictObj = [[NSMutableArray alloc] init]; 
+    self.arrListDictObj = [Robot getInitialDataToDisplay:[appDelegate getDBPath]];
+	[self.arrListWord addObjectsFromArray:self.arrListDictObj];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+#pragma mark UITableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.arrListDictObj count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView setBackgroundView:nil];
     [tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]]];
     [tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
@@ -80,7 +53,7 @@ self.arrListWords = [[NSMutableArray alloc] init];
     UILabel *cellLabel=[[UILabel alloc]initWithFrame:CGRectMake(100.0f, 0.0f, 250.0f, 60.0f)];
     cellLabel.backgroundColor = [UIColor clearColor];
     cellLabel.textColor = [UIColor blackColor];
-    cellLabel.text = [NSString stringWithFormat:@"%@",[self.arrListWords objectAtIndex:indexPath.row]];
+    cellLabel.text = [NSString stringWithFormat:@"%@",[self.arrListDictObj objectAtIndex:indexPath.row]];
     cellLabel.textAlignment=UITextAlignmentLeft;
     cellLabel.font = [UIFont systemFontOfSize:15];
     cellLabel.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:15];
@@ -88,59 +61,142 @@ self.arrListWords = [[NSMutableArray alloc] init];
     [cell setBackgroundColor:[UIColor clearColor]];
     [tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
     return cell;
+    
+    return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //    Dict *dictObj = [[Dict alloc] init];
+    //    // Navigation logic -- create and push a new view controller
+    //	if(dvController == nil) dvController = [[DetailViewController alloc] initWithNibName:@"DetailView" bundle:nil];
+    //	NSString *wordSelected;
+    //	wordSelected = [self.arrListDictObj objectAtIndex:indexPath.row];
+    //	//Get the detail view data if it does not exists.
+    //	//We only load the data we initially want and keep on loading as we need.
+    //	[dictObj hydrateDetailViewData:wordSelected];
+    //	dvController.dictObj = dictObj;
+    //	[self.navigationController pushViewController:dvController animated:YES];
+}
+
+#pragma mark searchBarTextDidBeginEditing
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+	searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+	searchBar.showsCancelButton = NO;
+}
+
+- (void) reloadTable
+{
+	[self.arrListDictObj removeAllObjects];
+	[self.arrListDictObj addObjectsFromArray:self.arrListWord];
+	[theTableView reloadData];
+	
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+	
+	//[self.arrListDictObj removeAllObjects];
+	if([searchText length] == 0 || searchText == nil)
+	{
+		[self reloadTable];
+		return;
+	}
+	else
+	{
+		NSPredicate* predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", searchText];
+		self.searchResult = [arrListWord filteredArrayUsingPredicate: predicate];
+		self.arrListDictObj = [NSMutableArray arrayWithArray:self.searchResult];
+		[theTableView reloadData];
+	}
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    searchBar.text = @"";
+	[self reloadTable];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+	[searchBar resignFirstResponder];
+}
+
+
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the list
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support rearranging the list
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
+
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
+ // Override to support conditional rearranging of the list
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+	
+	[self.tableView reloadData];
 }
-*/
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+	
+	[super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:YES];
+	
+	//Do not let the user add if the app is in edit mode.
+	if(editing)
+		self.navigationItem.leftBarButtonItem.enabled = NO;
+	else
+		self.navigationItem.leftBarButtonItem.enabled = YES;
+}	
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ - (void)viewDidAppear:(BOOL)animated {
+ [super viewDidAppear:animated];
+ }
+ */
+/*
+ - (void)viewWillDisappear:(BOOL)animated {
+ }
+ */
+/*
+ - (void)viewDidDisappear:(BOOL)animated {
+ }
+ */
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
+    // Release anything that's not essential, such as cached data
+}
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.backgroundColor = [UIColor clearColor];
     UIImage *imageBG=[UIImage imageNamed:@"historyImage2.png"];
@@ -157,4 +213,19 @@ self.arrListWords = [[NSMutableArray alloc] init];
     
 }
 
+
+- (IBAction)menuButtonTouch:(id)sender {
+    
+    NSArray *currentControllers = self.navigationController.viewControllers;
+    /* Create a mutable array out of this array */ 
+    NSMutableArray *newControllers = [NSMutableArray arrayWithArray:currentControllers];
+    /* Remove the last object from the array */ 
+    [newControllers removeLastObject];
+    [newControllers removeLastObject];
+    [newControllers removeLastObject];
+    /* Assign this array to the Navigation Controller */
+    self.navigationController.viewControllers = newControllers;
+    
+}
 @end
+

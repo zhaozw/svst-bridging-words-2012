@@ -326,7 +326,16 @@
                             <outlet property="delegate" destination="cT4-5b-slM" id="Qwb-sc-enS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="5tL-2N-TdE"/>
+                    <navigationItem key="navigationItem" id="5tL-2N-TdE">
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="Pd4-JG-FmT">
+                            <connections>
+                                <action selector="menuButtonTouch:" destination="cT4-5b-slM" id="Dvf-l7-KZO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="theTableView" destination="W7L-FN-QdQ" id="uL2-3P-fch"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1690" y="690"/>
@@ -682,7 +691,7 @@ All rights reserved</string>
         <scene sceneID="hzA-dS-xGO">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmB-Ag-MIF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="dAt-vm-3d8" customClass="PlayerProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playerProfileView" id="dAt-vm-3d8" customClass="PlayerProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hAh-sr-5pm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -720,7 +729,7 @@ All rights reserved</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7Zw-vk-5Ru">
-                                <rect key="frame" x="25" y="206" width="275" height="31"/>
+                                <rect key="frame" x="39" y="194" width="275" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -730,6 +739,13 @@ All rights reserved</string>
                                 <rect key="frame" x="25" y="64" width="111" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6wE-Y5-P2I">
+                                <rect key="frame" x="187" y="35" width="107" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="31"/>
+                                <color key="textColor" red="0.84450733420000001" green="0.79886640399999997" blue="0.033943233220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -738,6 +754,7 @@ All rights reserved</string>
                         <outlet property="avartarImageView" destination="M7y-31-tng" id="kCO-2g-q6L"/>
                         <outlet property="loseLabel" destination="Yhu-gC-rNP" id="sW8-oP-Bm5"/>
                         <outlet property="numberWordsUseLabel" destination="WNe-to-e0C" id="2Vi-8x-8lA"/>
+                        <outlet property="playerNameLabel" destination="6wE-Y5-P2I" id="QLj-Vt-pQp"/>
                         <outlet property="statusLabel" destination="7Zw-vk-5Ru" id="RTO-GE-2WC"/>
                         <outlet property="totalScoreLabel" destination="tI3-Sq-BYw" id="th8-4D-Vpo"/>
                         <outlet property="winLabel" destination="xNc-fn-due" id="FnY-1C-Bfb"/>
@@ -971,6 +988,10 @@ All rights reserved</string>
         </class>
         <class className="ListRobotWordsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ListRobotWordsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuButtonTouch:"/>
+                <relationship kind="outlet" name="theTableView" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="MenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
@@ -981,6 +1002,7 @@ All rights reserved</string>
                 <relationship kind="outlet" name="avartarImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="loseLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numberWordsUseLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="totalScoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="winLabel" candidateClass="UILabel"/>

@@ -19,6 +19,7 @@
 @synthesize statusLabel;
 @synthesize totalScoreLabel;
 @synthesize numberWordsUseLabel;
+@synthesize playerNameLabel;
 @synthesize playerProfile;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,7 +36,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
-
+-(void) viewWillAppear:(BOOL)animated
+{
+    if (playerProfile.status==NULL) {
+        statusLabel.text=@"";
+    }else {
+        statusLabel.text=playerProfile.status;
+        
+    }
+    playerNameLabel.text=playerProfile.playerName;
+}
 - (void)viewDidUnload
 {
     [self setAvartarImageView:nil];
@@ -44,6 +54,7 @@
     [self setStatusLabel:nil];
     [self setTotalScoreLabel:nil];
     [self setNumberWordsUseLabel:nil];
+    [self setPlayerNameLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

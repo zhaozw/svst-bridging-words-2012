@@ -10,23 +10,25 @@
 #import "ResultRobotTrainingViewController.h"
 
 @interface TrainRobotViewController : SSMessagesViewController<UITextFieldDelegate> {
-   NSMutableArray *myArray;
+    NSMutableArray *myArray;
 	NSMutableArray *arrListDictObj;
 	NSMutableArray *arrListWord;
     ResultRobotTrainingViewController *rsView;
-
- 
-
+    UILabel *_labelRobotCount;
+    UIImageView *_imageRobotCount;
+    
+    
 }
 @property(strong,nonatomic) NSMutableArray *myArray;
 @property (nonatomic, retain) NSMutableArray *arrListDictObj;
 @property (nonatomic, retain) NSMutableArray *arrListWord;
 @property (strong,nonatomic) ResultRobotTrainingViewController *rsView;
-
+@property (nonatomic,retain) UILabel *labelRobotCount;
 @property char currentChar;
+@property (nonatomic,retain) UIImageView *imageRobotCount;
 
 - (void) copyDatabaseIfNeeded;
 - (NSString *) getDBPath;
-
+-(void) drawLabelCount;
 
 @end
