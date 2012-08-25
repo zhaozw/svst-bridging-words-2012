@@ -146,8 +146,13 @@
     UILabel *roomLabel=[[UILabel alloc]initWithFrame:CGRectMake(210.0f, 0.0f, 250.0f, 60.0f)];
     roomLabel.backgroundColor = [UIColor clearColor];
     roomLabel.textColor = [UIColor redColor];
-    friendObj=[listFriendObj objectAtIndex:indexPath.row];
-    roomLabel.text = [NSString stringWithFormat:@"Room %d",friendObj.inRoomNumber];
+    if (friendObj.inRoomNumber==0) {
+         roomLabel.text =@"";
+    }
+    else {
+        roomLabel.text = [NSString stringWithFormat:@"Room %d",friendObj.inRoomNumber];
+    }
+    
     roomLabel.textAlignment=UITextAlignmentLeft;
     roomLabel.font = [UIFont systemFontOfSize:15];
     roomLabel.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:15];
