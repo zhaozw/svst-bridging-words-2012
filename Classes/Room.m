@@ -9,5 +9,5 @@
 #import "Room.h"
 
 @implementation Room
-@synthesize roomName,roomAmount;
+@synthesize roomName,roomAmount,roomID;
 @end

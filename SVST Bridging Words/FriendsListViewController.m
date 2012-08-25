@@ -67,7 +67,10 @@
             playerObj.status= [tweet valueForKey:@"STATUS"];
             playerObj.stt= [[tweet valueForKey:@"STT"] integerValue];
             playerObj.numberWordsUse=[[tweet valueForKey:@"NUMBER_WORDS_USED"] integerValue];
-            playerObj.inRoomNumber=[[tweet valueForKey:@""]integerValue];
+            playerObj.inRoomNumber=[[tweet valueForKey:@"ROOM"]integerValue];
+            playerObj.playerScore=[[tweet valueForKey:@"SCORE"]integerValue];
+            playerObj.numberWin=[[tweet valueForKey:@"WIN"]integerValue];
+            playerObj.numberLose=[[tweet valueForKey:@"LOSE"]integerValue];
             [listFriendObj addObject:playerObj];
         }
         
@@ -139,10 +142,19 @@
     cellLabel.font = [UIFont systemFontOfSize:15];
     cellLabel.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:15];
     
+    //Room Label
+    UILabel *roomLabel=[[UILabel alloc]initWithFrame:CGRectMake(210.0f, 0.0f, 250.0f, 60.0f)];
+    roomLabel.backgroundColor = [UIColor clearColor];
+    roomLabel.textColor = [UIColor redColor];
+    friendObj=[listFriendObj objectAtIndex:indexPath.row];
+    roomLabel.text = [NSString stringWithFormat:@"Room %d",friendObj.inRoomNumber];
+    roomLabel.textAlignment=UITextAlignmentLeft;
+    roomLabel.font = [UIFont systemFontOfSize:15];
+    roomLabel.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:15];
     //Label Status
     UILabel *statusLabel=[[UILabel alloc]initWithFrame:CGRectMake(100.0f, 28.0f, 250.0f, 33.0f)];
     statusLabel.backgroundColor = [UIColor clearColor];
-    statusLabel.textColor = [UIColor grayColor];
+    statusLabel.textColor = [UIColor blueColor];
     NSString *friendStt=[[NSString alloc]init];
     if (friendObj.status== NULL) {
         friendStt=@"hello";
@@ -157,6 +169,7 @@
     
     
     ///
+    [cell addSubview:roomLabel];
     [cell addSubview:statusLabel];
     [cell addSubview:cellLabel];
     [cell setBackgroundColor:[UIColor clearColor]];

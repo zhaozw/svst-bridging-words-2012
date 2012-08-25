@@ -12,8 +12,10 @@
 {
     NSString *roomName;
     NSInteger roomAmount;
+    NSInteger roomID;
     
 }
 @property (strong,nonatomic) NSString * roomName;
 @property (nonatomic,readwrite) NSInteger roomAmount;
+@property (nonatomic,readwrite) NSInteger roomID;
 @end
