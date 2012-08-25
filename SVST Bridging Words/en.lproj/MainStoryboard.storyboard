@@ -30,7 +30,7 @@
                                 <rect key="frame" x="10" y="0.0" width="300" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <inset key="contentInset" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                                <inset key="contentInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1050,123 +1050,6 @@ All rights reserved</string>
         <image name="start-icon.png" width="256" height="256"/>
         <image name="train.PNG" width="734" height="281"/>
     </resources>
-    <classes>
-        <class className="ClearHistoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClearHistoryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DeskViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DeskViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="loseNumberPlayer1Label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="loseNumberPlayer2Label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player1NameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player1View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="player2NameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player2View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="tabToStartLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="winNumberPlayer1Label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="winNumberPlayer2Label" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FriendsListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FriendsListViewController.h"/>
-        </class>
-        <class className="HistoryPlayersViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryPlayersViewController.h"/>
-        </class>
-        <class className="ListRobotWordsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListRobotWordsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuButtonTouch:"/>
-                <relationship kind="outlet" name="theTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-        </class>
-        <class className="PlayerProfileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerProfileViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="avartarImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loseLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberWordsUseLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="winLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ResultRobotTrainingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultRobotTrainingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backToMainMenu:"/>
-                <relationship kind="action" name="replayButtonTouch:"/>
-                <relationship kind="outlet" name="imageViewBackGround" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="mainMenuButtonTouch" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ResultViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuButtonTouch:"/>
-                <relationship kind="action" name="replayButtonTouch:"/>
-                <relationship kind="outlet" name="gameScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalScoreLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RoomsListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoomsListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="randomButtonTouch:"/>
-            </relationships>
-        </class>
-        <class className="SSMessagesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMessagesViewController.h"/>
-        </class>
-        <class className="SelfPlayViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelfPlayViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addButtonTouch:"/>
-                <relationship kind="action" name="finishButtonTouch:"/>
-                <relationship kind="action" name="newBridgeButtonTouch:"/>
-                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="bridgeView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="counterLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="currentContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="pointLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="timeProgressView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="wordTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="StoriesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StoriesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="counterLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="TrainRobotViewController" superclassName="SSMessagesViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrainRobotViewController.h"/>
-        </class>
-        <class className="WordMeanViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WordMeanViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="rememberButtonTouch:"/>
-                <relationship kind="outlet" name="IBRememberBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
