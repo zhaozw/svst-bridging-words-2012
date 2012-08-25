@@ -82,6 +82,7 @@
 		80A6C91315E91C43000A3516 /* RoomList1CellBackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A6C91015E91C43000A3516 /* RoomList1CellBackGround.png */; };
 		80A6C91415E91C43000A3516 /* RoomList2CellBackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A6C91115E91C43000A3516 /* RoomList2CellBackGround.png */; };
 		80A6C91515E91C43000A3516 /* RoomList3CellBackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A6C91215E91C43000A3516 /* RoomList3CellBackGround.png */; };
+		80A6C91E15E94D13000A3516 /* DeskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A6C91D15E94D13000A3516 /* DeskListViewController.m */; };
 		80A8580A15E0016D003D5750 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A8580915E0016D003D5750 /* History.m */; };
 		80A8580F15E00252003D5750 /* HistoryPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A2B22D15DFFC7000058DDF /* HistoryPlayersViewController.m */; };
 		80A8581015E00252003D5750 /* WordMeanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A2B23B15DFFD7300058DDF /* WordMeanViewController.m */; };
@@ -267,6 +268,8 @@
 		80A6C91015E91C43000A3516 /* RoomList1CellBackGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoomList1CellBackGround.png; sourceTree = "<group>"; };
 		80A6C91115E91C43000A3516 /* RoomList2CellBackGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoomList2CellBackGround.png; sourceTree = "<group>"; };
 		80A6C91215E91C43000A3516 /* RoomList3CellBackGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoomList3CellBackGround.png; sourceTree = "<group>"; };
+		80A6C91C15E94D13000A3516 /* DeskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeskListViewController.h; sourceTree = "<group>"; };
+		80A6C91D15E94D13000A3516 /* DeskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeskListViewController.m; sourceTree = "<group>"; };
 		80A8580815E0016D003D5750 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
 		80A8580915E0016D003D5750 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
 		80A935C515E8E99900B7C64B /* DeskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeskViewController.h; sourceTree = "<group>"; };
@@ -367,6 +370,8 @@
 				809AAD2915E675570090E79A /* PlayerProfileViewController.m */,
 				80A935C515E8E99900B7C64B /* DeskViewController.h */,
 				80A935C615E8E99900B7C64B /* DeskViewController.m */,
+				80A6C91C15E94D13000A3516 /* DeskListViewController.h */,
+				80A6C91D15E94D13000A3516 /* DeskListViewController.m */,
 			);
 			name = MultiPlayer;
 			sourceTree = "<group>";
@@ -869,6 +874,7 @@
 				809AAD2A15E675570090E79A /* PlayerProfileViewController.m in Sources */,
 				809AAD5A15E699840090E79A /* ListRobotWordsViewController.m in Sources */,
 				80A935C715E8E99900B7C64B /* DeskViewController.m in Sources */,
+				80A6C91E15E94D13000A3516 /* DeskListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
