@@ -302,6 +302,9 @@
             self.currentCharacter = [word characterAtIndex:[word length]-1];
         }
     }
+    if (result == false) {
+        [soundHelper playSound:@"efx_NO-Fabio_Farinelli-955789468" ofType:@"mp3"];
+    }
     return result;
 }
 

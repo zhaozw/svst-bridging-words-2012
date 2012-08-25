@@ -33,8 +33,26 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.player1View.center = CGPointMake(-160, self.player1View.center.y);
+    self.player2View.center = CGPointMake(320+160, self.player2View.center.y);
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [UIView beginAnimations:@"player1Comein" context:NULL];
+    [UIView setAnimationDuration:1];
+    self.player1View.center = CGPointMake(self.player1View.bounds.size.width/2, self.player1View.center.y);
+    [UIView commitAnimations];
+    [self performSelector:@selector(player2ComeinAnimate) withObject:nil afterDelay:5];
+}
+
+- (void)player2ComeinAnimate
+{
+    [UIView beginAnimations:@"player2Comein" context:NULL];
+    [UIView setAnimationDuration:1];
+    self.player2View.center = CGPointMake(self.player2View.bounds.size.width/2, self.player2View.center.y);
+    [UIView commitAnimations];
+}
 
 - (void)viewDidUnload
 {
