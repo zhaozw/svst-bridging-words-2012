@@ -27,7 +27,6 @@
 		809B15CD15DA4CBB00F39DF9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 809B15CC15DA4CBB00F39DF9 /* background.png */; };
 		809B15D015DA4D8400F39DF9 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 809B15CF15DA4D8400F39DF9 /* logo.jpg */; };
 		809B15D215DA582D00F39DF9 /* background-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 809B15D115DA582D00F39DF9 /* background-pattern.png */; };
-		809DF27415E2AA3D0040B7CF /* laser.aif in Resources */ = {isa = PBXBuildFile; fileRef = 80AFCA6A15DD18EC0037CD19 /* laser.aif */; };
 		809DF27A15E2AD380040B7CF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809DF27915E2AD380040B7CF /* MediaPlayer.framework */; };
 		809DF27D15E2AE650040B7CF /* SoundHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 809DF27C15E2AE650040B7CF /* SoundHelper.m */; };
 		809EB70E15C99D0D00DF309E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EB70D15C99D0D00DF309E /* UIKit.framework */; };
@@ -288,7 +287,6 @@
 		80AC220115CAD6D90070F986 /* start-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "start-icon.png"; path = "../start-icon.png"; sourceTree = "<group>"; };
 		80AC5EDD15D4BD8C009621A4 /* robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot.png; sourceTree = "<group>"; };
 		80AC5EDF15D4C2DB009621A4 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		80AFCA6A15DD18EC0037CD19 /* laser.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = laser.aif; path = Images/laser.aif; sourceTree = "<group>"; };
 		80B39BDF15E1EBF8007BD2CF /* btn_backGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_backGround.png; sourceTree = "<group>"; };
 		80B4967A15D2BE0F0066FFD1 /* TrainRobotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrainRobotViewController.h; path = ../TrainRobotViewController.h; sourceTree = "<group>"; };
 		80B4967B15D2BE0F0066FFD1 /* TrainRobotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrainRobotViewController.m; path = ../TrainRobotViewController.m; sourceTree = "<group>"; };
@@ -435,7 +433,6 @@
 		809AB42C15D4DAD7006840C1 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				80AFCA6A15DD18EC0037CD19 /* laser.aif */,
 			);
 			name = Sound;
 			sourceTree = "<group>";
@@ -711,7 +708,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809DF27415E2AA3D0040B7CF /* laser.aif in Resources */,
 				809EB71815C99D0D00DF309E /* InfoPlist.strings in Resources */,
 				809EB72115C99D0D00DF309E /* MainStoryboard.storyboard in Resources */,
 				80AC220215CAD6D90070F986 /* large_brooklyn_bridge.jpg in Resources */,
