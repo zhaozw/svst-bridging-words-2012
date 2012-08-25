@@ -26,8 +26,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     self.roomListArray=[[NSMutableArray alloc]init];
-    NSMutableArray *roomListStatic=[[NSMutableArray alloc]initWithCapacity:10];
-//    self.roomListArray=[[NSMutableArray alloc]initWithObjects:@"Room 1",@"Room 2",@"Room 3",@"Room 4",@"Room 5",@"Room 6",@"Room 7",@"Room 8",@"Room 9",@"Room 10", nil];
+   //    self.roomListArray=[[NSMutableArray alloc]initWithObjects:@"Room 1",@"Room 2",@"Room 3",@"Room 4",@"Room 5",@"Room 6",@"Room 7",@"Room 8",@"Room 9",@"Room 10", nil];
   
     NSURL *url = [NSURL URLWithString:@"http://bobbymistery.byethost11.com/bw/multiplayer/house.php"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
