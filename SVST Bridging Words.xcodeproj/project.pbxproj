@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8024CADB15E93D4A00491137 /* Bow_Fire_Arrow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8024CAD115E93D4A00491137 /* Bow_Fire_Arrow.mp3 */; };
+		8024CADC15E93D4A00491137 /* Computer Error Alert-SoundBible.com-783113881.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8024CAD215E93D4A00491137 /* Computer Error Alert-SoundBible.com-783113881.mp3 */; };
+		8024CADD15E93D4A00491137 /* Computer Error-SoundBible.com-1655839472.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8024CAD315E93D4A00491137 /* Computer Error-SoundBible.com-1655839472.mp3 */; };
+		8024CADE15E93D4A00491137 /* efx_NO-Fabio_Farinelli-955789468.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8024CAD415E93D4A00491137 /* efx_NO-Fabio_Farinelli-955789468.mp3 */; };
+		8024CADF15E93D4A00491137 /* Electrical_Sweep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8024CAD515E93D4A00491137 /* Electrical_Sweep.mp3 */; };
+		8024CAE015E93D4A00491137 /* Evil Laugh-SoundBible.com-1289174159.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8024CAD615E93D4A00491137 /* Evil Laugh-SoundBible.com-1289174159.mp3 */; };
+		8024CAE115E93D4A00491137 /* Jump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8024CAD715E93D4A00491137 /* Jump.mp3 */; };
+		8024CAE215E93D4A00491137 /* Mario_Jumping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8024CAD815E93D4A00491137 /* Mario_Jumping.mp3 */; };
+		8024CAE315E93D4A00491137 /* Power_Up_Ray.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8024CAD915E93D4A00491137 /* Power_Up_Ray.mp3 */; };
+		8024CAE415E93D4A00491137 /* ray_gun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8024CADA15E93D4A00491137 /* ray_gun.mp3 */; };
 		803D2C8315D4190B00F9A9CB /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 803D2C8215D4190B00F9A9CB /* Robot.m */; };
 		809693CC15E53EAD0009DE5F /* ClearHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809693CB15E53EAD0009DE5F /* ClearHistoryViewController.m */; };
 		80977BE315DBFD4200FCFBB7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80977BE215DBFD4200FCFBB7 /* AVFoundation.framework */; };
@@ -132,6 +142,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8024CAD115E93D4A00491137 /* Bow_Fire_Arrow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bow_Fire_Arrow.mp3; sourceTree = "<group>"; };
+		8024CAD215E93D4A00491137 /* Computer Error Alert-SoundBible.com-783113881.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Computer Error Alert-SoundBible.com-783113881.mp3"; sourceTree = "<group>"; };
+		8024CAD315E93D4A00491137 /* Computer Error-SoundBible.com-1655839472.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Computer Error-SoundBible.com-1655839472.mp3"; sourceTree = "<group>"; };
+		8024CAD415E93D4A00491137 /* efx_NO-Fabio_Farinelli-955789468.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "efx_NO-Fabio_Farinelli-955789468.mp3"; sourceTree = "<group>"; };
+		8024CAD515E93D4A00491137 /* Electrical_Sweep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Electrical_Sweep.mp3; sourceTree = "<group>"; };
+		8024CAD615E93D4A00491137 /* Evil Laugh-SoundBible.com-1289174159.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Evil Laugh-SoundBible.com-1289174159.mp3"; sourceTree = "<group>"; };
+		8024CAD715E93D4A00491137 /* Jump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Jump.mp3; sourceTree = "<group>"; };
+		8024CAD815E93D4A00491137 /* Mario_Jumping.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mario_Jumping.mp3; sourceTree = "<group>"; };
+		8024CAD915E93D4A00491137 /* Power_Up_Ray.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Power_Up_Ray.mp3; sourceTree = "<group>"; };
+		8024CADA15E93D4A00491137 /* ray_gun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ray_gun.mp3; sourceTree = "<group>"; };
 		803D2C8115D4190B00F9A9CB /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Robot.h; path = "../SVST Bridging Words/Robot.h"; sourceTree = "<group>"; };
 		803D2C8215D4190B00F9A9CB /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Robot.m; path = "../SVST Bridging Words/Robot.m"; sourceTree = "<group>"; };
 		809693CA15E53EAD0009DE5F /* ClearHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClearHistoryViewController.h; sourceTree = "<group>"; };
@@ -433,6 +453,16 @@
 		809AB42C15D4DAD7006840C1 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				8024CAD115E93D4A00491137 /* Bow_Fire_Arrow.mp3 */,
+				8024CAD215E93D4A00491137 /* Computer Error Alert-SoundBible.com-783113881.mp3 */,
+				8024CAD315E93D4A00491137 /* Computer Error-SoundBible.com-1655839472.mp3 */,
+				8024CAD415E93D4A00491137 /* efx_NO-Fabio_Farinelli-955789468.mp3 */,
+				8024CAD515E93D4A00491137 /* Electrical_Sweep.mp3 */,
+				8024CAD615E93D4A00491137 /* Evil Laugh-SoundBible.com-1289174159.mp3 */,
+				8024CAD715E93D4A00491137 /* Jump.mp3 */,
+				8024CAD815E93D4A00491137 /* Mario_Jumping.mp3 */,
+				8024CAD915E93D4A00491137 /* Power_Up_Ray.mp3 */,
+				8024CADA15E93D4A00491137 /* ray_gun.mp3 */,
 			);
 			name = Sound;
 			sourceTree = "<group>";
@@ -769,6 +799,16 @@
 				80A6C91315E91C43000A3516 /* RoomList1CellBackGround.png in Resources */,
 				80A6C91415E91C43000A3516 /* RoomList2CellBackGround.png in Resources */,
 				80A6C91515E91C43000A3516 /* RoomList3CellBackGround.png in Resources */,
+				8024CADB15E93D4A00491137 /* Bow_Fire_Arrow.mp3 in Resources */,
+				8024CADC15E93D4A00491137 /* Computer Error Alert-SoundBible.com-783113881.mp3 in Resources */,
+				8024CADD15E93D4A00491137 /* Computer Error-SoundBible.com-1655839472.mp3 in Resources */,
+				8024CADE15E93D4A00491137 /* efx_NO-Fabio_Farinelli-955789468.mp3 in Resources */,
+				8024CADF15E93D4A00491137 /* Electrical_Sweep.mp3 in Resources */,
+				8024CAE015E93D4A00491137 /* Evil Laugh-SoundBible.com-1289174159.mp3 in Resources */,
+				8024CAE115E93D4A00491137 /* Jump.mp3 in Resources */,
+				8024CAE215E93D4A00491137 /* Mario_Jumping.mp3 in Resources */,
+				8024CAE315E93D4A00491137 /* Power_Up_Ray.mp3 in Resources */,
+				8024CAE415E93D4A00491137 /* ray_gun.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

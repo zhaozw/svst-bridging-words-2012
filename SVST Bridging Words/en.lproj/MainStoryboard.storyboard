@@ -15,24 +15,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background-pattern.png" id="paf-rv-DAb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="selfplay-background.jpg" id="paf-rv-DAb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.1676551094890511" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="fe4-ad-plA">
-                                <rect key="frame" x="135" y="351" width="51" height="58"/>
+                                <rect key="frame" x="130" y="351" width="71" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="55"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="xg6-qY-OvF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="this is a story" id="xg6-qY-OvF">
+                                <rect key="frame" x="10" y="0.0" width="300" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <inset key="contentInset" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -184,8 +183,8 @@
                                         <rect key="frame" x="-1" y="-79" width="320" height="480"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="train-head.png" id="7fh-Uq-wab">
-                                                <rect key="frame" x="20" y="118" width="86" height="58"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="headtrainView.png" id="7fh-Uq-wab">
+                                                <rect key="frame" x="29" y="104" width="86" height="72"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" id="OCq-ad-vyb">
@@ -1035,13 +1034,13 @@ All rights reserved</string>
     <resources>
         <image name="BTN_HISTORY.png" width="395" height="71"/>
         <image name="Multiplayer_backGround.png" width="640" height="960"/>
-        <image name="background-pattern.png" width="640" height="960"/>
         <image name="background.png" width="640" height="960"/>
         <image name="btn_back.png" width="234" height="68"/>
         <image name="btn_multiplayer.png" width="396" height="71"/>
         <image name="btn_playWithRobot.png" width="395" height="71"/>
         <image name="btn_robotWords.png" width="224" height="58"/>
         <image name="btn_selfPratice.png" width="395" height="71"/>
+        <image name="headtrainView.png" width="293" height="231"/>
         <image name="host_player.png" width="480" height="191"/>
         <image name="logo.jpg" width="640" height="960"/>
         <image name="lose_scence1.png" width="640" height="960"/>
@@ -1049,7 +1048,6 @@ All rights reserved</string>
         <image name="second_player.png" width="483" height="191"/>
         <image name="selfplay-background.jpg" width="573" height="696"/>
         <image name="start-icon.png" width="256" height="256"/>
-        <image name="train-head.png" width="245" height="170"/>
         <image name="train.PNG" width="734" height="281"/>
     </resources>
     <classes>

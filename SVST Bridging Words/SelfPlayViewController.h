@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SoundHelper.h"
 
 @interface SelfPlayViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *wordTextField;
@@ -27,6 +28,8 @@
 @property NSInteger scoreLevel;
 @property char currentCharacter;
 @property NSString *story;
+@property (strong, nonatomic) NSMutableArray *usedWords;
+@property (strong, nonatomic) SoundHelper *soundHelper;
 
 - (IBAction)addButtonTouch:(id)sender;
 - (IBAction)newBridgeButtonTouch:(id)sender;

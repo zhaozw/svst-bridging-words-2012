@@ -30,6 +30,8 @@
 @synthesize scoreLevel;
 @synthesize currentCharacter;
 @synthesize story;
+@synthesize usedWords;
+@synthesize soundHelper;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,6 +53,7 @@
     self.navigationItem.hidesBackButton = YES;
     [self countdown];
     self.scrollView.contentSize = CGSizeMake(320, 680);
+    self.soundHelper = [[SoundHelper alloc] init];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -71,6 +74,7 @@
     self.score = 0;
     self.scoreLevel = 10;
     self.currentCharacter = '*';
+    self.usedWords  = [[NSMutableArray alloc] init];
     //[self updateScore];
 }
 
@@ -82,7 +86,7 @@
     NSString *word = self.wordTextField.text;
     if (![word isEqualToString:@""]) {
         if ([self checkWord:word]) {
-            NSLog(@"Update result: %@",self.wordTextField.text);
+            //NSLog(@"Update result: %@",self.wordTextField.text);
             if (self._startBridge == true) {
                 self.scoreLevel = 10;
                 self.score += self.scoreLevel;
@@ -127,11 +131,11 @@
     
     CGRect wordBound = newContainer.bounds;
     wordBound.size.height -= 12;
-//    UILabel *wordLabel = [[UILabel alloc] initWithFrame:wordBound];
-//    wordLabel.text = word;
-//    wordLabel.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
-//    wordLabel.textAlignment = UITextAlignmentCenter;
-//    [self.currentContainer addSubview:wordLabel];
+    //    UILabel *wordLabel = [[UILabel alloc] initWithFrame:wordBound];
+    //    wordLabel.text = word;
+    //    wordLabel.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+    //    wordLabel.textAlignment = UITextAlignmentCenter;
+    //    [self.currentContainer addSubview:wordLabel];
     char lastCharacter = [word characterAtIndex:[word length]-1];
     char firstCharacter = [word characterAtIndex:0];
     
@@ -175,7 +179,8 @@
     //printf("x= %f, y= %f",self.wordTextField.bounds.origin.x,self.wordTextField.bounds.origin.y;
     
     [self.scrollView setContentOffset:CGPointMake( self.scrollView.contentSize.width - 320, self.scrollView.contentOffset.y) animated:YES];
-}
+    [self.soundHelper playSound:@"Jump" ofType:@"mp3"];
+}	
 
 - (void)drawNewTrain
 {
@@ -183,9 +188,9 @@
     printf("Current container: center(%.0f,%.0f)\n",self.currentContainer.center.x,self.currentContainer.center.y);
     // Update current container label ("END")
     // Draw train head
-    CGFloat trainHeadY = self.currentContainer.center.y + 60;
-    UIImage *trainHeadImage = [UIImage imageNamed:@"train-head.png"];
-    UIImageView *trainHead = [[UIImageView alloc] initWithFrame:CGRectMake(20, trainHeadY, 86, 58)];
+    CGFloat trainHeadY = self.currentContainer.center.y + 42;
+    UIImage *trainHeadImage = [UIImage imageNamed:@"headtrainView.png"];
+    UIImageView *trainHead = [[UIImageView alloc] initWithFrame:CGRectMake(29, trainHeadY, 86, 72)];
     [trainHead setImage:trainHeadImage];
     [self.bridgeView addSubview:trainHead];
     
@@ -288,9 +293,30 @@
     }
     
     if (result == true) {
-        self.currentCharacter = [word characterAtIndex:[word length]-1];
+        if ([self checkUsedWords:word]) {
+            result = false;
+            printf("%s is used\n", [word UTF8String]);
+        } else {
+            //printf("Added '%s' to usedWords",[word UTF8String]);
+            [self.usedWords addObject:word];
+            self.currentCharacter = [word characterAtIndex:[word length]-1];
+        }
     }
     return result;
+}
+
+- (BOOL)checkUsedWords:(NSString*)word
+{
+    printf("Check used words:\n");
+    if ([self.usedWords count]!=0) {
+        for (int i=0; i<[self.usedWords count]; i++) {
+            if ([[self.usedWords objectAtIndex:i] isEqual:word]) {
+                return true;
+            }
+            //printf("%s is different from %s\n",[word UTF8String],[[usedWords objectAtIndex:i] UTF8String]);
+        }
+    }
+    return false;
 }
 
 - (IBAction)finishButtonTouchUp:(id)sender {
@@ -308,8 +334,8 @@
     if (self.counter != 0) {
         self.counter --;
         self.timeProgressView.progress = (float)self.counter/90;
-//        printf("counter/90: %.2f\n",((float)self.counter/90));
-//        printf("progress: %.2f\n",self.timeProgressView.progress);
+        //        printf("counter/90: %.2f\n",((float)self.counter/90));
+        //        printf("progress: %.2f\n",self.timeProgressView.progress);
     } else {
         if (self._countdown == true) {
             [self showResult];
@@ -348,12 +374,12 @@
     
     //printf("offset need: %.0f", 480 - (self.currentContainer.center.y + 30 - self.scrollView.contentOffset.y));
     
-//    CGFloat currentContainerBottom = self.currentContainer.center.y + 30 - self.scrollView.contentOffset.y;
-//    if (480 - currentContainerBottom < 400) {
-//        CGFloat offsetY = 400 - 480 + currentContainerBottom;
-//        [self.scrollView setContentOffset:CGPointMake(0, offsetY) animated:YES];
-//        printf("botton: %.0f\n",currentContainerBottom);
-//    }
+    //    CGFloat currentContainerBottom = self.currentContainer.center.y + 30 - self.scrollView.contentOffset.y;
+    //    if (480 - currentContainerBottom < 400) {
+    //        CGFloat offsetY = 400 - 480 + currentContainerBottom;
+    //        [self.scrollView setContentOffset:CGPointMake(0, offsetY) animated:YES];
+    //        printf("botton: %.0f\n",currentContainerBottom);
+    //    }
     
     return YES;
 }

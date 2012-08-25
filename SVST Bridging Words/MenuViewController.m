@@ -36,7 +36,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO];
-    [self.audioPlayer playSound:@"mylove" ofType:@"mp3"];
+    [self.audioPlayer playSound:@"Electrical_Sweep" ofType:@"mp3"];
     //[self.audioPlayer setVolume:1];
 }
 

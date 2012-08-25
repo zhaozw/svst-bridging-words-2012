@@ -36,7 +36,7 @@
     self.myTextView.text=[appDelegate.stories objectAtIndex:[self randomValue:ranMax]];
     self.myTextView.editable=NO;
     int storyLength = [self.myTextView.text length];
-    self.counter = (int)(storyLength/100);
+    self.counter = (int)(storyLength/10);
     printf("Story length: %d\n",self.counter);
     [self countDown];
 }
