@@ -28,11 +28,8 @@
     }
     return self;
 }
-
-- (void)viewDidLoad
+-(void) viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    //    listFriend=[[NSMutableArray alloc]initWithObjects:@"T.O.M",@"ChimSeDiNang",@"CuongBG",@"ChiChi",@"Lady Gaga", nil];
     isReady=false;
     self.listFriendObj=[[NSMutableArray alloc]init ];
     NSURL *url = [NSURL URLWithString:@"http://bobbymistery.byethost11.com/bw/multiplayer/"];
@@ -45,6 +42,13 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading...";
 
+
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    //    listFriend=[[NSMutableArray alloc]initWithObjects:@"T.O.M",@"ChimSeDiNang",@"CuongBG",@"ChiChi",@"Lady Gaga", nil];
+  
 }
 - (void)requestFinished:(ASIHTTPRequest *)request
 {    

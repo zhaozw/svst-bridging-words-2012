@@ -12,6 +12,7 @@
 #import "JSON.h"
 #import "MBProgressHUD.h"
 #import "Room.h"
+#import "DeskListViewController.h"
 @implementation RoomsListViewController
 @synthesize room;
 @synthesize roomListArray;
@@ -171,13 +172,16 @@ else {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    DeskListViewController *deskListView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"deskListView"];
+    if (indexPath.row<[self.roomListArray count]) {
+        deskListView.room=[self.roomListArray objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:deskListView animated:YES];
+    }
+    else {
+        deskListView.room.roomID=indexPath.row;
+        [self.navigationController pushViewController:deskListView animated:YES];
+    }
 }
 
 - (IBAction)randomButtonTouch:(id)sender {
