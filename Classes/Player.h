@@ -23,7 +23,11 @@
     NSInteger stt;
     NSString *status;
     NSInteger playerScore;
+    NSInteger numberWordsUse;
+    NSInteger inRoomNumber;
 }
+@property (nonatomic,readwrite) NSInteger inRoomNumber;
+@property (nonatomic,readwrite) NSInteger numberWordsUse;
 @property (nonatomic,readwrite) NSInteger playerScore;
 @property (nonatomic,strong) NSString *status;
 @property (nonatomic,readwrite) NSInteger numberWin;

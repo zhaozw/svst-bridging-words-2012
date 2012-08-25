@@ -65,10 +65,9 @@
             playerObj.playerID  = [tweet valueForKey:@"FRIEND_ID"];
             playerObj.playerName= [tweet valueForKey:@"NAME"];
             playerObj.status= [tweet valueForKey:@"STATUS"];
-            if (playerObj.status==NULL) {
-                playerObj.status==@"I'm a new bie";
-            }
             playerObj.stt= [[tweet valueForKey:@"STT"] integerValue];
+            playerObj.numberWordsUse=[[tweet valueForKey:@"NUMBER_WORDS_USED"] integerValue];
+            playerObj.inRoomNumber=[[tweet valueForKey:@""]integerValue];
             [listFriendObj addObject:playerObj];
         }
         

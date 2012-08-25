@@ -179,8 +179,29 @@
         }
              
             
-        default: self.errorMsg=@"Game Finish!";
+            
+        default: 
+        
+        {
+            self.errorMsg=@" Game Finished.";
+            UIView *customView=[[UIView alloc]initWithFrame:CGRectMake(90.0f, 210.0f, 250.0f, 50.0f)];
+            UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, 230.0f, 50.0f)];
+            UIImage *imageRobotBG=[UIImage imageNamed:@"RobotCommentBG.png"];
+            imageView.image=imageRobotBG;
+            UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(10.0f, 0.0f, 230.0f, 50.0f)];
+            label.text=self.errorMsg;
+            label.textColor=[UIColor whiteColor];
+            label.font=[UIFont fontWithName:@"ChalkboardSE" size:12];
+            label.backgroundColor=[UIColor clearColor];
+            
+            [customView addSubview:imageView];
+            [customView addSubview:label];
+            [self.view addSubview:customView];
+            imageViewBackGround.image=[UIImage imageNamed:@"lose_scence2.png"];
+            [imageView addSubview:myLabel];
             break;
+
+        }
     }    
     
 }

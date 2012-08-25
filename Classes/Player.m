@@ -9,5 +9,5 @@
 #import "Player.h"
 
 @implementation Player
-@synthesize playerName,passWord,userName,robotName,age,email,sex,playerID,playerScore,stt,status,numberWin,numberLose;
+@synthesize playerName,passWord,userName,robotName,age,email,sex,playerID,playerScore,stt,status,numberWin,numberLose,numberWordsUse,inRoomNumber;
 @end
