@@ -16,5 +16,6 @@
 }
 @property (strong,nonatomic) NSMutableArray *roomListArray;
 @property (strong,nonatomic) Room *room;
+- (IBAction)randomButtonTouch:(id)sender;
 
 @end

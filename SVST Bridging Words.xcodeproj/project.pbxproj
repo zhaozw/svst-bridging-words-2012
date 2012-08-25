@@ -73,6 +73,7 @@
 		80A8580F15E00252003D5750 /* HistoryPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A2B22D15DFFC7000058DDF /* HistoryPlayersViewController.m */; };
 		80A8581015E00252003D5750 /* WordMeanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A2B23B15DFFD7300058DDF /* WordMeanViewController.m */; };
 		80A8581115E00252003D5750 /* ListPlayerWordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A2B23115DFFC7100058DDF /* ListPlayerWordsViewController.m */; };
+		80A935C715E8E99900B7C64B /* DeskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A935C615E8E99900B7C64B /* DeskViewController.m */; };
 		80AA5BF415E4D23F00395E8F /* RoomsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AA5BF315E4D23F00395E8F /* RoomsListViewController.m */; };
 		80AA5BF815E4D30700395E8F /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AA5BF715E4D30700395E8F /* Room.m */; };
 		80AA5BFC15E4EB8B00395E8F /* host_player.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AA5BF915E4EB8B00395E8F /* host_player.png */; };
@@ -241,6 +242,8 @@
 		80A5897015DD6C6D005B4778 /* train.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = train.PNG; sourceTree = "<group>"; };
 		80A8580815E0016D003D5750 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
 		80A8580915E0016D003D5750 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
+		80A935C515E8E99900B7C64B /* DeskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeskViewController.h; sourceTree = "<group>"; };
+		80A935C615E8E99900B7C64B /* DeskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeskViewController.m; sourceTree = "<group>"; };
 		80AA5BF215E4D23F00395E8F /* RoomsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsListViewController.h; sourceTree = "<group>"; };
 		80AA5BF315E4D23F00395E8F /* RoomsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsListViewController.m; sourceTree = "<group>"; };
 		80AA5BF615E4D30700395E8F /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
@@ -336,6 +339,8 @@
 				80AA5BF315E4D23F00395E8F /* RoomsListViewController.m */,
 				809AAD2815E675570090E79A /* PlayerProfileViewController.h */,
 				809AAD2915E675570090E79A /* PlayerProfileViewController.m */,
+				80A935C515E8E99900B7C64B /* DeskViewController.h */,
+				80A935C615E8E99900B7C64B /* DeskViewController.m */,
 			);
 			name = MultiPlayer;
 			sourceTree = "<group>";
@@ -811,6 +816,7 @@
 				809693CC15E53EAD0009DE5F /* ClearHistoryViewController.m in Sources */,
 				809AAD2A15E675570090E79A /* PlayerProfileViewController.m in Sources */,
 				809AAD5A15E699840090E79A /* ListRobotWordsViewController.m in Sources */,
+				80A935C715E8E99900B7C64B /* DeskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

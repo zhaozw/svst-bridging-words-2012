@@ -162,7 +162,7 @@
     [cell addSubview:cellLabel];
     [cell setBackgroundColor:[UIColor clearColor]];
     // Flag Image 
-    if (isReady) {
+    if (friendObj.stt==1) {
         imageName=@"flag_ready.png";
     }
     else {

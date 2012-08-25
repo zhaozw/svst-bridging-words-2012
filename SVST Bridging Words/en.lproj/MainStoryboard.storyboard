@@ -763,24 +763,100 @@ All rights reserved</string>
             </objects>
             <point key="canvasLocation" x="20" y="-1163"/>
         </scene>
-        <!--View Controller-->
+        <!--Desk View Controller-->
         <scene sceneID="sG9-bh-rC7">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bl-AW-Nix" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="S1h-e6-emM" sceneMemberID="viewController">
+                <viewController id="S1h-e6-emM" customClass="DeskViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RMF-AB-EIq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" id="86Z-20-EqR">
+                                <rect key="frame" x="0.0" y="44" width="320" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="FdA-tI-QRl">
+                                <rect key="frame" x="-6" y="298" width="326" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Multiplayer_backGround.png" id="cOR-un-PDl" userLabel="image_background">
                                 <rect key="frame" x="-20" y="0.0" width="340" height="486"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="host_player.png" id="ipp-Oq-zPq">
+                                <rect key="frame" x="0.0" y="39" width="270" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="second_player.png" id="gpm-lp-EdH">
+                                <rect key="frame" x="44" y="298" width="276" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7ds-wc-z7L">
+                                <rect key="frame" x="119" y="88" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="t9Y-HH-WsC">
+                                <rect key="frame" x="120" y="110" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="05d-sW-MDv">
+                                <rect key="frame" x="161" y="329" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qvd-Qm-Gs1">
+                                <rect key="frame" x="117" y="57" width="85" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Sph-C5-D9f">
+                                <rect key="frame" x="137" y="376" width="85" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="m7b-Fn-qOn">
+                                <rect key="frame" x="161" y="352" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="UbT-62-SgF">
+                                <rect key="frame" x="0.0" y="420" width="314" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="rHc-my-Kwv"/>
                     <connections>
+                        <outlet property="loseNumberPlayer1Label" destination="t9Y-HH-WsC" id="AxN-5P-FcN"/>
+                        <outlet property="loseNumberPlayer2Label" destination="m7b-Fn-qOn" id="PPS-eb-4MW"/>
+                        <outlet property="player1NameLabel" destination="qvd-Qm-Gs1" id="pBr-re-dMX"/>
+                        <outlet property="player1View" destination="86Z-20-EqR" id="HGv-mz-1WK"/>
+                        <outlet property="player2NameLabel" destination="Sph-C5-D9f" id="jod-Hk-U6w"/>
+                        <outlet property="player2View" destination="FdA-tI-QRl" id="UUo-9z-XGg"/>
+                        <outlet property="tabToStartLabel" destination="UbT-62-SgF" id="laz-Mu-4Je"/>
+                        <outlet property="winNumberPlayer1Label" destination="7ds-wc-z7L" id="GEM-Mu-4DY"/>
+                        <outlet property="winNumberPlayer2Label" destination="05d-sW-MDv" id="e5c-vL-bP7"/>
                         <segue destination="hCv-EH-18J" kind="push" id="xfI-wb-oew"/>
                     </connections>
                 </viewController>
@@ -830,6 +906,7 @@ All rights reserved</string>
                     <navigationItem key="navigationItem" id="jZw-Ck-pbW">
                         <barButtonItem key="rightBarButtonItem" title="Random" id="VWu-oQ-T6q">
                             <connections>
+                                <action selector="randomButtonTouch:" destination="cgQ-lJ-8us" id="gLV-Zn-mwU"/>
                                 <segue destination="S1h-e6-emM" kind="push" id="1u5-Ln-Rcx"/>
                             </connections>
                         </barButtonItem>
@@ -965,9 +1042,11 @@ All rights reserved</string>
         <image name="btn_playWithRobot.png" width="395" height="71"/>
         <image name="btn_robotWords.png" width="224" height="58"/>
         <image name="btn_selfPratice.png" width="395" height="71"/>
+        <image name="host_player.png" width="480" height="191"/>
         <image name="logo.jpg" width="640" height="960"/>
         <image name="lose_scence1.png" width="640" height="960"/>
         <image name="profile_backGround.png" width="640" height="960"/>
+        <image name="second_player.png" width="483" height="191"/>
         <image name="selfplay-background.jpg" width="573" height="696"/>
         <image name="start-icon.png" width="256" height="256"/>
         <image name="train-head.png" width="245" height="170"/>
@@ -978,6 +1057,20 @@ All rights reserved</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ClearHistoryViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DeskViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DeskViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="loseNumberPlayer1Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loseNumberPlayer2Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="player1NameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="player1View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="player2NameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="player2View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tabToStartLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="winNumberPlayer1Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="winNumberPlayer2Label" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="FriendsListViewController" superclassName="UITableViewController">
@@ -1033,6 +1126,9 @@ All rights reserved</string>
         </class>
         <class className="RoomsListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RoomsListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="randomButtonTouch:"/>
+            </relationships>
         </class>
         <class className="SSMessagesViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMessagesViewController.h"/>
@@ -1079,6 +1175,6 @@ All rights reserved</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="THI-qb-VTk"/>
+        <segue reference="1u5-Ln-Rcx"/>
     </inferredMetricsTieBreakers>
 </document>

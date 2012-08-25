@@ -205,7 +205,7 @@ static int numberRobotWords;
     {
         ResultRobotTrainingViewController *resultView;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
-        [resultView viewErrorMsg:9];
+        [resultView viewErrorMsg:2];
         [self.navigationController pushViewController:resultView animated:YES];
         insertYN=false;
         return;
