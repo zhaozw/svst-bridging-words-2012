@@ -24,6 +24,7 @@
 @synthesize rsView;
 @synthesize labelRobotCount=_labelRobotCount;
 @synthesize imageRobotCount=_imageRobotCount;
+@synthesize soundHelper;
 static bool insertYN=true;
 static int numberRobotWords;
 #pragma mark UIViewController
@@ -37,7 +38,7 @@ static int numberRobotWords;
     self.arrListWord = [[NSMutableArray alloc] init];
     //    self.arrListWrongWords=[[NSMutableArray alloc]init];
     
-    
+    soundHelper = [[SoundHelper alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -123,6 +124,7 @@ static int numberRobotWords;
             numberRobotWords=numberRobotWords+1;
         }
         
+        [soundHelper playSound:@"Jump" ofType:@"mp3"];
         textField.text=nil;
     } 
     

@@ -8,6 +8,7 @@
 
 #import "SSMessagesViewController.h"
 #import "ResultRobotTrainingViewController.h"
+#import "SoundHelper.h"
 
 @interface TrainRobotViewController : SSMessagesViewController<UITextFieldDelegate> {
     NSMutableArray *myArray;
@@ -26,6 +27,7 @@
 @property (nonatomic,retain) UILabel *labelRobotCount;
 @property char currentChar;
 @property (nonatomic,retain) UIImageView *imageRobotCount;
+@property (strong, nonatomic) SoundHelper* soundHelper;
 
 - (void) copyDatabaseIfNeeded;
 - (NSString *) getDBPath;
