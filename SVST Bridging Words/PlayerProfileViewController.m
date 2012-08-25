@@ -48,6 +48,7 @@
     winLabel.text=[NSString stringWithFormat:@"%d", playerProfile.numberWin];
     loseLabel.text=[NSString stringWithFormat:@"%d",playerProfile.numberLose];
     totalScoreLabel.text=[NSString stringWithFormat:@"%d",playerProfile.playerScore];
+    numberWordsUseLabel.text=[NSString stringWithFormat:@"%d",playerProfile.numberWordsUse];
     
     
 }
