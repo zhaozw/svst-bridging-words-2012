@@ -19,5 +19,7 @@
 }
 @property (nonatomic,strong) NSMutableArray *deskListArr;
 @property (nonatomic,strong) Desk *desk;
+- (IBAction)randomButtonTouch:(id)sender;
+- (IBAction)newDeskButtonClick:(id)sender;
 @property (nonatomic,strong)Room *room;
 @end

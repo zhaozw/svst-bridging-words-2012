@@ -73,7 +73,28 @@ static CGFloat kMarginBottom = 2.0f;
 	UIImage *bubbleImage = _messageStyle == SSMessageStyleLeft ? _leftBackgroundImage : _rightBackgroundImage;
 	CGSize bubbleSize = [[self class] bubbleSizeForText:_messageText];
 	CGRect bubbleFrame = CGRectMake((_messageStyle == SSMessageStyleRight ? self.frame.size.width - bubbleSize.width : 0.0f), kMarginTop, bubbleSize.width, bubbleSize.height);
-	
+	//Score
+    int mssLength=[_messageText length];
+    NSString *imageName=[[NSString alloc]init];
+    if (mssLength>10) {
+        
+        imageName=[NSString stringWithFormat:@"%dPoint.png",100];
+
+    }
+    imageName=[NSString stringWithFormat:@"%dPoint.png",mssLength*10];
+    UIImage *imageScore=[UIImage imageNamed:imageName];
+    
+	CGRect scoreFrame = CGRectMake((_messageStyle == SSMessageStyleRight ? self.frame.size.width - bubbleSize.width -50.0f: bubbleSize.width +20.0f), kMarginTop, 20.0f, 20.0f);
+    
+
+    
+    //Coin
+    UIImage *imageCoin=[UIImage imageNamed:@"coin.png"];
+   
+	CGRect coinFrame = CGRectMake((_messageStyle == SSMessageStyleRight ? self.frame.size.width - bubbleSize.width -30.0f: bubbleSize.width +40.0f), kMarginTop, 20.0f, 20.0f);
+
+    
+    
 	//Message
 	CGSize textSize = [[self class] textSizeForText:_messageText];
 	CGFloat textX = (CGFloat)bubbleImage.leftCapWidth - 12.0f + ((_messageStyle == SSMessageStyleRight) ? bubbleFrame.origin.x : 0.0f);
@@ -111,6 +132,8 @@ static CGFloat kMarginBottom = 2.0f;
 
 	[[UIColor blackColor] set];
 	[bubbleImage drawInRect:bubbleFrame];
+    [imageCoin drawInRect:coinFrame];
+    [imageScore drawInRect:scoreFrame];
     
     // Draw UITextView
     _messageTextView = [[UITextView alloc] initWithFrame:textFrame];

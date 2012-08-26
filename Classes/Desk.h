@@ -10,9 +10,15 @@
 #import "Player.h"
 @interface Desk : NSObject
 {
-    Player *playerOne;
-    Player *playerTwo;
+    NSString *player1Name;
+    NSInteger player1ID;
+    NSString *player2Name;
+    NSInteger player2ID;
+    
+    
 }
-@property (strong,nonatomic) Player *playerOne;
-@property (strong,nonatomic) Player *playerTwo;
+@property (strong,nonatomic) NSString *player1Name;
+@property (nonatomic,readwrite) NSInteger player1ID;
+@property (strong,nonatomic) NSString *player2Name;
+@property (nonatomic,readwrite) NSInteger player2ID;
 @end

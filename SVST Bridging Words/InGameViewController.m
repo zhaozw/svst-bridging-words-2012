@@ -6,7 +6,7 @@
 //  Copyright 2010 Sam Soffes. All rights reserved.
 //
 
-#import "TrainRobotViewController.h"
+#import "InGameViewController.h"
 #import "SSMessageTableViewCell.h"
 #import <Foundation/NSArray.h>
 #import <Foundation/NSObject.h>
@@ -18,22 +18,21 @@
 #import "JSON.h"
 #import "MBProgressHUD.h"
 #define TABLEVIEWTAG	300
-@implementation TrainRobotViewController
+@implementation InGameViewController
 @synthesize myArray,arrListWord,arrListDictObj;
 @synthesize currentChar;
 @synthesize rsView;
-@synthesize labelRobotCount=_labelRobotCount;
-@synthesize imageRobotCount=_imageRobotCount;
 @synthesize soundHelper;
 static bool insertYN=true;
 static int numberRobotWords;
+@synthesize player1Info,player2Info,player1Score,player2Score;
 #pragma mark UIViewController
 
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.title = @"Messages";
-    
+      [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background2.png"]]];
     self.arrListDictObj= [[NSMutableArray alloc]init];   
     self.arrListWord = [[NSMutableArray alloc] init];
     //    self.arrListWrongWords=[[NSMutableArray alloc]init];
@@ -53,19 +52,46 @@ static int numberRobotWords;
 -(void) drawLabelCount
 {
     CGSize size = self.view.frame.size;
-    
+    UIView *customView=[[UIView alloc]initWithFrame:CGRectMake(0.0f, 10.0f, size.width, 60.0f)];
     //Word Robot count
     //CGSize size = self.view.frame.size;
-    _imageRobotCount=[[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 10.0f, size.width, 55.0f)];
-    _imageRobotCount.image=[UIImage imageNamed:@"backgroundTextField.png"];
-    [self.view addSubview:_imageRobotCount];
-    _labelRobotCount=[[UILabel alloc]initWithFrame:CGRectMake(0.0f, 20.0f, size.width, 25.0f)];
-    _labelRobotCount.text=[NSString stringWithFormat:@"Your robot has %d words",numberRobotWords];
-    _labelRobotCount.textColor=[UIColor whiteColor];
-    _labelRobotCount.backgroundColor=[UIColor clearColor];
-    _labelRobotCount.textAlignment=UITextAlignmentCenter;
-    [self.view addSubview:_labelRobotCount];
+    _imageRobotCount=[[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, size.width, 60.0f)];
+    _imageRobotCount.image=[UIImage imageNamed:@"scoreBar.png"];
+    [customView addSubview:_imageRobotCount];
+    player1Info=[[UILabel alloc]initWithFrame:CGRectMake(100.0f, 35.0f, 40.0f, 15.0f)];
+    player1Info.numberOfLines=2;
+    player1Info.text=@"45/53";
+    player1Info.font=[UIFont systemFontOfSize:11];
+    player1Info.textColor=[UIColor grayColor]; 
+    player1Info.backgroundColor=[UIColor clearColor];
+    [customView addSubview:player1Info];
     
+    player2Info=[[UILabel alloc]initWithFrame:CGRectMake(240.0f, 30.0f, 40.0f, 25.0f)];
+    player2Info.backgroundColor=[UIColor clearColor];
+    player2Info.numberOfLines=2;
+    player2Info.font=[UIFont systemFontOfSize:11];
+    player2Info.text=@"5/33";
+    player2Info.textColor=[UIColor grayColor]; 
+    [customView addSubview:player2Info];
+    
+    //score
+    
+    player1Score=[[UILabel alloc]initWithFrame:CGRectMake(90.0f, 10.0f, 150.0f, 25.0f)];
+    player1Score.numberOfLines=2;
+    player1Score.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:20];
+    player1Score.backgroundColor=[UIColor clearColor];
+    player1Score.text=@"9800";
+    player1Score.textColor=[UIColor yellowColor]; 
+    [customView addSubview:player1Score];
+    
+    player2Score=[[UILabel alloc]initWithFrame:CGRectMake(220.0f, 10.0f,150.0f, 25.0f)];
+    player2Score.numberOfLines=2;
+     player2Score.backgroundColor=[UIColor clearColor];
+        player2Score.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:20];
+    player2Score.text=@"1040";
+    player2Score.textColor=[UIColor yellowColor]; 
+    [customView addSubview:player2Score];
+    [self.view addSubview:customView];
     
     
 }
@@ -151,7 +177,7 @@ static int numberRobotWords;
             wrongWord=[self.arrListWord objectAtIndex:([self.arrListWord count]-2)];}
         ResultRobotTrainingViewController *resultView=[[ResultRobotTrainingViewController alloc]init];
         [resultView.arrListWrongWords addObject:wrongWord];
-            } 
+    } 
     else if (request.responseStatusCode == 200) {
         NSString *responseString = [request responseString];
         NSLog(@"%@",responseString);

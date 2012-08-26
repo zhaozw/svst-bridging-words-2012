@@ -156,6 +156,7 @@ CGFloat kInputHeight = 40.0f;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *cellIdentifier = @"cellIdentifier";
+  
     
     //Load avatar
 	SSMessageTableViewCell *cell = (SSMessageTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -199,11 +200,13 @@ CGFloat kInputHeight = 40.0f;
         NSArray *matches = [dataDetector matchesInString:cell.messageText options:0 range:NSMakeRange(0, [cell.messageText length])];
         
         [cell setLinks:matches];
+
         
         if([matches count] > 0)
             cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
         return cell;
     }
+    
     
     return NULL;
 }

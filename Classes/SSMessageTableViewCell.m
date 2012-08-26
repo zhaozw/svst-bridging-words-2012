@@ -25,6 +25,8 @@
        // Draw bubble view position
 		_bubbleView = [[SSMessageTableViewCellBubbleView alloc] initWithFrame:CGRectMake(60.0f, 30.0f, self.contentView.frame.size.width-120.0f, self.contentView.frame.size.height)];
 		_bubbleView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+               //Avartar
+
 		[self.contentView addSubview:_bubbleView];
        
 		[self.contentView sendSubviewToBack:_bubbleView];

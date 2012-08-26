@@ -9,5 +9,5 @@
 #import "Desk.h"
 
 @implementation Desk
-@synthesize playerOne,playerTwo;
+@synthesize player1ID,player2ID,player1Name,player2Name;
 @end

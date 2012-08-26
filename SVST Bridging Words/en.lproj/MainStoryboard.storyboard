@@ -21,12 +21,12 @@
                                 <color key="backgroundColor" white="0.1676551094890511" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="fe4-ad-plA">
-                                <rect key="frame" x="130" y="351" width="71" height="58"/>
+                                <rect key="frame" x="130" y="378" width="71" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="55"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="this is a story" id="xg6-qY-OvF">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="xg6-qY-OvF">
                                 <rect key="frame" x="10" y="0.0" width="300" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -766,13 +766,13 @@ All rights reserved</string>
         <scene sceneID="sG9-bh-rC7">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bl-AW-Nix" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="S1h-e6-emM" customClass="DeskViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="deskView" id="S1h-e6-emM" customClass="DeskViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RMF-AB-EIq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Multiplayer_backGround.png" id="cOR-un-PDl" userLabel="image_background">
-                                <rect key="frame" x="-20" y="0.0" width="340" height="486"/>
+                                <rect key="frame" x="-20" y="-6" width="340" height="486"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="86Z-20-EqR">
@@ -780,83 +780,132 @@ All rights reserved</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="host_player.png" id="ipp-Oq-zPq">
-                                        <rect key="frame" x="25" y="-2" width="270" height="120"/>
+                                        <rect key="frame" x="0.0" y="5" width="249" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7ds-wc-z7L">
-                                        <rect key="frame" x="139" y="47" width="42" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Win: 20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7ds-wc-z7L">
+                                        <rect key="frame" x="115" y="47" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="t9Y-HH-WsC">
-                                        <rect key="frame" x="139" y="74" width="42" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lose: 9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="t9Y-HH-WsC">
+                                        <rect key="frame" x="115" y="74" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qvd-Qm-Gs1">
-                                        <rect key="frame" x="139" y="11" width="85" height="28"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qvd-Qm-Gs1">
+                                        <rect key="frame" x="115" y="11" width="85" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flag_unready.png" id="l1l-kV-cHA">
+                                        <rect key="frame" x="272" y="25" width="41" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="FdA-tI-QRl">
-                                <rect key="frame" x="-6" y="298" width="326" height="120"/>
+                                <rect key="frame" x="-6" y="278" width="326" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="second_player.png" id="gpm-lp-EdH">
-                                        <rect key="frame" x="25" y="0.0" width="276" height="120"/>
+                                        <rect key="frame" x="77" y="-4" width="249" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="05d-sW-MDv">
-                                        <rect key="frame" x="142" y="50" width="42" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lose: 12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="05d-sW-MDv">
+                                        <rect key="frame" x="175" y="38" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Sph-C5-D9f">
-                                        <rect key="frame" x="99" y="72" width="85" height="28"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Andy Tong" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Sph-C5-D9f">
+                                        <rect key="frame" x="132" y="55" width="85" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="m7b-Fn-qOn">
-                                        <rect key="frame" x="142" y="21" width="42" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Win: 10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="m7b-Fn-qOn">
+                                        <rect key="frame" x="175" y="9" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flag_unready.png" id="PsZ-vg-IKl">
+                                        <rect key="frame" x="28" y="20" width="41" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="UbT-62-SgF">
-                                <rect key="frame" x="0.0" y="420" width="314" height="40"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap the flag to ready!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" id="UbT-62-SgF">
+                                <rect key="frame" x="6" y="394" width="314" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="28"/>
+                                <color key="textColor" red="0.86491549744897955" green="0.34517442664830766" blue="0.26495155681674976" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BQk-jK-I3W">
+                                <rect key="frame" x="6" y="394" width="308" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tabTheFlagButtonTouch:" destination="S1h-e6-emM" eventType="touchUpInside" id="uVO-NK-LUB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ready!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="FFy-56-Leb">
+                                <rect key="frame" x="122" y="382" width="97" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="34"/>
+                                <color key="textColor" red="0.29565251799999998" green="0.87802678349999996" blue="0.3158115876" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QmU-mo-9dE">
+                                <rect key="frame" x="122" y="394" width="91" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="readyButtonTouch:" destination="S1h-e6-emM" eventType="touchUpInside" id="u20-Wg-bav"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="rHc-my-Kwv"/>
                     <connections>
+                        <outlet property="flagPlayer1" destination="l1l-kV-cHA" id="d8H-9d-paQ"/>
+                        <outlet property="flagPlayer2" destination="PsZ-vg-IKl" id="4PH-ev-TWN"/>
                         <outlet property="loseNumberPlayer1Label" destination="t9Y-HH-WsC" id="AxN-5P-FcN"/>
                         <outlet property="loseNumberPlayer2Label" destination="m7b-Fn-qOn" id="PPS-eb-4MW"/>
                         <outlet property="player1NameLabel" destination="qvd-Qm-Gs1" id="pBr-re-dMX"/>
                         <outlet property="player1View" destination="86Z-20-EqR" id="HGv-mz-1WK"/>
                         <outlet property="player2NameLabel" destination="Sph-C5-D9f" id="jod-Hk-U6w"/>
                         <outlet property="player2View" destination="FdA-tI-QRl" id="UUo-9z-XGg"/>
+                        <outlet property="readyButtonIB" destination="QmU-mo-9dE" id="ier-9X-upI"/>
+                        <outlet property="readyLabel" destination="FFy-56-Leb" id="Y92-3x-L0Y"/>
                         <outlet property="tabToStartLabel" destination="UbT-62-SgF" id="laz-Mu-4Je"/>
                         <outlet property="winNumberPlayer1Label" destination="7ds-wc-z7L" id="GEM-Mu-4DY"/>
                         <outlet property="winNumberPlayer2Label" destination="05d-sW-MDv" id="e5c-vL-bP7"/>
@@ -866,11 +915,11 @@ All rights reserved</string>
             </objects>
             <point key="canvasLocation" x="600" y="-1125"/>
         </scene>
-        <!--View Controller - Multiplayer-->
+        <!--In Game View Controller - Multiplayer-->
         <scene sceneID="YB1-nL-DVE">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6G-i4-hD0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="hCv-EH-18J" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="inGameView" id="hCv-EH-18J" customClass="InGameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NZv-RL-TXZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -906,14 +955,7 @@ All rights reserved</string>
                             <outlet property="delegate" destination="cgQ-lJ-8us" id="Qdw-F1-eLV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="jZw-Ck-pbW">
-                        <barButtonItem key="rightBarButtonItem" title="Random" id="VWu-oQ-T6q">
-                            <connections>
-                                <action selector="randomButtonTouch:" destination="cgQ-lJ-8us" id="gLV-Zn-mwU"/>
-                                <segue destination="S1h-e6-emM" kind="push" id="1u5-Ln-Rcx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="jZw-Ck-pbW"/>
                     <connections>
                         <segue destination="5EJ-rt-94v" kind="push" id="eoF-gK-Lec"/>
                     </connections>
@@ -946,7 +988,18 @@ All rights reserved</string>
                             <outlet property="delegate" destination="5EJ-rt-94v" id="1g9-1o-NfP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ErE-e5-4sS"/>
+                    <navigationItem key="navigationItem" id="ErE-e5-4sS">
+                        <barButtonItem key="leftBarButtonItem" title="+ New Desk" id="zUn-yv-5FN">
+                            <connections>
+                                <action selector="newDeskButtonClick:" destination="5EJ-rt-94v" id="vVe-Xe-51v"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Random" id="A5F-L3-Kgj">
+                            <connections>
+                                <action selector="randomButtonTouch:" destination="5EJ-rt-94v" id="a5t-Ne-i77"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1419" y="-485"/>
@@ -1044,6 +1097,7 @@ All rights reserved</string>
         <image name="btn_playWithRobot.png" width="395" height="71"/>
         <image name="btn_robotWords.png" width="224" height="58"/>
         <image name="btn_selfPratice.png" width="395" height="71"/>
+        <image name="flag_unready.png" width="64" height="67"/>
         <image name="headtrainView.png" width="293" height="231"/>
         <image name="host_player.png" width="480" height="191"/>
         <image name="logo.jpg" width="640" height="960"/>
@@ -1063,16 +1117,26 @@ All rights reserved</string>
         </class>
         <class className="DeskListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DeskListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="newDeskButtonClick:"/>
+                <relationship kind="action" name="randomButtonTouch:"/>
+            </relationships>
         </class>
         <class className="DeskViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DeskViewController.h"/>
             <relationships>
+                <relationship kind="action" name="readyButtonTouch:"/>
+                <relationship kind="action" name="tabTheFlagButtonTouch:"/>
+                <relationship kind="outlet" name="flagPlayer1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="flagPlayer2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="loseNumberPlayer1Label" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="loseNumberPlayer2Label" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="player1NameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="player1View" candidateClass="UIView"/>
                 <relationship kind="outlet" name="player2NameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="player2View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="readyButtonIB" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="readyLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tabToStartLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="winNumberPlayer1Label" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="winNumberPlayer2Label" candidateClass="UILabel"/>
@@ -1083,6 +1147,9 @@ All rights reserved</string>
         </class>
         <class className="HistoryPlayersViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryPlayersViewController.h"/>
+        </class>
+        <class className="InGameViewController" superclassName="SSMessagesViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InGameViewController.h"/>
         </class>
         <class className="ListRobotWordsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ListRobotWordsViewController.h"/>
@@ -1179,7 +1246,4 @@ All rights reserved</string>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="1u5-Ln-Rcx"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -12,8 +12,9 @@
 #import "JSON.h"
 #import "MBProgressHUD.h"
 #import "PlayerProfileViewController.h"
+#import "DeskViewController.h"
 
-
+static int countRow;
 @implementation DeskListViewController
 @synthesize desk,deskListArr,room;
 - (id)initWithStyle:(UITableViewStyle)style
@@ -29,8 +30,9 @@
     self.deskListArr=[[NSMutableArray alloc]init ];
     NSURL *url = [NSURL URLWithString:@"http://bobbymistery.byethost11.com/bw/multiplayer/room.php"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-    [request setPostValue:@"1" forKey:@"ROOM_ID"];
-    
+    [request setPostValue:[NSString stringWithFormat:@"%d", self.room.roomID] forKey:@"ROOM_ID"];
+    NSLog(@"%d",self.room.roomID);
+    [request setPostValue:@"1" forKey:@"PLAYER_ID"];
     [request setDelegate:self];
     [request startAsynchronous];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -53,8 +55,10 @@
         for (NSDictionary *tweet in tweets)
         {
             Desk *deskObj=[[Desk alloc]init];
-            deskObj.playerOne.playerID=[tweet valueForKey:@"PLAYER1_ID"];
-            deskObj.playerTwo.playerID=[tweet valueForKey:@"PLAYER2_ID"];
+            deskObj.player1ID=[[tweet valueForKey:@"PLAYER1_ID"]integerValue];
+            deskObj.player2ID=[[tweet valueForKey:@"PLAYER2_ID"]integerValue];
+            deskObj.player1Name=[tweet valueForKey:@"PLAYER1_NAME"];
+            deskObj.player2Name=[tweet valueForKey:@"PLAYER2_NAME"];
             [deskListArr addObject:deskObj];
         }
         
@@ -108,11 +112,11 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    int count=[self.deskListArr count];
-    if (count==0) {
+    int countRow =[self.deskListArr count];
+    if (countRow==0) {
         return 0;
     }
-    return count;
+    return countRow;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,34 +124,45 @@
     NSString *imageName=[[NSString alloc]init];
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:nil];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
     }
     //Get the object from the array.PLayer 1
-    UILabel *player1Name=[[UILabel alloc]initWithFrame:CGRectMake(100.0f, 0.0f, 250.0f, 60.0f)];
+    UILabel *player1Name=[[UILabel alloc]initWithFrame:CGRectMake(100.0f, -5.0f, 250.0f, 60.0f)];
     player1Name.backgroundColor = [UIColor clearColor];
-    player1Name.textColor = [UIColor blackColor];
+    player1Name.textColor = [UIColor greenColor];
     desk=[self.deskListArr objectAtIndex:indexPath.row];
-    player1Name.text = [NSString stringWithFormat:@"%@",desk.playerOne.playerName];
+    player1Name.text = [NSString stringWithFormat:@"%@",desk.player1Name];
     player1Name.textAlignment=UITextAlignmentLeft;
     player1Name.font = [UIFont systemFontOfSize:15];
     player1Name.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:15];
     
     //Player2 
-    UILabel *player2Name=[[UILabel alloc]initWithFrame:CGRectMake(110.0f, 10.0f, 250.0f, 60.0f)];
+    UILabel *player2Name=[[UILabel alloc]initWithFrame:CGRectMake(110.0f, 15.0f, 250.0f, 60.0f)];
     player2Name.backgroundColor = [UIColor clearColor];
-    player2Name.textColor = [UIColor blackColor];
-    desk=[self.deskListArr objectAtIndex:indexPath.row];
-    player2Name.text = [NSString stringWithFormat:@"vs %@",desk.playerTwo.playerName];
+    player2Name.textColor = [UIColor grayColor];
+    player2Name.text = [NSString stringWithFormat:@"vs %@",desk.player2Name];
     player2Name.textAlignment=UITextAlignmentLeft;
     player2Name.font = [UIFont systemFontOfSize:15];
     player2Name.font =[UIFont fontWithName:@"ChalkboardSE-Bold" size:15];
-
+    [cell addSubview:player1Name];
     [cell addSubview:player2Name];
     [cell setBackgroundColor:[UIColor clearColor]];
 
+    //Flag
+    if (desk.player2ID==0) {
+        imageName=@"flag_ready.png";
+    }
+    else {
+        imageName=@"flag_unready.png";
+    }
+    UIImage *imageFlag=[UIImage imageNamed:imageName];
+    UIImageView *imageView=[[UIImageView alloc] initWithImage:imageFlag];
+    imageView.frame=CGRectMake(0.0f, 0.0f, 35.0f, 35.0f);
     //Avartar
+    
+    cell.accessoryView= imageView;
     
 
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -157,56 +172,31 @@
 
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+
+    Desk *deskObj=[[Desk alloc]init];
+    deskObj=[deskListArr objectAtIndex:indexPath.row];
+    if (desk.player2ID>0) {
+        return;
+    }
+else {
+    DeskViewController *deskView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"deskView"];
+    deskView.player1.playerName=deskObj.player1Name;
+    deskView.player1.playerID=[NSString stringWithFormat:@"%@", deskObj.player1ID];
+    deskView.player2.playerName=@"You";
+    deskView.player2.playerID=@"1";
+    NSURL *url = [NSURL URLWithString:@"http://bobbymistery.byethost11.com/bw/multiplayer/room.php"];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setPostValue:@"1" forKey:@"JOIN_MY_ID"];
+    [request setPostValue:[NSString stringWithFormat:@"%@", deskObj.player1ID] forKey:@"JOIN_HOST_ID"];
+    [request setDelegate:self];
+    [request startAsynchronous];
+
+    [self.navigationController pushViewController:deskView animated:YES];
+
+}
+
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -245,5 +235,27 @@
     return 60;
     
     
+}
+- (IBAction)randomButtonTouch:(id)sender {
+   
+}
+
+- (IBAction)newDeskButtonClick:(id)sender {
+    
+    NSURL *url = [NSURL URLWithString:@"http://bobbymistery.byethost11.com/bw/multiplayer/room.php"];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setPostValue:@"1" forKey:@"ADD_MY_ID"];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    DeskViewController *deskView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"deskView"];
+    Desk *deskObj=[[Desk alloc]init];
+    deskObj.player1ID=1;
+    deskObj.player2ID=0;
+    deskObj.player1Name=@"You";
+    deskObj.player2Name=@"";
+    deskView.desk=deskObj;
+    [self.navigationController pushViewController:deskView animated:YES];
+
+
 }
 @end
