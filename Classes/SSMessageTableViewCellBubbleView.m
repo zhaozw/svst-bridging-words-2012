@@ -85,7 +85,7 @@ static CGFloat kMarginBottom = 2.0f;
     UIImage *imageScore=[UIImage imageNamed:imageName];
     
 	CGRect scoreFrame = CGRectMake((_messageStyle == SSMessageStyleRight ? self.frame.size.width - bubbleSize.width -50.0f: bubbleSize.width +20.0f), kMarginTop, 20.0f, 20.0f);
-    
+    	
 
     
     //Coin

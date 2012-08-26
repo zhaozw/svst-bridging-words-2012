@@ -156,7 +156,7 @@
  
            
         case 4:
-        {           self.errorMsg=@"You have been defeated by your robot.\n You enterd a wrong word. \n Try again!";
+        {           self.errorMsg=@"You have been defeated by your robot.\n You entered a wrong word. \n Try again!";
             UIView *customView=[[UIView alloc]initWithFrame:CGRectMake(90.0f, 210.0f, 250.0f, 120.0f)];
             UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, 230.0f, 120.0f)];
             UIImage *imageRobotBG=[UIImage imageNamed:@"RobotCommentBG.png"];
