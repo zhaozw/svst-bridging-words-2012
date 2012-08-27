@@ -8,6 +8,8 @@
 #import "ListRobotWordsViewController.h"
 #import "AppDelegate.h"
 #import "Robot.h"
+#import "WordMeanViewController.h"
+#import "History.h"
 
 @implementation ListRobotWordsViewController
 @synthesize arrListDictObj, theTableView, arrListWord, searchResult;
@@ -17,6 +19,7 @@
     self.navigationItem.hidesBackButton=YES;
 	UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
 	searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    searchBar.barStyle=UIBarStyleBlack;
 	UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
 	searchBarView.autoresizingMask = 0;
 	searchBar.delegate = self;
@@ -69,8 +72,21 @@
     //    Dict *dictObj = [[Dict alloc] init];
     //    // Navigation logic -- create and push a new view controller
     //	if(dvController == nil) dvController = [[DetailViewController alloc] initWithNibName:@"DetailView" bundle:nil];
-    //	NSString *wordSelected;
-    //	wordSelected = [self.arrListDictObj objectAtIndex:indexPath.row];
+    	NSString *wordSelected;
+    	wordSelected = [self.arrListDictObj objectAtIndex:indexPath.row];
+    WordMeanViewController *detailViewController;
+    detailViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"wordMeanView"];
+    History *historyObj=[[History alloc]init];
+    [historyObj wordMeanForWord:wordSelected];
+    
+    detailViewController.historyObj =historyObj;
+    detailViewController.historyObj.word=wordSelected;
+    // ...
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    detailViewController.rememberButtonIB.enabled=FALSE;
+    
     //	//Get the detail view data if it does not exists.
     //	//We only load the data we initially want and keep on loading as we need.
     //	[dictObj hydrateDetailViewData:wordSelected];

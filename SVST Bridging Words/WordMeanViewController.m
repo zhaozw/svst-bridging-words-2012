@@ -20,7 +20,7 @@
 @implementation WordMeanViewController
 
 @synthesize webView;
-@synthesize IBRememberBtn;
+@synthesize rememberButtonIB;
 @synthesize historyObj;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -70,6 +70,7 @@
             NSString *url = [tweet valueForKey:@"Meaning"];
             NSLog(@"url is: %@",url);
             historyObj.wordMean=url;
+            [historyObj updateWordFromRobot:historyObj.word Mean:historyObj.wordMean];
             [webView loadHTMLString:historyObj.wordMean baseURL:nil];
             webView.autoresizesSubviews = true;
             [self viewWillAppear:YES];
@@ -115,7 +116,7 @@
 {
     //[self setScrollView:nil];
     [self setWebView:nil];
-    [self setIBRememberBtn:nil];
+       [self setRememberButtonIB:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

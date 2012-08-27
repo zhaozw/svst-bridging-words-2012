@@ -27,6 +27,7 @@
 @synthesize soundHelper;
 static bool insertYN=true;
 static int numberRobotWords;
+static NSString *word;
 #pragma mark UIViewController
 
 
@@ -101,7 +102,7 @@ static int numberRobotWords;
         return YES;
     }
     
-    NSString *word = textField.text;
+    word = [[textField.text lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     // Start request	
     NSURL *url = [NSURL URLWithString:@"http://bobbymistery.byethost11.com/bw/"];
@@ -116,14 +117,10 @@ static int numberRobotWords;
         [self.arrListWord addObject:word];
         insertYN=true;
         [self.tableView reloadData];
-        Robot *robotObj=[[Robot alloc]init];
+        
         [self robotAnswer:currentChar];
         [self.tableView reloadData];
-        if (insertYN) {
-            [robotObj insertWordToRobot:word];
-            numberRobotWords=numberRobotWords+1;
-        }
-        
+     
         [soundHelper playSound:@"Jump" ofType:@"mp3"];
         textField.text=nil;
     } 
@@ -145,12 +142,10 @@ static int numberRobotWords;
     }
     else if (request.responseStatusCode==404){
         insertYN=false;
-        NSString *wrongWord =[[NSString alloc]init];
-        if ([self.arrListWord count]>1) {
-            
-            wrongWord=[self.arrListWord objectAtIndex:([self.arrListWord count]-2)];}
-        ResultRobotTrainingViewController *resultView=[[ResultRobotTrainingViewController alloc]init];
-        [resultView.arrListWrongWords addObject:wrongWord];
+        ResultRobotTrainingViewController   *resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+        [resultView.arrListWrongWords addObject:word];
+        [resultView viewErrorMsg:4];
+        [self.navigationController pushViewController:resultView animated:YES];
             } 
     else if (request.responseStatusCode == 200) {
         NSString *responseString = [request responseString];
@@ -163,6 +158,12 @@ static int numberRobotWords;
             NSLog(@"url is: %@",url);
             
         }
+        Robot *robotObj=[[Robot alloc]init];
+        if (insertYN) {
+            [robotObj insertWordToRobot:word];
+            numberRobotWords=numberRobotWords+1;
+        }
+        
         
     } else {
         NSLog(@"Unexpected error");

@@ -47,6 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
     //    listFriend=[[NSMutableArray alloc]initWithObjects:@"T.O.M",@"ChimSeDiNang",@"CuongBG",@"ChiChi",@"Lady Gaga", nil];
   
 }
@@ -93,10 +94,10 @@
 }
 
 
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    NSLog(@"View unload");
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -249,5 +250,6 @@
     [self.navigationController pushViewController:profileView animated:YES];
     
 }
+
 
 @end

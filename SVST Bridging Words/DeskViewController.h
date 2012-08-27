@@ -16,6 +16,8 @@
     Desk *desk;
 
 }
+- (IBAction)flagBtnTouchToReady:(id)sender;
+- (IBAction)flagPlayer2Touch:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *readyLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *flagPlayer2;
 @property (strong, nonatomic) IBOutlet UIImageView *flagPlayer1;

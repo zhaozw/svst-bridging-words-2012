@@ -17,6 +17,6 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 - (IBAction)rememberButtonTouch:(id)sender;
-@property (strong, nonatomic) IBOutlet UIButton *IBRememberBtn;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *rememberButtonIB;
 @property (strong,nonatomic) History *historyObj;
 @end

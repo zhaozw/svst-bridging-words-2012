@@ -124,4 +124,9 @@ static bool isReadyToPlay=false;
         
     
 }
+- (IBAction)flagBtnTouchToReady:(id)sender {
+}
+
+- (IBAction)flagPlayer2Touch:(id)sender {
+}
 @end
