@@ -38,18 +38,19 @@ static NSString *word;
     self.arrListDictObj= [[NSMutableArray alloc]init];   
     self.arrListWord = [[NSMutableArray alloc] init];
     //    self.arrListWrongWords=[[NSMutableArray alloc]init];
-    
+    [self.navigationController setNavigationBarHidden:YES];
     soundHelper = [[SoundHelper alloc] init];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidLoad];
     AppDelegate *appDelegate =[[AppDelegate alloc]init];  
     self.arrListDictObj = [Robot getInitialDataToDisplay:[appDelegate getDBPath]];
     numberRobotWords=[self.arrListDictObj count];
     self.currentChar = '*';
     [self drawLabelCount];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidLoad];
+ 
 }
 -(void) drawLabelCount
 {
@@ -113,18 +114,9 @@ static NSString *word;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     // Check word
-    if ([self checkValidWord:word]) {
-        [self.arrListWord addObject:word];
-        insertYN=true;
-        [self.tableView reloadData];
-        
-        [self robotAnswer:currentChar];
-        [self.tableView reloadData];
-     
-        [soundHelper playSound:@"Jump" ofType:@"mp3"];
-        textField.text=nil;
-    } 
-    
+    [self.arrListWord addObject:word];
+    [self.tableView reloadData];
+    textField.text=nil;
     [textField resignFirstResponder];
     hud.labelText = @"Cheking word...";
     [self drawLabelCount];
@@ -146,6 +138,7 @@ static NSString *word;
         [resultView.arrListWrongWords addObject:word];
         [resultView viewErrorMsg:4];
         [self.navigationController pushViewController:resultView animated:YES];
+        [self viewDidUnload];
             } 
     else if (request.responseStatusCode == 200) {
         NSString *responseString = [request responseString];
@@ -163,7 +156,17 @@ static NSString *word;
             [robotObj insertWordToRobot:word];
             numberRobotWords=numberRobotWords+1;
         }
-        
+        if ([self checkValidWord:word]) {
+            insertYN=true;
+            [self.tableView reloadData];
+            [self robotAnswer:currentChar];
+            [self.tableView reloadData];
+
+            
+            [soundHelper playSound:@"Jump" ofType:@"mp3"];
+            
+        } 
+       
         
     } else {
         NSLog(@"Unexpected error");
@@ -218,6 +221,16 @@ static NSString *word;
 
 -(BOOL)checkValidWord:(NSString *)word
 {
+    if ([word length]<=1) {
+        
+        ResultRobotTrainingViewController *resultView;
+        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+        [resultView viewErrorMsg:4];
+        [self.navigationController pushViewController:resultView animated:YES];
+         insertYN=false;
+        return false;
+
+    }
     if ([self checkWordCharacter:word] == false) {
         
         return false;
@@ -243,14 +256,14 @@ static NSString *word;
         [self viewDidUnload];
         return false;
     }
-    if ([self.arrListWord containsObject:word]) {
-        ResultRobotTrainingViewController *resultView;
-        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
-        [resultView viewErrorMsg:3];
-        [self.navigationController pushViewController:resultView animated:YES];
-        
-        return false;
-    }
+//    if ([self.arrListWord containsObject:word]) {
+//        ResultRobotTrainingViewController *resultView;
+//        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+//        [resultView viewErrorMsg:3];
+//        [self.navigationController pushViewController:resultView animated:YES];
+//        
+//        return false;
+//    }
     self.currentChar = [self lastCharacter:word];
     return true;
 }

@@ -96,7 +96,6 @@
     if (self.timeScore == -1) {
         /* Get the current array of View Controllers */
         NSArray *currentControllers = self.navigationController.viewControllers;
-        /* Remove the last object from the array */ \
         [self.navigationController popToViewController:[currentControllers objectAtIndex:1] animated:YES];
     }
 }

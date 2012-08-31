@@ -8,7 +8,10 @@
 
 #import "MenuViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
-
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+#import "JSON.h"
+#import "MBProgressHUD.h"
 @interface MenuViewController ()
 
 @end
@@ -37,6 +40,12 @@
 {
     [self.navigationController setNavigationBarHidden:NO];
     [self.audioPlayer playSound:@"Electrical_Sweep" ofType:@"mp3"];
+    NSURL *url = [NSURL URLWithString:@"http://bobbymistery.byethost11.com/bw/"];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setPostValue:@"0" forKey:@"USER_OFF_ID"];
+    [request setDelegate:self];
+    [request startAsynchronous];
+
     //[self.audioPlayer setVolume:1];
 }
 

@@ -31,6 +31,9 @@
 @property (nonatomic,retain) UILabel *player2Info;
 @property (nonatomic,retain) UILabel *player1Score;
 @property (nonatomic,retain) UILabel *player2Score;
+@property (strong, nonatomic) UIProgressView *timeProgress;
+@property int counter;
+@property int counterMax;
 @property char currentChar;
 @property (nonatomic,retain) UIImageView *imageRobotCount;
 @property (strong, nonatomic) SoundHelper* soundHelper;

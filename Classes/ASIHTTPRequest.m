@@ -1963,7 +1963,6 @@ static NSOperationQueue *sharedQueue = nil;
 	#endif
 }
 
-
 /* ALWAYS CALLED ON MAIN THREAD! */
 - (void)requestReceivedResponseHeaders:(NSMutableDictionary *)newResponseHeaders
 {

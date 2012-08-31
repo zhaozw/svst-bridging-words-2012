@@ -230,7 +230,7 @@ CGFloat kInputHeight = 40.0f;
     UITableViewCell *cell = (UITableViewCell*) [[textField superview] superview];
     [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] 
                           atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-	_inputBackgroundView.frame = CGRectMake(0.0f, 180.0f, self.view.frame.size.width, kInputHeight);
+	_inputBackgroundView.frame = CGRectMake(0.0f, 225.0f, self.view.frame.size.width, kInputHeight);
 	[_sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[UIView commitAnimations];
 }

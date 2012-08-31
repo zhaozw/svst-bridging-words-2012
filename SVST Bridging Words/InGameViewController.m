@@ -23,6 +23,9 @@
 @synthesize currentChar;
 @synthesize rsView;
 @synthesize soundHelper;
+@synthesize timeProgress;
+@synthesize counter;
+@synthesize counterMax;
 static bool insertYN=true;
 static int numberRobotWords;
 @synthesize player1Info,player2Info,player1Score,player2Score;
@@ -36,6 +39,7 @@ static int numberRobotWords;
     self.arrListDictObj= [[NSMutableArray alloc]init];   
     self.arrListWord = [[NSMutableArray alloc] init];
     //    self.arrListWrongWords=[[NSMutableArray alloc]init];
+    [self.navigationController setNavigationBarHidden:YES];
     
     soundHelper = [[SoundHelper alloc] init];
 }
@@ -48,6 +52,38 @@ static int numberRobotWords;
     numberRobotWords=[self.arrListDictObj count];
     self.currentChar = '*';
     [self drawLabelCount];
+    
+    
+    self.timeProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 250, 20)];
+    self.timeProgress.center = CGPointMake(self.view.center.x,80);
+    self.timeProgress.alpha = 0;
+    [self.view addSubview:timeProgress];
+    self.timeProgress.alpha = 0;
+    self.counter = 20;
+    self.counterMax = 20;
+    [self initCountdown];
+    [self startCountdown:20];
+}
+- (void)initCountdown
+{
+    //printf("Counter = %d\n",self.counter);
+    self.counter -=1 ;
+    self.timeProgress.progress = (float)self.counter/self.counterMax;
+    if (self.counter<=0) {
+        self.timeProgress.alpha = 0;
+    }
+    [self performSelector:@selector(initCountdown) withObject:nil afterDelay:1];
+}
+- (void)startCountdown:(int)start
+{
+    self.counter = start;
+    self.counterMax = start;
+    self.timeProgress.progress = 1;
+    self.timeProgress.alpha = 1;
+}
+- (void)stopCountdown
+{
+    self.timeProgress.alpha = 0;
 }
 -(void) drawLabelCount
 {

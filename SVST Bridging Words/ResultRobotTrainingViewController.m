@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton=YES;
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -43,13 +44,14 @@
     [self setImageViewBackGround:nil];
     [super viewDidUnload];
     self.navigationItem.hidesBackButton=YES;
+    
     // Release any retained subviews of the main view.
 }
 -(void) viewDidAppear:(BOOL)animated{
        //self.resultLabel.text=self.errorMsg;
    // self.resultLabel.textAlignment= UITextAlignmentCenter;
     
-    
+    [self.navigationController setNavigationBarHidden:NO];
     if ([self.arrListWrongWords count]==0) {
         NSLog(@"There is no wrong words");
     }
@@ -77,13 +79,7 @@
 - (IBAction)backToMainMenu:(id)sender {
     /* Get the current array of View Controllers */
     NSArray *currentControllers = self.navigationController.viewControllers;
-    /* Create a mutable array out of this array */ 
-    NSMutableArray *newControllers = [NSMutableArray arrayWithArray:currentControllers];
-    /* Remove the last object from the array */ 
-    [newControllers removeLastObject];
-    [newControllers removeLastObject];
-    /* Assign this array to the Navigation Controller */
-    self.navigationController.viewControllers = newControllers;
+    [self.navigationController popToViewController:[currentControllers objectAtIndex:1] animated:YES];
 }
 -(void) viewErrorMsg:(NSInteger) intMsg
 {
