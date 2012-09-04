@@ -98,9 +98,16 @@ CGFloat kInputHeight = 40.0f;
 	[_sendButton setTitle:@"Send" forState:UIControlStateNormal];
 	[_sendButton setTitleColor:[UIColor colorWithWhite:1.0f alpha:0.4f] forState:UIControlStateNormal];
 	[_sendButton setTitleShadowColor:[UIColor colorWithRed:0.455f green:0.671f blue:0.22f alpha:1.0f] forState:UIControlStateNormal];
+    [_sendButton addTarget:self action:@selector(sendButtonIsPressed:)
+            forControlEvents:UIControlEventTouchDown];
 	[_inputBackgroundView addSubview:_sendButton];
 	self.leftBackgroundImage = [[UIImage imageNamed:@"SSMessageTableViewCellBackgroundClear.png"] stretchableImageWithLeftCapWidth:24 topCapHeight:14];
 	self.rightBackgroundImage = [[UIImage imageNamed:@"SSMessageTableViewCellBackgroundBlue.png"] stretchableImageWithLeftCapWidth:17 topCapHeight:14];
+    //[self.tableView setBounds:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height-200)];
+}
+- (void) sendButtonIsPressed:(UIButton *)paramSender
+{
+    [self.textField resignFirstResponder];
 }
 //-(void) textFieldDidBeginEditing:(UITextField *)textField {
 //    
@@ -220,13 +227,13 @@ CGFloat kInputHeight = 40.0f;
 
 
 #pragma mark UITextFieldDelegate
-
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     //	[UIView beginAnimations:@"beginEditing" context:_inputBackgroundView];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	[UIView setAnimationDuration:0.25f];
 	_tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 166.0f, 0.0f);
 	_tableView.scrollIndicatorInsets = _tableView.contentInset;
+    
     UITableViewCell *cell = (UITableViewCell*) [[textField superview] superview];
     [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] 
                           atScrollPosition:UITableViewScrollPositionMiddle animated:YES];

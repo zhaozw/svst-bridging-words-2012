@@ -116,6 +116,7 @@ static NSString *word;
     // Check word
     [self.arrListWord addObject:word];
     [self.tableView reloadData];
+    	[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.arrListWord count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     textField.text=nil;
     [textField resignFirstResponder];
     hud.labelText = @"Cheking word...";
@@ -124,6 +125,27 @@ static NSString *word;
     
 }
 //JSON connection
+//
+//- (void)textFieldDidBeginEditing:(UITextField *)textField {
+//    
+//}
+//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+//	// return NO to disallow editing.
+//
+//
+//    
+//	if ([self.arrListWord count]) {
+//		[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.arrListWord count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//	}
+//    return YES;
+//}
+//
+//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+//	// return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
+//
+//	NSLog(@"textFieldShouldEndEditing");
+//	return YES;
+//}
 
 
 - (void)requestFinished:(ASIHTTPRequest *)request
@@ -141,6 +163,17 @@ static NSString *word;
         [self viewDidUnload];
             } 
     else if (request.responseStatusCode == 200) {
+        if ([self checkValidWord:word]) {
+            insertYN=true;
+            [self.tableView reloadData];
+            [self robotAnswer:currentChar];
+            [self.tableView reloadData];
+            
+            
+            [soundHelper playSound:@"Jump" ofType:@"mp3"];
+            
+        } 
+
         NSString *responseString = [request responseString];
         NSLog(@"%@",responseString);
         NSDictionary *responseDict = [responseString JSONValue] ;
@@ -156,17 +189,7 @@ static NSString *word;
             [robotObj insertWordToRobot:word];
             numberRobotWords=numberRobotWords+1;
         }
-        if ([self checkValidWord:word]) {
-            insertYN=true;
-            [self.tableView reloadData];
-            [self robotAnswer:currentChar];
-            [self.tableView reloadData];
-
-            
-            [soundHelper playSound:@"Jump" ofType:@"mp3"];
-            
-        } 
-       
+              
         
     } else {
         NSLog(@"Unexpected error");
@@ -182,7 +205,6 @@ static NSString *word;
     NSError *error = [request error];
     NSLog(error.localizedDescription);
 }
-
 
 
 -(void)robotAnswer:(char)charBegin
@@ -222,12 +244,12 @@ static NSString *word;
 -(BOOL)checkValidWord:(NSString *)word
 {
     if ([word length]<=1) {
-        
+         insertYN=false;
         ResultRobotTrainingViewController *resultView;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
         [resultView viewErrorMsg:4];
         [self.navigationController pushViewController:resultView animated:YES];
-         insertYN=false;
+        
         return false;
 
     }
@@ -248,7 +270,7 @@ static NSString *word;
     }
     if ([self.arrListDictObj containsObject:word]) {
         
-        
+         insertYN=false;
         ResultRobotTrainingViewController *resultView;
         resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
         [resultView viewErrorMsg:1];
@@ -271,7 +293,7 @@ static NSString *word;
 {
     
     if ([self.arrListWord containsObject:wordInput]) {
-        
+         insertYN=false;
         return false;
     }
     return true;
