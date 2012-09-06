@@ -65,7 +65,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView setBackgroundView:nil];
-    [tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]]];
+    [tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background1.jpg"]]];
     [tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
 
     static NSString *CellIdentifier = @"Cell";

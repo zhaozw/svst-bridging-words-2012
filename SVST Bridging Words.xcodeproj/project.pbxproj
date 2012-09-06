@@ -30,6 +30,7 @@
 		808D0D1A15EA51AA00081E13 /* 80Point.png in Resources */ = {isa = PBXBuildFile; fileRef = 808D0D1715EA519900081E13 /* 80Point.png */; };
 		808D0D1D15EA524400081E13 /* 90Point.png in Resources */ = {isa = PBXBuildFile; fileRef = 808D0D1B15EA523D00081E13 /* 90Point.png */; };
 		808D0D1E15EA524400081E13 /* 100Point.png in Resources */ = {isa = PBXBuildFile; fileRef = 808D0D1C15EA524100081E13 /* 100Point.png */; };
+		80952C7015F654FA00F5740D /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80952C6B15F654FA00F5740D /* background1.jpg */; };
 		809693CC15E53EAD0009DE5F /* ClearHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809693CB15E53EAD0009DE5F /* ClearHistoryViewController.m */; };
 		80977BE315DBFD4200FCFBB7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80977BE215DBFD4200FCFBB7 /* AVFoundation.framework */; };
 		80977BE515DBFDAE00FCFBB7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80977BE415DBFDAE00FCFBB7 /* AudioToolbox.framework */; };
@@ -155,6 +156,7 @@
 		80B496A815D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969215D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png */; };
 		80B496AD15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969715D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png */; };
 		80B496AE15D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B4969815D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png */; };
+		80B9194B15F662FA00EA238D /* background7.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 80B9194A15F662FA00EA238D /* background7.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,6 +184,7 @@
 		808D0D1715EA519900081E13 /* 80Point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80Point.png; sourceTree = "<group>"; };
 		808D0D1B15EA523D00081E13 /* 90Point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 90Point.png; sourceTree = "<group>"; };
 		808D0D1C15EA524100081E13 /* 100Point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100Point.png; sourceTree = "<group>"; };
+		80952C6B15F654FA00F5740D /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
 		809693CA15E53EAD0009DE5F /* ClearHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClearHistoryViewController.h; sourceTree = "<group>"; };
 		809693CB15E53EAD0009DE5F /* ClearHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClearHistoryViewController.m; sourceTree = "<group>"; };
 		80977BE215DBFD4200FCFBB7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -367,6 +370,7 @@
 		80B4969215D2BE4F0066FFD1 /* SSMessagesViewControllerTextFieldBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessagesViewControllerTextFieldBackground@2x.png"; sourceTree = "<group>"; };
 		80B4969715D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSMessageTableViewCellBackgroundGreen.png; sourceTree = "<group>"; };
 		80B4969815D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSMessageTableViewCellBackgroundGreen@2x.png"; sourceTree = "<group>"; };
+		80B9194A15F662FA00EA238D /* background7.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background7.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -669,6 +673,8 @@
 		80B4968815D2BE4F0066FFD1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				80B9194A15F662FA00EA238D /* background7.jpeg */,
+				80952C6B15F654FA00F5740D /* background1.jpg */,
 				808D0D1B15EA523D00081E13 /* 90Point.png */,
 				808D0D1C15EA524100081E13 /* 100Point.png */,
 				808D0D1515EA515C00081E13 /* 60Point.png */,
@@ -876,6 +882,8 @@
 				808D0D1D15EA524400081E13 /* 90Point.png in Resources */,
 				808D0D1E15EA524400081E13 /* 100Point.png in Resources */,
 				80A5313A15EA621000E4FF2D /* 50Point.png in Resources */,
+				80952C7015F654FA00F5740D /* background1.jpg in Resources */,
+				80B9194B15F662FA00EA238D /* background7.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

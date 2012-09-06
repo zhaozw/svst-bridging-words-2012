@@ -107,6 +107,7 @@ CGFloat kInputHeight = 40.0f;
 }
 - (void) sendButtonIsPressed:(UIButton *)paramSender
 {
+    [self textFieldShouldReturn:self.textField];
     [self.textField resignFirstResponder];
 }
 //-(void) textFieldDidBeginEditing:(UITextField *)textField {

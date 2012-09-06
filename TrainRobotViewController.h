@@ -17,9 +17,11 @@
     ResultRobotTrainingViewController *rsView;
     UILabel *_labelRobotCount;
     UIImageView *_imageRobotCount;
+    NSMutableArray *arrListWrongWords;
     
     
 }
+@property (strong,nonatomic) NSMutableArray *arrListWrongWords;
 @property(strong,nonatomic) NSMutableArray *myArray;
 @property (nonatomic, retain) NSMutableArray *arrListDictObj;
 @property (nonatomic, retain) NSMutableArray *arrListWord;

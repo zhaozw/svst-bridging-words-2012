@@ -328,9 +328,10 @@ static NSOperationQueue *sharedQueue = nil;
 	[request setCachePolicy:policy];
 	return request;
 }
-
 - (void)dealloc
 {
+ 
+    	
 	[self setAuthenticationNeeded:ASINoAuthenticationNeededYet];
 	if (requestAuthentication) {
 		CFRelease(requestAuthentication);
@@ -344,6 +345,7 @@ static NSOperationQueue *sharedQueue = nil;
 	if (clientCertificateIdentity) {
 		CFRelease(clientCertificateIdentity);
 	}
+
 	[self cancelLoad];
 	[redirectURL release];
 	[statusTimer invalidate];
@@ -734,6 +736,7 @@ static NSOperationQueue *sharedQueue = nil;
 
 	// Clear delegates
 	[self setDelegate:nil];
+   
 	[self setQueue:nil];
 	[self setDownloadProgressDelegate:nil];
 	[self setUploadProgressDelegate:nil];

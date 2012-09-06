@@ -25,6 +25,7 @@
 @synthesize labelRobotCount=_labelRobotCount;
 @synthesize imageRobotCount=_imageRobotCount;
 @synthesize soundHelper;
+@synthesize arrListWrongWords;
 static bool insertYN=true;
 static int numberRobotWords;
 static NSString *word;
@@ -37,7 +38,7 @@ static NSString *word;
     
     self.arrListDictObj= [[NSMutableArray alloc]init];   
     self.arrListWord = [[NSMutableArray alloc] init];
-    //    self.arrListWrongWords=[[NSMutableArray alloc]init];
+      self.arrListWrongWords=[[NSMutableArray alloc]init];
     [self.navigationController setNavigationBarHidden:YES];
     soundHelper = [[SoundHelper alloc] init];
     AppDelegate *appDelegate =[[AppDelegate alloc]init];  
@@ -129,16 +130,16 @@ static NSString *word;
 //- (void)textFieldDidBeginEditing:(UITextField *)textField {
 //    
 //}
-//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-//	// return NO to disallow editing.
-//
-//
-//    
-//	if ([self.arrListWord count]) {
-//		[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.arrListWord count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-//	}
-//    return YES;
-//}
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+	// return NO to disallow editing.
+
+
+    
+	if ([self.arrListWord count]) {
+		[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.arrListWord count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+	}
+    return YES;
+}
 //
 //- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
 //	// return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
@@ -147,7 +148,11 @@ static NSString *word;
 //	return YES;
 //}
 
+-(void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
 
+    NSLog(@"%d",indexPath.row);
+}
 - (void)requestFinished:(ASIHTTPRequest *)request
 {    
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -157,7 +162,8 @@ static NSString *word;
     else if (request.responseStatusCode==404){
         insertYN=false;
         ResultRobotTrainingViewController   *resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
-        [resultView.arrListWrongWords addObject:word];
+        [self.arrListWrongWords addObject:word];
+        resultView.arrListWrongWords=self.arrListWrongWords;
         [resultView viewErrorMsg:4];
         [self.navigationController pushViewController:resultView animated:YES];
         [self viewDidUnload];
@@ -192,6 +198,9 @@ static NSString *word;
               
         
     } else {
+          ResultRobotTrainingViewController   *resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+        [self.arrListWrongWords addObject:word];
+        resultView.arrListWrongWords=self.arrListWrongWords;
         NSLog(@"Unexpected error");
     }
     
@@ -278,14 +287,7 @@ static NSString *word;
         [self viewDidUnload];
         return false;
     }
-//    if ([self.arrListWord containsObject:word]) {
-//        ResultRobotTrainingViewController *resultView;
-//        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
-//        [resultView viewErrorMsg:3];
-//        [self.navigationController pushViewController:resultView animated:YES];
-//        
-//        return false;
-//    }
+
     self.currentChar = [self lastCharacter:word];
     return true;
 }
@@ -330,10 +332,7 @@ static NSString *word;
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    //    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //    NSUInteger count=appDelegate.robotWords.count;
-    //NSUInteger count= [self.myArray count];
-    NSUInteger count=[self.arrListWord count];
+      NSUInteger count=[self.arrListWord count];
     if(count ==0) return 0;
     else {
         return count;
