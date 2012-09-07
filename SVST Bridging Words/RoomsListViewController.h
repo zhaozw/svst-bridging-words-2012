@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Room.h"
+#import "ASIHTTPRequest.h"
 @interface RoomsListViewController : UITableViewController
 {
     Room *room;
@@ -17,5 +18,5 @@
 @property (strong,nonatomic) NSMutableArray *roomListArray;
 @property (strong,nonatomic) Room *room;
 - (IBAction)randomButtonTouch:(id)sender;
-
+@property (nonatomic, strong) ASIHTTPRequest *roomListRequest;
 @end

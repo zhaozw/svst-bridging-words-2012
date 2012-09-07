@@ -174,8 +174,6 @@ static NSString *word;
             [self.tableView reloadData];
             [self robotAnswer:currentChar];
             [self.tableView reloadData];
-            
-            
             [soundHelper playSound:@"Jump" ofType:@"mp3"];
             
         } 
@@ -198,6 +196,16 @@ static NSString *word;
               
         
     } else {
+        if ([self checkValidWord:word]) {
+            insertYN=false;
+            [self.tableView reloadData];
+            [self robotAnswer:currentChar];
+            [self.tableView reloadData];
+            [soundHelper playSound:@"Jump" ofType:@"mp3"];
+            
+        } 
+        Robot *robotObj=[[Robot alloc]init];       
+        
           ResultRobotTrainingViewController   *resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
         [self.arrListWrongWords addObject:word];
         resultView.arrListWrongWords=self.arrListWrongWords;
@@ -211,6 +219,18 @@ static NSString *word;
 - (void)requestFailed:(ASIHTTPRequest *)request
 {    
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if ([self checkValidWord:word]) {
+        insertYN=false;
+        [self.tableView reloadData];
+        [self robotAnswer:currentChar];
+        [self.tableView reloadData];
+        [soundHelper playSound:@"Jump" ofType:@"mp3"];
+        
+    }      
+    
+    ResultRobotTrainingViewController   *resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+    [self.arrListWrongWords addObject:word];
+    resultView.arrListWrongWords=self.arrListWrongWords;
     NSError *error = [request error];
     NSLog(error.localizedDescription);
 }

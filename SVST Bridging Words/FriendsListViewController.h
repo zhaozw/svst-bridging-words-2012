@@ -11,6 +11,7 @@ enum flagType {
 };
 #import <UIKit/UIKit.h>
 #import "Player.h"
+#import "ASIHTTPRequest.h"
 @interface FriendsListViewController : UITableViewController
 {
     NSMutableArray *listFriendObj;
@@ -20,4 +21,7 @@ enum flagType {
 @property (strong,nonatomic) NSMutableArray *listFriendObj;
 @property (strong,nonatomic) Player *friendObj;
 @property (nonatomic,readwrite) BOOL isReady;
+@property (nonatomic, strong) ASIHTTPRequest *myRequest;
+- (void)requestFinished:(ASIHTTPRequest *)request;
+- (void)requestFailed:(ASIHTTPRequest *)request;
 @end

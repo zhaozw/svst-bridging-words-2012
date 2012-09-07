@@ -18,6 +18,7 @@
 
 @implementation MenuViewController
 @synthesize audioPlayer;
+@synthesize menuRequest;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,9 +46,38 @@
     [request setPostValue:@"0" forKey:@"USER_OFF_ID"];
     [request setDelegate:self];
     [request startAsynchronous];
-
+    self.menuRequest=request;
     //[self.audioPlayer setVolume:1];
 }
+-(void)viewWillDisappear:(BOOL)animated
+
+{
+    [self.menuRequest setDelegate:nil];
+}
+- (void)requestFinished:(ASIHTTPRequest *)request
+{    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if (request.responseStatusCode == 400) {
+        NSLog( @"Invalid code");        
+    }
+    else if (request.responseStatusCode == 403) {
+        NSLog(@"Code already used");
+    } else if (request.responseStatusCode == 200) {
+     
+        
+    } else {
+        NSLog(@"Unexpected error");
+    }
+        
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    NSError *error = [request error];
+    NSLog(@"%@",error.localizedDescription);
+}
+
 
 - (void)viewDidUnload
 {

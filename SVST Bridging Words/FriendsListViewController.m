@@ -20,6 +20,7 @@
 @synthesize listFriendObj;
 @synthesize isReady;
 @synthesize friendObj;
+@synthesize myRequest;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -36,7 +37,7 @@
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     [request setPostValue:@"1" forKey:@"PLAYER_ID"];
     [request setPostValue:@"1" forKey:@"STT"];
-    
+    self.myRequest=request;
     [request setDelegate:self];
     [request startAsynchronous];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -44,12 +45,16 @@
 
 
 }
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"viewWillDisappear");
+    [self.myRequest setDelegate:nil];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
    
-    //    listFriend=[[NSMutableArray alloc]initWithObjects:@"T.O.M",@"ChimSeDiNang",@"CuongBG",@"ChiChi",@"Lady Gaga", nil];
-  
+     
 }
 - (void)requestFinished:(ASIHTTPRequest *)request
 {    

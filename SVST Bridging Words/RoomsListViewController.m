@@ -15,6 +15,7 @@
 #import "DeskListViewController.h"
 @implementation RoomsListViewController
 @synthesize room;
+@synthesize roomListRequest;
 @synthesize roomListArray;
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,9 +35,15 @@
     [request setPostValue:@"1" forKey:@"ROOM_RQ"];    
     [request setDelegate:self];
     [request startAsynchronous];
+    self.roomListRequest=request;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading...";
 
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"viewWillDisappear");
+    [self.roomListRequest setDelegate:nil];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
