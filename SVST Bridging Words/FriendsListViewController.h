@@ -12,7 +12,7 @@ enum flagType {
 #import <UIKit/UIKit.h>
 #import "Player.h"
 #import "ASIHTTPRequest.h"
-@interface FriendsListViewController : UITableViewController
+@interface FriendsListViewController : UITableViewController<UIAlertViewDelegate>
 {
     NSMutableArray *listFriendObj;
     Player *friendObj;

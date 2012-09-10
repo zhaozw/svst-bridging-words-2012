@@ -107,13 +107,15 @@ static sqlite3_stmt *delStmt=nil;
     NSMutableArray *listRobotWord= [[NSMutableArray alloc]init];
     if(wordWithCharater == nil) {
         
-		const char *sql = "SELECT word FROM bd_robot WHERE word LIKE ?001";
+		const char *sql = "SELECT word FROM bd_robot WHERE word LIKE ?001 and player_id=?";
         
         if(sqlite3_prepare_v2(database, sql, -1, &wordWithCharater, NULL) != SQLITE_OK)
 			NSAssert1(0, @"Error while creating detail view statement. '%s'", sqlite3_errmsg(database));
 	}
     NSString *searchInput = [NSString stringWithFormat:@"%c%%", charBegin];
     sqlite3_bind_text(wordWithCharater, 1, [searchInput UTF8String],-1,SQLITE_TRANSIENT); 
+    sqlite3_bind_int(wordWithCharater, 2, 0);
+
     //	sqlite3_bind_text(wordWithCharater, 1, abc, -1, SQLITE_TRANSIENT);	
     while(sqlite3_step(wordWithCharater) == SQLITE_ROW) {
         [listRobotWord addObject:[NSString stringWithUTF8String:(char *)sqlite3_column_text(wordWithCharater, 0)]];

@@ -20,6 +20,7 @@
 @implementation WordMeanViewController
 
 @synthesize webView;
+@synthesize myRequest;
 @synthesize rememberButtonIB;
 @synthesize historyObj;
 
@@ -40,7 +41,11 @@
     
 	// Do any additional setup after loading the view.
 }
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"viewWillDisappear");
+    [self.myRequest setDelegate:nil];
+}
 - (void)requestFinished:(ASIHTTPRequest *)request
 {    
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -101,6 +106,7 @@
         NSString *word=historyObj.word;
         [request setPostValue:word forKey:@"word"];
         [request setDelegate:self];
+        self.myRequest= request;
         [request startAsynchronous];
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Updating Meaning...";

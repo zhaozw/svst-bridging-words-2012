@@ -42,6 +42,8 @@
 		80982E5F15E3368200859BA1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80982E5E15E3368200859BA1 /* SystemConfiguration.framework */; };
 		80982E6115E3368A00859BA1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80982E6015E3368A00859BA1 /* MobileCoreServices.framework */; };
 		80982E6315E336BA00859BA1 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 80982E6215E336BA00859BA1 /* libz.1.2.5.dylib */; };
+		809873C215FE397C00E63EB6 /* tiltleHeaderBackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 809873C115FE397C00E63EB6 /* tiltleHeaderBackGround.png */; };
+		809873C515FE39F300E63EB6 /* historyImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = 809873C415FE39F300E63EB6 /* historyImage2.png */; };
 		8099B43315E9DD9E00642BCB /* InGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8099B43215E9DD9E00642BCB /* InGameViewController.m */; };
 		809AAD2A15E675570090E79A /* PlayerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809AAD2915E675570090E79A /* PlayerProfileViewController.m */; };
 		809AAD2C15E6783B0090E79A /* profile_backGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 809AAD2B15E6783B0090E79A /* profile_backGround.png */; };
@@ -226,6 +228,8 @@
 		80982E5E15E3368200859BA1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		80982E6015E3368A00859BA1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		80982E6215E336BA00859BA1 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		809873C115FE397C00E63EB6 /* tiltleHeaderBackGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiltleHeaderBackGround.png; sourceTree = "<group>"; };
+		809873C415FE39F300E63EB6 /* historyImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = historyImage2.png; sourceTree = "<group>"; };
 		8099B43115E9DD9E00642BCB /* InGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InGameViewController.h; sourceTree = "<group>"; };
 		8099B43215E9DD9E00642BCB /* InGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InGameViewController.m; sourceTree = "<group>"; };
 		809AAD2815E675570090E79A /* PlayerProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerProfileViewController.h; sourceTree = "<group>"; };
@@ -673,27 +677,22 @@
 		80B4968815D2BE4F0066FFD1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				80B9194A15F662FA00EA238D /* background7.jpeg */,
-				80952C6B15F654FA00F5740D /* background1.jpg */,
-				808D0D1B15EA523D00081E13 /* 90Point.png */,
 				808D0D1C15EA524100081E13 /* 100Point.png */,
-				808D0D1515EA515C00081E13 /* 60Point.png */,
-				808D0D1615EA516300081E13 /* 70Point.png */,
-				808D0D1715EA519900081E13 /* 80Point.png */,
 				808D0D1315EA4DA100081E13 /* 10Point.png */,
 				808D0D0915EA4D3C00081E13 /* 20Point.png */,
 				808D0D0A15EA4D4200081E13 /* 30Point.png */,
 				808D0D0B15EA4D4900081E13 /* 40Point.png */,
 				80A5313915EA621000E4FF2D /* 50Point.png */,
-				808D0D0215EA325000081E13 /* coin.png */,
-				808D0D0315EA325000081E13 /* scoreBar.png */,
-				809AAD5E15E6A6F70090E79A /* btn_robotWords.png */,
-				80A6C91015E91C43000A3516 /* RoomList1CellBackGround.png */,
-				80A6C91115E91C43000A3516 /* RoomList2CellBackGround.png */,
-				80A6C91215E91C43000A3516 /* RoomList3CellBackGround.png */,
+				808D0D1515EA515C00081E13 /* 60Point.png */,
+				808D0D1615EA516300081E13 /* 70Point.png */,
+				808D0D1715EA519900081E13 /* 80Point.png */,
+				808D0D1B15EA523D00081E13 /* 90Point.png */,
 				80A55AFB15E5E5CC00A11C54 /* avatarPlayer.png */,
 				809B15D115DA582D00F39DF9 /* background-pattern.png */,
 				809B15CC15DA4CBB00F39DF9 /* background.png */,
+				80952C6B15F654FA00F5740D /* background1.jpg */,
+				808D0D0715EA3D0100081E13 /* backGround2.png */,
+				80B9194A15F662FA00EA238D /* background7.jpeg */,
 				80A57A8F15DAA7FB004F6F3F /* backgroundTextField.png */,
 				80A57A9715DAD339004F6F3F /* btn_back.png */,
 				80B39BDF15E1EBF8007BD2CF /* btn_backGround.png */,
@@ -702,11 +701,14 @@
 				8097945D15E345EF000ECBC7 /* btn_multiplayer.png */,
 				80A57A8015DA80B8004F6F3F /* btn_playWithRobot.png */,
 				80A57A8115DA80B8004F6F3F /* BTN_RANDOM.png */,
-				809AAD3115E690160090E79A /* cellBackGround.png */,
+				809AAD5E15E6A6F70090E79A /* btn_robotWords.png */,
 				80A57A8215DA80B8004F6F3F /* btn_selfPratice.png */,
+				809AAD3115E690160090E79A /* cellBackGround.png */,
+				808D0D0215EA325000081E13 /* coin.png */,
 				8097945915E344E5000ECBC7 /* flag_ready.png */,
 				8097945A15E344E5000ECBC7 /* flag_unready.png */,
 				809F42E815E629B5009A786E /* headtrainView.png */,
+				809873C415FE39F300E63EB6 /* historyImage2.png */,
 				80AA5BF915E4EB8B00395E8F /* host_player.png */,
 				80AC220015CAD6D90070F986 /* large_brooklyn_bridge.jpg */,
 				809B15CF15DA4D8400F39DF9 /* logo.jpg */,
@@ -717,8 +719,11 @@
 				80AC5EDD15D4BD8C009621A4 /* robot.png */,
 				80A57A9115DAACEC004F6F3F /* robot2.png */,
 				80A55AF815E5E5CC00A11C54 /* RobotCommentBG.png */,
+				80A6C91015E91C43000A3516 /* RoomList1CellBackGround.png */,
+				80A6C91115E91C43000A3516 /* RoomList2CellBackGround.png */,
+				80A6C91215E91C43000A3516 /* RoomList3CellBackGround.png */,
+				808D0D0315EA325000081E13 /* scoreBar.png */,
 				80AA5BFB15E4EB8B00395E8F /* second_player.png */,
-				808D0D0715EA3D0100081E13 /* backGround2.png */,
 				80A5896E15DD6C6D005B4778 /* selfplay-background.jpg */,
 				80B4968915D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton.png */,
 				80B4968A15D2BE4F0066FFD1 /* SSMessagesViewControllerCameraButton@2x.png */,
@@ -739,6 +744,7 @@
 				80B4969715D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen.png */,
 				80B4969815D2BE4F0066FFD1 /* SSMessageTableViewCellBackgroundGreen@2x.png */,
 				80AC220115CAD6D90070F986 /* start-icon.png */,
+				809873C115FE397C00E63EB6 /* tiltleHeaderBackGround.png */,
 				80A5896F15DD6C6D005B4778 /* train-head.png */,
 				80A5897015DD6C6D005B4778 /* train.PNG */,
 				80AC5EDF15D4C2DB009621A4 /* user.png */,
@@ -884,6 +890,8 @@
 				80A5313A15EA621000E4FF2D /* 50Point.png in Resources */,
 				80952C7015F654FA00F5740D /* background1.jpg in Resources */,
 				80B9194B15F662FA00EA238D /* background7.jpeg in Resources */,
+				809873C215FE397C00E63EB6 /* tiltleHeaderBackGround.png in Resources */,
+				809873C515FE39F300E63EB6 /* historyImage2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

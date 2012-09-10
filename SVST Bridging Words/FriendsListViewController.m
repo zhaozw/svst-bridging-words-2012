@@ -96,6 +96,17 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     NSError *error = [request error];
     NSLog(@"%@",error.localizedDescription);
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Problem"                          message:@"Please check your Network Conection!"  delegate:nil                          cancelButtonTitle:[self yesButtonTitle]  otherButtonTitles:nil]; 
+    [alertView show]; 
+}
+- (NSString *) yesButtonTitle{
+    return @"Yes";
+}
+
+- (void)alertView:(UIAlertView *)alertView   clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([buttonTitle isEqualToString:[self yesButtonTitle]]){   
+        NSLog(@"User pressed the Yes button.");  }  
 }
 
 
@@ -212,9 +223,9 @@
     [tableView setBackgroundView:nil];
     [tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]]];
     [tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
-    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0.0f,0.0f,320.0f,20.0f)];
+    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0.0f,0.0f,320.0f,22.0f)];
     UILabel *detailLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    UIImageView *imageView =[[UIImageView alloc] initWithFrame:CGRectMake(0.0f,0.0f,320.0f,20.0f)];
+    UIImageView *imageView =[[UIImageView alloc] initWithFrame:CGRectMake(0.0f,0.0f,320.0f,22.0f)];
     UIImage *image=[UIImage imageNamed:@"tiltleHeaderBackGround.png"];
     imageView.image=image;
     detailLabel.backgroundColor = [UIColor clearColor];
