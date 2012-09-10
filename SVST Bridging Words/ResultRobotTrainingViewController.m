@@ -141,7 +141,7 @@
             label.textColor=[UIColor whiteColor];
             label.font=[UIFont fontWithName:@"ChalkboardSE" size:12];
             label.backgroundColor=[UIColor clearColor];
-            
+            label.numberOfLines=2;
             [customView addSubview:imageView];
             [customView addSubview:label];
             [self.view addSubview:customView];

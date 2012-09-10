@@ -221,7 +221,7 @@
 {
     
     [tableView setBackgroundView:nil];
-    [tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]]];
+    [tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background2.png"]]];
     [tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
     UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0.0f,0.0f,320.0f,22.0f)];
     UILabel *detailLabel = [[UILabel alloc] initWithFrame:CGRectZero];

@@ -105,7 +105,17 @@ static NSString *word;
     }
     
     word = [[textField.text lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    
+    if ([self.arrListWord containsObject:word]) {
+        
+        insertYN=false;
+        ResultRobotTrainingViewController *resultView;
+        resultView = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"resultRobotTrainingView"];
+        [resultView viewErrorMsg:3];
+        [self.navigationController pushViewController:resultView animated:YES];
+        [self viewDidUnload];
+        return false;
+    }
+
     // Start request	
     NSURL *url = [NSURL URLWithString:@"http://bobbymistery.byethost11.com/bw/"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -307,7 +317,7 @@ static NSString *word;
         [self viewDidUnload];
         return false;
     }
-
+    
     self.currentChar = [self lastCharacter:word];
     return true;
 }
