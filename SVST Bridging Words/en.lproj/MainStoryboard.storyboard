@@ -1045,15 +1045,15 @@ All rights reserved</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="x1A-E6-127">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Menu.jpg" id="x1A-E6-127">
+                                <rect key="frame" x="0.0" y="-28" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="56G-xZ-oLd">
-                                <rect key="frame" x="65" y="78" width="190" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="56G-xZ-oLd">
+                                <rect key="frame" x="34" y="140" width="259" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Self practice" image="btn_selfPratice.png">
+                                <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1064,11 +1064,11 @@ All rights reserved</string>
                                     <segue destination="2" kind="push" id="Eja-HR-oAm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Mx-oj-9UP">
-                                <rect key="frame" x="65" y="148" width="190" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Mx-oj-9UP">
+                                <rect key="frame" x="34" y="211" width="259" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Play With Robot" image="btn_playWithRobot.png">
+                                <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1079,11 +1079,11 @@ All rights reserved</string>
                                     <segue destination="elD-Ku-BYA" kind="push" id="kZE-po-9z3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6lh-th-aNo">
-                                <rect key="frame" x="65" y="216" width="190" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6lh-th-aNo">
+                                <rect key="frame" x="34" y="289" width="259" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Random" image="btn_multiplayer.png">
+                                <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1094,11 +1094,11 @@ All rights reserved</string>
                                     <segue destination="v5u-AN-spt" kind="push" id="C9X-aM-AyF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EoO-fd-wm1">
-                                <rect key="frame" x="65" y="285" width="190" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EoO-fd-wm1">
+                                <rect key="frame" x="34" y="368" width="259" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="History" image="BTN_HISTORY.png">
+                                <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1121,15 +1121,12 @@ All rights reserved</string>
         </scene>
     </scenes>
     <resources>
-        <image name="BTN_HISTORY.png" width="395" height="71"/>
+        <image name="Menu.jpg" width="640" height="960"/>
         <image name="Multiplayer_backGround.png" width="640" height="960"/>
         <image name="background.png" width="640" height="960"/>
         <image name="background7.jpeg" width="319" height="478"/>
         <image name="btn_back.png" width="234" height="68"/>
-        <image name="btn_multiplayer.png" width="396" height="71"/>
-        <image name="btn_playWithRobot.png" width="395" height="71"/>
         <image name="btn_robotWords.png" width="224" height="58"/>
-        <image name="btn_selfPratice.png" width="395" height="71"/>
         <image name="flag_unready.png" width="64" height="67"/>
         <image name="headtrainView.png" width="293" height="231"/>
         <image name="host_player.png" width="480" height="191"/>
