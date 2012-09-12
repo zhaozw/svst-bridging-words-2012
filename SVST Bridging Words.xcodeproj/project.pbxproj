@@ -36,6 +36,7 @@
 		8090F8881600A9B800EFE3C6 /* btn_playWithRobot.png in Resources */ = {isa = PBXBuildFile; fileRef = 8090F8841600A9B800EFE3C6 /* btn_playWithRobot.png */; };
 		8090F8891600A9B800EFE3C6 /* btn_selfPratice.png in Resources */ = {isa = PBXBuildFile; fileRef = 8090F8851600A9B800EFE3C6 /* btn_selfPratice.png */; };
 		8090F88B1600AAF100EFE3C6 /* Menu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8090F88A1600AAF100EFE3C6 /* Menu.jpg */; };
+		8090F88F1600AE4A00EFE3C6 /* logoApp.png in Resources */ = {isa = PBXBuildFile; fileRef = 8090F88E1600AE4A00EFE3C6 /* logoApp.png */; };
 		80952C7015F654FA00F5740D /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80952C6B15F654FA00F5740D /* background1.jpg */; };
 		809693CC15E53EAD0009DE5F /* ClearHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809693CB15E53EAD0009DE5F /* ClearHistoryViewController.m */; };
 		80977BE315DBFD4200FCFBB7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80977BE215DBFD4200FCFBB7 /* AVFoundation.framework */; };
@@ -194,6 +195,7 @@
 		8090F8841600A9B800EFE3C6 /* btn_playWithRobot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_playWithRobot.png; sourceTree = "<group>"; };
 		8090F8851600A9B800EFE3C6 /* btn_selfPratice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_selfPratice.png; sourceTree = "<group>"; };
 		8090F88A1600AAF100EFE3C6 /* Menu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Menu.jpg; sourceTree = "<group>"; };
+		8090F88E1600AE4A00EFE3C6 /* logoApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoApp.png; sourceTree = "<group>"; };
 		80952C6B15F654FA00F5740D /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
 		809693CA15E53EAD0009DE5F /* ClearHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClearHistoryViewController.h; sourceTree = "<group>"; };
 		809693CB15E53EAD0009DE5F /* ClearHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClearHistoryViewController.m; sourceTree = "<group>"; };
@@ -700,16 +702,14 @@
 				80A57A8F15DAA7FB004F6F3F /* backgroundTextField.png */,
 				80A57A9715DAD339004F6F3F /* btn_back.png */,
 				80B39BDF15E1EBF8007BD2CF /* btn_backGround.png */,
-				80A57A7C15DA7E5D004F6F3F /* btn_menu.png */,
 				8090F8821600A9B800EFE3C6 /* BTN_HISTORY.png */,
+				80A57A7C15DA7E5D004F6F3F /* btn_menu.png */,
 				8090F8831600A9B800EFE3C6 /* btn_multiplayer.png */,
 				8090F8841600A9B800EFE3C6 /* btn_playWithRobot.png */,
-				8090F8851600A9B800EFE3C6 /* btn_selfPratice.png */,
 				80A57A8115DA80B8004F6F3F /* BTN_RANDOM.png */,
 				809AAD5E15E6A6F70090E79A /* btn_robotWords.png */,
+				8090F8851600A9B800EFE3C6 /* btn_selfPratice.png */,
 				809AAD3115E690160090E79A /* cellBackGround.png */,
-				8090F88A1600AAF100EFE3C6 /* Menu.jpg */,
-				8090F8801600A8F500EFE3C6 /* Menu.png */,
 				808D0D0215EA325000081E13 /* coin.png */,
 				8097945915E344E5000ECBC7 /* flag_ready.png */,
 				8097945A15E344E5000ECBC7 /* flag_unready.png */,
@@ -718,8 +718,11 @@
 				80AA5BF915E4EB8B00395E8F /* host_player.png */,
 				80AC220015CAD6D90070F986 /* large_brooklyn_bridge.jpg */,
 				809B15CF15DA4D8400F39DF9 /* logo.jpg */,
+				8090F88E1600AE4A00EFE3C6 /* logoApp.png */,
 				80A55AFA15E5E5CC00A11C54 /* lose_scence1.png */,
 				80A55AF915E5E5CC00A11C54 /* lose_scence2.png */,
+				8090F88A1600AAF100EFE3C6 /* Menu.jpg */,
+				8090F8801600A8F500EFE3C6 /* Menu.png */,
 				80AA5BFA15E4EB8B00395E8F /* Multiplayer_backGround.png */,
 				809AAD2B15E6783B0090E79A /* profile_backGround.png */,
 				80AC5EDD15D4BD8C009621A4 /* robot.png */,
@@ -900,6 +903,7 @@
 				8090F8881600A9B800EFE3C6 /* btn_playWithRobot.png in Resources */,
 				8090F8891600A9B800EFE3C6 /* btn_selfPratice.png in Resources */,
 				8090F88B1600AAF100EFE3C6 /* Menu.jpg in Resources */,
+				8090F88F1600AE4A00EFE3C6 /* logoApp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
